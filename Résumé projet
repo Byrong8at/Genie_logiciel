@@ -1,0 +1,86 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[a4paper, margin=2.5cm]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
+
+\title{\textbf{Résumé du Projet EasySave – ProSoft}}
+\date{}
+\begin{document}
+
+\maketitle
+
+\section{Contexte}
+Votre équipe intègre la société \textbf{ProSoft}, éditeur de logiciels, afin de développer un logiciel de sauvegarde nommé \textbf{EasySave}. Ce projet, piloté par le DSI, implique plusieurs versions successives du logiciel, en C\#, avec .NET 8.0. L’ensemble du travail est soumis à des exigences de qualité, de documentation et d’environnement de développement afin d’assurer la maintenabilité et la continuité par d'autres équipes.
+
+\textbf{Politique tarifaire EasySave} :
+\begin{itemize}
+    \item Prix unitaire : 200 € HT
+    \item Contrat de maintenance annuel (5j/7 de 8h à 17h) : 12\% du prix d’achat, renouvelable tacitement (indice SYNTEC)
+\end{itemize}
+
+\section{Livrables}
+
+\subsection*{Livrable 0 et 1 – EasySave v1.0}
+\begin{itemize}
+    \item \textbf{24/04/2025} : Lancement du projet et Cahier des charges v1.0
+    \item \textbf{26/04/2025} : Création de l’environnement de travail et partage des accès au tuteur
+    \item \textbf{07/05/2025 à 09h00} : Diagrammes UML à livrer
+    \item \textbf{09/05/2025 à 09h00} : Livraison EasySave v1.0 + documentation
+\end{itemize}
+
+\subsection*{Livrable 2 – EasySave v2.0 et v1.1 (non évalué)}
+\begin{itemize}
+    \item \textbf{12/05/2025} : Mise à disposition des cahiers des charges v2.0 et v1.1
+    \item \textbf{16/05/2025 à 08h30} : Diagrammes UML à livrer
+    \item \textbf{19/05/2025 à 17h00} : Livraison EasySave v2.0
+\end{itemize}
+
+\subsection*{Livrable 3 – EasySave v3.0}
+\begin{itemize}
+    \item \textbf{19/05/2025} : Cahier des charges v3.0
+    \item \textbf{28/05/2025 à 08h00} : Diagrammes UML à livrer
+    \item \textbf{28/05/2025} : Livraison EasySave v3.0
+    \item \textbf{02/06/2025} : Soutenance du projet
+\end{itemize}
+
+\section{Contraintes de développement}
+\subsection*{Outils imposés}
+\begin{itemize}
+    \item IDE : Visual Studio 2022 ou supérieur
+    \item Gestion de versions : GitHub
+    \item Éditeur UML : ArgoUML recommandé
+\end{itemize}
+
+\subsection*{Langage et Framework}
+\begin{itemize}
+    \item Langage principal : C\#
+    \item Bibliothèque : .NET 8.0
+\end{itemize}
+
+\subsection*{Normes de développement}
+\begin{itemize}
+    \item Documentation et code en anglais
+    \item Fonctions concises, sans redondance de code
+    \item Convention de nommage respectée
+    \item Interface utilisateur soignée (livraison client)
+\end{itemize}
+
+\subsection*{Livrables techniques}
+\begin{itemize}
+    \item Manuel utilisateur sur une page
+    \item Fiche support technique (emplacement, configuration, etc.)
+    \item Release note obligatoire
+    \item UML à rendre 24h avant chaque jalon
+\end{itemize}
+
+\subsection*{Exigences de travail}
+\begin{itemize}
+    \item Gestion de projet via Git : versioning, collaboration, suivi
+    \item Code maintenable, sans duplication inutile
+    \item Architecture logicielle claire
+\end{itemize}
+
+\end{document}
