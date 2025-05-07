@@ -2,12 +2,64 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Text.Json;
 
 public class saver
 {
     private List<Save_work> Save_work = new List<Save_work>();
-    public void open_save(string choice)
+
+    public List<Save_work> Get_Save_Work()
+    {
+        return Save_work;
+    }
+
+    public void Show_backup()
+    {
+        if (Save_work.Count > 0)
+        {
+            Console.WriteLine("Liste des livres dans la bibliothèque :");
+            foreach (var save_work in Save_work)
+            {
+                Console.WriteLine("- "+save_work.Name);
+            }
+        }
+        else
+        {
+            Console.WriteLine("Aucune Sauvegarde n'a encore été mise en place");
+        }
+    }
+
+    public void Delete_Save(string save_name)
+    {
+        var saveToDelete = Save_work.FirstOrDefault(s => s.Name == save_name);
+
+        if (saveToDelete == null)
+        {
+            Console.WriteLine($"Aucune sauvegarde trouvée avec le nom : {save_name}");
+            return;
+        }
+
+        try
+        {
+            Directory.Delete(saveToDelete.Cible_repertory, true);
+            Save_work.Remove(saveToDelete);
+            Console.WriteLine($"Sauvegarde \"{save_name}\" supprimée avec succès.");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Erreur lors de la suppression du dossier : " + ex.Message);
+        }
+    }
+
+
+    public bool Check_save(string filename)
+    {
+        var saveToDelete = Save_work.FirstOrDefault(s => s.Name == filename);
+        return saveToDelete != null;
+    }
+
+    public void Open_save(string choice)
     {
         if (string.IsNullOrWhiteSpace(choice) || (!choice.Contains("-") && !choice.Contains(";") && !int.TryParse(choice, out _)))
         {
@@ -54,20 +106,24 @@ public class saver
         }
     }
 
-    public void save_path(string name_path,string path, string path_cible)
+    public void Create_backup(string name_path,string path, string path_cible)
     {
+        
+
         if (File.Exists(path_cible))
         {
             Console.WriteLine("Veuillez ne pas choisir un fichier mais un dossier comme destination.");
             return;
         }
-        //faire différence entre le fichier et si c un directory
+        string fullBackupPath = Path.Combine(path_cible, name_path);
         if (File.Exists(path)) {
             CopyFile(name_path,path, path_cible);
-             }
+            Save_work.Add(new Save_work(name_path, path, fullBackupPath, "Complete"));
+        }
         else
         {
             CopyDirectory(name_path,path, path_cible,true);
+            Save_work.Add(new Save_work(name_path, path, fullBackupPath, "Complete")); 
         }
     }
 
@@ -76,7 +132,10 @@ public class saver
         try
         {
             string fichier = Path.GetFileName(sourceDir);
-            string destination = Path.Combine(destDir, fichier);
+            string backupFolder = Path.Combine(destDir, name_path); 
+            Directory.CreateDirectory(backupFolder);
+
+            string destination = Path.Combine(backupFolder, fichier);
 
             var start = DateTime.Now;
 
@@ -107,67 +166,81 @@ public class saver
         }
     }
 
-    static void CopyDirectory(string name_path,string sourceDir, string destinationDir, bool recursive)
+    static void CopyDirectory(string name_path, string sourceDir, string destinationDir, bool recursive)
     {
-        var dir = new DirectoryInfo(sourceDir);
-
-        if (!dir.Exists)
-            throw new DirectoryNotFoundException($"Source directory not found: {dir.FullName}");
-
-        DirectoryInfo[] dirs = dir.GetDirectories();
-        Directory.CreateDirectory(destinationDir);
-        string folderName = dir.Name;//modifier fichier pour qu'il soit sur l'un des 5 saves
-
-        long totalSize = 0;
-        var start = DateTime.Now;
-        int totalFiles = dir.GetFiles("*", recursive ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly).Length;
-        int filesCopied = 0;
-
-        foreach (FileInfo file in dir.GetFiles())
+        try
         {
-            string targetFilePath = Path.Combine(destinationDir, file.Name);
-            file.CopyTo(targetFilePath, true);
-            totalSize += file.Length;
-        }
+            var dir = new DirectoryInfo(sourceDir);
+            if (!dir.Exists)
+                throw new DirectoryNotFoundException($"Source directory not found: {dir.FullName}");
 
-        if (recursive)
-        {
-            foreach (DirectoryInfo subDir in dirs)
+            string backupFolder = Path.Combine(destinationDir, name_path); 
+            Directory.CreateDirectory(backupFolder);
+
+            string folderName = dir.Name;
+            DirectoryInfo[] dirs = dir.GetDirectories();
+
+            var start = DateTime.Now;
+            FileInfo[] files = dir.GetFiles("*", recursive ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly);
+
+            int totalFiles = files.Length;
+            int filesCopied = 0;
+            long totalSize = 0;
+
+            // Copier les fichiers du dossier principal
+            foreach (FileInfo file in dir.GetFiles())
             {
-                string newDestinationDir = Path.Combine(destinationDir, subDir.Name);
-                CopyDirectory(name_path,subDir.FullName, newDestinationDir, true);
+                string targetFilePath = Path.Combine(backupFolder, file.Name);
+                file.CopyTo(targetFilePath, true);
+                totalSize += file.Length;
                 filesCopied++;
-                generate_log_state(
-                    name: name_path,
-                    srcPath: sourceDir,
-                    dstPath: destinationDir,
-                    state: "ACTIVE",
-                    TotalFiles: totalFiles,
-                    TotalSize: totalSize,
-                    FilesLeft: totalFiles-filesCopied,
-                    Progression: (int)((filesCopied / (double)totalFiles) * 100)
-                );
-
             }
+
+            // Copier les sous-dossiers
+            if (recursive)
+            {
+                foreach (DirectoryInfo subDir in dirs)
+                {
+                    string newDestinationDir = Path.Combine(backupFolder, subDir.Name);
+                    CopyDirectory(subDir.Name, subDir.FullName, newDestinationDir, true);
+                    filesCopied++;
+
+                    generate_log_state(
+                        name: name_path,
+                        srcPath: sourceDir,
+                        dstPath: newDestinationDir,
+                        state: "ACTIVE",
+                        TotalFiles: totalFiles,
+                        TotalSize: totalSize,
+                        FilesLeft: totalFiles - filesCopied,
+                        Progression: (int)((filesCopied / (double)totalFiles) * 100)
+                    );
+                }
+            }
+
+            var end = DateTime.Now;
+            double totalDuration = (end - start).TotalSeconds;
+
+            generate_log_day(name_path, sourceDir, backupFolder, totalSize, totalDuration);
+            generate_log_state(
+                name: name_path,
+                srcPath: sourceDir,
+                dstPath: backupFolder,
+                state: "END",
+                TotalFiles: totalFiles,
+                TotalSize: totalSize,
+                FilesLeft: 0,
+                Progression: 100
+            );
+
+            Console.WriteLine("Sauvegarde réussie avec succès.");
         }
-
-        var end = DateTime.Now;
-        double totalDuration = (end - start).TotalSeconds;
-
-
-        saver.generate_log_day(folderName, sourceDir, destinationDir, totalSize, totalDuration);
-        generate_log_state(
-                    name: folderName,
-                    srcPath: "",
-                    dstPath: "",
-                    state: "END",
-                    TotalFiles: 0,
-                    TotalSize: 0,
-                    FilesLeft: 0 ,
-                    Progression: 0
-                );
-
+        catch (Exception ex)
+        {
+            Console.WriteLine("Erreur durant la sauvegarde : " + ex.Message);
+        }
     }
+
 
 
     public static void generate_log_day(string name, string fileSource, string fileTarget, long fileSize, double fileTransferTime)
