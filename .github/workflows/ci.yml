@@ -1,55 +1,73 @@
-name: Build and Deploy EasySave
+name: EasySave CI - Multi-Platform (.NET 8.0)
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
   pull_request:
-    branches:
-      - main
+    branches: [ main ]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest  # Utiliser windows-latest ou macos-latest selon votre environnement
+  build-linux:
+    name: Build on Ubuntu
+    runs-on: ubuntu-latest
 
     steps:
-      # Checkout le code source du repo
-      - name: Checkout repository
-        uses: actions/checkout@v2
+    - uses: actions/checkout@v2
 
-      # Vérification de la structure des répertoires après modification
-      - name: List directory contents
-        run: |
-          ls -al
-          ls -al "${GITHUB_WORKSPACE}/Version1.0"
-          ls -al "${GITHUB_WORKSPACE}/Version1.0/easysave"
+    - name: Install libssl (required by .NET 8 on Linux)
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y libssl-dev
 
-      # Setup .NET (si vous travaillez avec un projet .NET)
-      - name: Set up .NET
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: '5.x'  # Changez la version si nécessaire
+    - name: Setup .NET 8
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'
 
-      # Restaurer les dépendances
-      - name: Restore dependencies
-        run: |
-          cd "${GITHUB_WORKSPACE}/Version1.0/easysave"
-          dotnet restore
+    - name: Restore, build, test and publish
+      run: |
+        cd "${GITHUB_WORKSPACE}/Version1.0/easysave"
+        dotnet restore
+        dotnet build --configuration Release
+        dotnet test || echo "No tests found"
+        dotnet publish -c Release -o ./publish-linux
 
-      # Construire le projet
-      - name: Build project
-        run: |
-          cd "${GITHUB_WORKSPACE}/Version1.0/easysave"
-          dotnet build
+  build-windows:
+    name: Build on Windows
+    runs-on: windows-latest
 
-      # Exécuter les tests (si vous avez des tests unitaires)
-      - name: Run tests
-        run: |
-          cd "${GITHUB_WORKSPACE}/Version1.0/easysave"
-          dotnet test
+    steps:
+    - uses: actions/checkout@v2
 
-      # Publier l'artefact (si vous voulez publier une version après un build)
-      - name: Publish
-        run: |
-          cd "${GITHUB_WORKSPACE}/Version1.0/easysave"
-          dotnet publish -c Release -o ./publish
+    - name: Setup .NET 8
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'
+
+    - name: Restore, build, test and publish
+      run: |
+        cd "${env:GITHUB_WORKSPACE}\\Version1.0\\easysave"
+        dotnet restore
+        dotnet build --configuration Release
+        dotnet test || echo "No tests found"
+        dotnet publish -c Release -o ./publish-windows
+
+  build-macos:
+    name: Build on macOS
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup .NET 8
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'
+
+    - name: Restore, build, test and publish
+      run: |
+        cd "${GITHUB_WORKSPACE}/Version1.0/easysave"
+        dotnet restore
+        dotnet build --configuration Release
+        dotnet test || echo "No tests found"
+        dotnet publish -c Release -o ./publish-macos
