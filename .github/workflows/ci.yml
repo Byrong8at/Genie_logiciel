@@ -28,18 +28,9 @@ jobs:
         if: runner.os == 'Windows'
         run: choco install make
 
-      # Se déplacer dans le répertoire de ton projet (Version 1.0/easysave)
-      - name: Change directory to easysave
-        run: cd "Version 1.0/easysave"
-
-      # Compiler le projet
-      - name: Compile project
+      # Compiler le projet et exécuter les tests dans le répertoire "Version 1.0/easysave"
+      - name: Compile and test project
         run: |
-          cd "Version 1.0/easysave"
-          make
-
-      # Lancer les tests (si tu as une cible "test" dans ton Makefile)
-      - name: Run tests
-        run: |
-          cd "Version 1.0/easysave"
-          make test
+          cd "Version 1.0/easysave"   # Changer de répertoire
+          make                        # Compiler le projet
+          make test                   # Lancer les tests
