@@ -1,36 +1,49 @@
-name: Cross-platform Build
+name: Build and Deploy EasySave
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main  # Déclenche le pipeline sur les commits vers la branche principale
   pull_request:
-    branches: [ main ]
+    branches:
+      - main  # Déclenche le pipeline lors de la création d'une PR vers la branche principale
 
 jobs:
   build:
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
-
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest  # Vous pouvez aussi utiliser windows-latest ou macos-latest si nécessaire
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+    # Checkout le code source du repo
+    - name: Checkout repository
+      uses: actions/checkout@v2
 
-      # Installer les dépendances nécessaires (Linux/macOS)
-      - name: Set up build environment (Linux/macOS)
-        if: runner.os != 'Windows'
-        run: sudo apt-get update && sudo apt-get install -y build-essential || true
+    # Setup .NET (si vous travaillez avec un projet .NET par exemple)
+    - name: Set up .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '5.x'  # Changez la version si nécessaire
 
-      # Installer Make sur Windows
-      - name: Set up build environment (Windows)
-        if: runner.os == 'Windows'
-        run: choco install make
+    # Installer les dépendances du projet (si applicable)
+    - name: Restore dependencies
+      run: |
+        cd "Genie_logiciel/Version 1.0/easysave"
+        dotnet restore
 
-      # Compiler le projet et exécuter les tests dans le répertoire "Version 1.0/easysave"
-      - name: Compile and test project
-        run: |
-          cd "Version 1.0"   # Changer de répertoire
-          make                        # Compiler le projet
-          make test                   # Lancer les tests
+    # Construire le projet
+    - name: Build project
+      run: |
+        cd "Genie_logiciel/Version 1.0/easysave"
+        dotnet build
+
+    # Exécuter les tests (si vous avez des tests unitaires)
+    - name: Run tests
+      run: |
+        cd "Genie_logiciel/Version 1.0/easysave"
+        dotnet test
+
+    # Publier l'artefact (si vous voulez publier une version après un build)
+    - name: Publish
+      run: |
+        cd "Genie_logiciel/Version 1.0/easysave"
+        dotnet publish -c Release -o ./publish
+        # Déployer ou copier les fichiers publiés selon vos besoins.
