@@ -56,7 +56,7 @@ class Program
         Console.WriteLine("===== Menu Bibliothèque =====");
         Console.WriteLine("1. Choisir la langue / Choose your language");
         Console.WriteLine("2. Choisir la sauvegarde");
-        Console.WriteLine("3. Créer une sauvegarde");
+        Console.WriteLine("3. Exécuter une sauvegarde");
         Console.WriteLine("4. Voir les Sauvegardes en cours");
         Console.WriteLine("5. Supprimer une sauvegarde");
         Console.WriteLine("7. Quitter");

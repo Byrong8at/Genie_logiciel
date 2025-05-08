@@ -74,8 +74,8 @@ public class saver
             {
                 for (int i = start; i <= end; i++)
                 {
-                    Console.WriteLine($"Sauvegarde {i} exécutée.");
-                    // Appeler save_path ici si besoin
+                    var save = Save_work[i - 1];
+                    Copy_Backup(save);
                 }
             }
             else
@@ -90,8 +90,8 @@ public class saver
             {
                 if (int.TryParse(s, out int num))
                 {
-                    Console.WriteLine($"Sauvegarde {num} exécutée.");
-                    // Appeler save_path ici si besoin
+                    var save = Save_work[num - 1];
+                    Copy_Backup(save);
                 }
                 else
                 {
@@ -101,30 +101,40 @@ public class saver
         }
         else if (int.TryParse(choice, out int unique))
         {
-            Console.WriteLine($"Sauvegarde {unique} exécutée.");
-            // Appeler save_path ici si besoin
+            var save = Save_work[unique - 1];
+            Copy_Backup(save);
+        }
+    }
+
+    public void Copy_Backup(Save_work save)
+    {
+        string name_path = save.Name;
+        string path = save.Source_repertory;
+        string path_cible = save.Cible_repertory;
+
+        if (File.Exists(path))
+        {
+            CopyFile(name_path, path, path_cible);
+        }
+        else
+        {
+            CopyDirectory(name_path, path, path_cible, true);
         }
     }
 
     public void Create_backup(string name_path,string path, string path_cible)
     {
         
-
         if (File.Exists(path_cible))
         {
             Console.WriteLine("Veuillez ne pas choisir un fichier mais un dossier comme destination.");
             return;
         }
         string fullBackupPath = Path.Combine(path_cible, name_path);
-        if (File.Exists(path)) {
-            CopyFile(name_path,path, path_cible);
-            Save_work.Add(new Save_work(name_path, path, fullBackupPath, "Complete"));
-        }
-        else
-        {
-            CopyDirectory(name_path,path, path_cible,true);
-            Save_work.Add(new Save_work(name_path, path, fullBackupPath, "Complete")); 
-        }
+
+        Save_work.Add(new Save_work(name_path, path, fullBackupPath, "Complete"));//modifié par rapport au type de sauvegarde
+        
+
     }
 
     static void CopyFile(string name_path,string sourceDir, string destDir)
