@@ -18,16 +18,28 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      # Installer les dépendances nécessaires (Linux/macOS)
       - name: Set up build environment (Linux/macOS)
         if: runner.os != 'Windows'
         run: sudo apt-get update && sudo apt-get install -y build-essential || true
 
+      # Installer Make sur Windows
       - name: Set up build environment (Windows)
         if: runner.os == 'Windows'
         run: choco install make
 
-      - name: Compile project
-        run: make
+      # Se déplacer dans le répertoire de ton projet (Version 1.0/easysave)
+      - name: Change directory to easysave
+        run: cd "Version 1.0/easysave"
 
+      # Compiler le projet
+      - name: Compile project
+        run: |
+          cd "Version 1.0/easysave"
+          make
+
+      # Lancer les tests (si tu as une cible "test" dans ton Makefile)
       - name: Run tests
-        run: make test
+        run: |
+          cd "Version 1.0/easysave"
+          make test
