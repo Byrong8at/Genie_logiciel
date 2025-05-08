@@ -3,47 +3,54 @@ name: Build and Deploy EasySave
 on:
   push:
     branches:
-      - main  # Déclenche le pipeline sur les commits vers la branche principale
+      - main
   pull_request:
     branches:
-      - main  # Déclenche le pipeline lors de la création d'une PR vers la branche principale
+      - main
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # Vous pouvez aussi utiliser windows-latest ou macos-latest si nécessaire
+    runs-on: ubuntu-latest  # Utiliser windows-latest ou macos-latest selon votre environnement
 
     steps:
-    # Checkout le code source du repo
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      # Checkout le code source du repo
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-    # Setup .NET (si vous travaillez avec un projet .NET par exemple)
-    - name: Set up .NET
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: '5.x'  # Changez la version si nécessaire
+      # Vérification de la structure des répertoires après modification
+      - name: List directory contents
+        run: |
+          ls -al
+          ls -al "Genie_logiciel"
+          ls -al "Genie_logiciel/Version1.0"
+          ls -al "Genie_logiciel/Version1.0/easysave"
 
-    # Installer les dépendances du projet (si applicable)
-    - name: Restore dependencies
-      run: |
-        cd "Genie_logiciel/Version 1.0/easysave"
-        dotnet restore
+      # Setup .NET (si vous travaillez avec un projet .NET)
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '5.x'  # Changez la version si nécessaire
 
-    # Construire le projet
-    - name: Build project
-      run: |
-        cd "Genie_logiciel/Version 1.0/easysave"
-        dotnet build
+      # Restaurer les dépendances
+      - name: Restore dependencies
+        run: |
+          cd "${GITHUB_WORKSPACE}/Genie_logiciel/Version1.0/easysave"
+          dotnet restore
 
-    # Exécuter les tests (si vous avez des tests unitaires)
-    - name: Run tests
-      run: |
-        cd "Genie_logiciel/Version 1.0/easysave"
-        dotnet test
+      # Construire le projet
+      - name: Build project
+        run: |
+          cd "${GITHUB_WORKSPACE}/Genie_logiciel/Version1.0/easysave"
+          dotnet build
 
-    # Publier l'artefact (si vous voulez publier une version après un build)
-    - name: Publish
-      run: |
-        cd "Genie_logiciel/Version 1.0/easysave"
-        dotnet publish -c Release -o ./publish
-        # Déployer ou copier les fichiers publiés selon vos besoins.
+      # Exécuter les tests (si vous avez des tests unitaires)
+      - name: Run tests
+        run: |
+          cd "${GITHUB_WORKSPACE}/Genie_logiciel/Version1.0/easysave"
+          dotnet test
+
+      # Publier l'artefact (si vous voulez publier une version après un build)
+      - name: Publish
+        run: |
+          cd "${GITHUB_WORKSPACE}/Genie_logiciel/Version1.0/easysave"
+          dotnet publish -c Release -o ./publish
