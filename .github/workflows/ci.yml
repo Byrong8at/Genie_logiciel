@@ -31,6 +31,6 @@ jobs:
       # Compiler le projet et exécuter les tests dans le répertoire "Version 1.0/easysave"
       - name: Compile and test project
         run: |
-          cd "Version 1.0/easysave"   # Changer de répertoire
+          cd "Version 1.0"   # Changer de répertoire
           make                        # Compiler le projet
           make test                   # Lancer les tests
