@@ -21,9 +21,8 @@ jobs:
       - name: List directory contents
         run: |
           ls -al
-          ls -al "Genie_logiciel"
-          ls -al "Genie_logiciel/Version1.0"
-          ls -al "Genie_logiciel/Version1.0/easysave"
+          ls -al "${GITHUB_WORKSPACE}/Version1.0"
+          ls -al "${GITHUB_WORKSPACE}/Version1.0/easysave"
 
       # Setup .NET (si vous travaillez avec un projet .NET)
       - name: Set up .NET
@@ -34,23 +33,23 @@ jobs:
       # Restaurer les dépendances
       - name: Restore dependencies
         run: |
-          cd "${GITHUB_WORKSPACE}/Genie_logiciel/Version1.0/easysave"
+          cd "${GITHUB_WORKSPACE}/Version1.0/easysave"
           dotnet restore
 
       # Construire le projet
       - name: Build project
         run: |
-          cd "${GITHUB_WORKSPACE}/Genie_logiciel/Version1.0/easysave"
+          cd "${GITHUB_WORKSPACE}/Version1.0/easysave"
           dotnet build
 
       # Exécuter les tests (si vous avez des tests unitaires)
       - name: Run tests
         run: |
-          cd "${GITHUB_WORKSPACE}/Genie_logiciel/Version1.0/easysave"
+          cd "${GITHUB_WORKSPACE}/Version1.0/easysave"
           dotnet test
 
       # Publier l'artefact (si vous voulez publier une version après un build)
       - name: Publish
         run: |
-          cd "${GITHUB_WORKSPACE}/Genie_logiciel/Version1.0/easysave"
+          cd "${GITHUB_WORKSPACE}/Version1.0/easysave"
           dotnet publish -c Release -o ./publish
