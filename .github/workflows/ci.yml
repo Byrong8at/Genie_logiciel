@@ -1,5 +1,4 @@
-# .github/workflows/ci.yml
-name: Build on Linux, macOS, and Windows
+name: Cross-platform Build
 
 on:
   push:
@@ -9,14 +8,26 @@ on:
 
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
 
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+    runs-on: ${{ matrix.os }}
 
-    - name: Install dependencies (Linux/macOS)
-      if: runner.os != 'Windows'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up build environment (Linux/macOS)
+        if: runner.os != 'Windows'
+        run: sudo apt-get update && sudo apt-get install -y build-essential || true
+
+      - name: Set up build environment (Windows)
+        if: runner.os == 'Windows'
+        run: choco install make
+
+      - name: Compile project
+        run: make
+
+      - name: Run tests
+        run: make test
