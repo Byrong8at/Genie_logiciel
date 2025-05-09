@@ -4,7 +4,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
-//using Log_generate;
+using LogLibrary;
 public class saver
 {
     private List<Save_work> Save_work = new List<Save_work>();
@@ -182,25 +182,16 @@ public class saver
 
         if (File.Exists(path_cible))
         {
-            Console.WriteLine(GetMessage("file_as_target"));
+            Console.WriteLine("Veuillez ne pas choisir un fichier mais un dossier comme destination.");
             return;
         }
         string fullBackupPath = Path.Combine(path_cible, name_path);
 
-        if (File.Exists(path))
-        {
-            CopyFile(name_path, path, path_cible);
-            Save_work.Add(new Save_work(name_path, path, fullBackupPath, "Complete"));
-        }
-        else
-        {
-            CopyDirectory(name_path, path, path_cible, true);
-            Save_work.Add(new Save_work(name_path, path, fullBackupPath, "Complete"));
-        }//modifié par rapport au type de sauvegarde
+        Save_work.Add(new Save_work(name_path, path, fullBackupPath, "Complete"));//modifié par rapport au type de sauvegarde
+
 
     }
-
-    private void CopyFile(string name_path, string sourceDir, string destDir)
+    static void CopyFile(string name_path, string sourceDir, string destDir)
     {
         try
         {
@@ -218,28 +209,28 @@ public class saver
             var duration = (end - start).TotalSeconds;
             long size = new FileInfo(sourceDir).Length;
 
-            generate_log_day(fichier, sourceDir, destination, size, duration);
+            DailyLogGenerator.GenerateLogDay(fichier, sourceDir, destination, size, duration);
 
-            generate_log_state(
+            LogGenerator.GenerateLogState(
             name: name_path,
             srcPath: "",
             dstPath: "",
             state: "END",
-            TotalFiles: 0,
-            TotalSize: 0,
-            FilesLeft: 0,
-            Progression: 0
+            totalFiles: 0,
+            totalSize: 0,
+            filesLeft: 0,
+            progression: 0
         );
 
-            Console.WriteLine(GetMessage("file_copied", duration));
+            Console.WriteLine($"Fichier copié avec succès en {duration:F2} secondes.");
         }
         catch (Exception e)
         {
-            Console.WriteLine(GetMessage("copy_error") + e.Message);
+            Console.WriteLine("Erreur pendant la copie : " + e.Message);
         }
     }
 
-    private void CopyDirectory(string name_path, string sourceDir, string destinationDir, bool recursive)
+    static void CopyDirectory(string name_path, string sourceDir, string destinationDir, bool recursive)
     {
         try
         {
@@ -260,15 +251,15 @@ public class saver
             int filesCopied = 0;
             long totalSize = 0;
 
-            generate_log_state(
+            LogGenerator.GenerateLogState(
                 name: name_path,
                 srcPath: sourceDir,
                 dstPath: backupFolder,
                 state: "ACTIVE",
-                TotalFiles: totalFiles,
-                TotalSize: totalSize,
-                FilesLeft: totalFiles,
-                Progression: 0
+                totalFiles: totalFiles,
+                totalSize: totalSize,
+                filesLeft: totalFiles,
+                progression: 0
             );
 
             foreach (FileInfo file in dir.GetFiles())
@@ -278,15 +269,15 @@ public class saver
                 totalSize += file.Length;
                 filesCopied++;
 
-                generate_log_state(
+                LogGenerator.GenerateLogState(
                     name: name_path,
                     srcPath: file.FullName,
                     dstPath: targetFilePath,
                     state: "ACTIVE",
-                    TotalFiles: totalFiles,
-                    TotalSize: totalSize,
-                    FilesLeft: totalFiles - filesCopied,
-                    Progression: (int)((filesCopied / (double)totalFiles) * 100)
+                    totalFiles: totalFiles,
+                    totalSize: totalSize,
+                    filesLeft: totalFiles - filesCopied,
+                    progression: (int)((filesCopied / (double)totalFiles) * 100)
                 );
             }
 
@@ -295,115 +286,35 @@ public class saver
                 foreach (DirectoryInfo subDir in dirs)
                 {
                     string newDestinationDir = Path.Combine(backupFolder, subDir.Name);
-                    CopyDirectory(name_path, subDir.FullName, newDestinationDir, true);  
-                    filesCopied++;  
+                    CopyDirectory(name_path, subDir.FullName, newDestinationDir, true);
+                    filesCopied++;
                 }
             }
 
             var end = DateTime.Now;
             double totalDuration = (end - start).TotalSeconds;
 
-            generate_log_day(name_path, sourceDir, backupFolder, totalSize, totalDuration);
+            DailyLogGenerator.GenerateLogDay(name_path, sourceDir, backupFolder, totalSize, totalDuration);
 
-            generate_log_state(
+            LogGenerator.GenerateLogState(
                 name: name_path,
                 srcPath: "",
                 dstPath: "",
                 state: "END",
-                TotalFiles: 0,
-                TotalSize: 0,
-                FilesLeft: 0,
-                Progression: 0 
+                totalFiles: 0,
+                totalSize: 0,
+                filesLeft: 0,
+                progression: 0
             );
 
-            Console.WriteLine(GetMessage("backup_success"));
+
+            Console.WriteLine("Sauvegarde réussie avec succès.");
         }
         catch (Exception ex)
         {
-            Console.WriteLine(GetMessage("backup_error") + ex.Message);
+            Console.WriteLine("Erreur durant la sauvegarde : " + ex.Message);
         }
     }
 
 
-
-
-    public static void generate_log_day(string name, string fileSource, string fileTarget, long fileSize, double fileTransferTime)
-    {
-        string logDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "EasySave", "day_Logs");
-        Directory.CreateDirectory(logDirectory);
-
-        string name_file = DateTime.Now.ToString("yyyy-MM-dd") + ".json";
-        string logPath = Path.Combine(logDirectory, name_file);
-
-        var saveLog = new SaveLog
-        {
-            Name_save = name,
-            FileSource = fileSource,
-            FileTarget = fileTarget,
-            FileSize = fileSize,
-            FileTransferTime = fileTransferTime,
-            Time = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")
-        };
-
-        List<SaveLog> logs;
-
-        if (File.Exists(logPath))
-        {
-            string existing = File.ReadAllText(logPath);
-            logs = JsonSerializer.Deserialize<List<SaveLog>>(existing) ?? new List<SaveLog>();
-        }
-        else
-        {
-            logs = new List<SaveLog>();
-        }
-
-        logs.Add(saveLog);
-
-        string json = JsonSerializer.Serialize(logs, new JsonSerializerOptions { WriteIndented = true });
-        File.WriteAllText(logPath, json);
-    }
-
-    public static void generate_log_state(string name, string srcPath, string dstPath, string state, int TotalFiles, long TotalSize, int FilesLeft, int Progression)
-    {
-        string logDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "EasySave");
-        Directory.CreateDirectory(logDirectory);
-
-        string name_file = "state.json";
-        string logPath = Path.Combine(logDirectory, name_file);
-
-        var log = new state_log
-        {
-            name = name,
-            SourceFilePath = srcPath,
-            TargetFilePath = dstPath,
-            State = state,
-            TotalFilesToCopy = TotalFiles,
-            TotalFilesSize = TotalSize,
-            NbFilesLeftToDo = FilesLeft,
-            Progression = Progression
-        };
-
-        List<state_log> logs;
-
-        if (File.Exists(logPath))
-        {
-            string existing = File.ReadAllText(logPath);
-            logs = JsonSerializer.Deserialize<List<state_log>>(existing) ?? new List<state_log>();
-
-            var existingLog = logs.FirstOrDefault(logEntry => logEntry.name == name);
-            if (existingLog != null)
-            {
-                logs.Remove(existingLog);
-            }
-        }
-        else
-        {
-            logs = new List<state_log>();
-        }
-
-        logs.Add(log);
-
-        string json = JsonSerializer.Serialize(logs, new JsonSerializerOptions { WriteIndented = true });
-        File.WriteAllText(logPath, json);
-    }
 }
