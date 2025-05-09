@@ -12,3 +12,6 @@ C:\Users\lefhu\source\repos\easysave\obj\Debug\net8.0\refint\easysave.dll
 C:\Users\lefhu\source\repos\easysave\obj\Debug\net8.0\easysave.pdb
 C:\Users\lefhu\source\repos\easysave\obj\Debug\net8.0\easysave.genruntimeconfig.cache
 C:\Users\lefhu\source\repos\easysave\obj\Debug\net8.0\ref\easysave.dll
+C:\Users\lefhu\source\repos\easysave\obj\Debug\net8.0\easysave.csproj.AssemblyReference.cache
+C:\Users\lefhu\source\repos\easysave\bin\Debug\net8.0\Log_generate.dll
+C:\Users\lefhu\source\repos\easysave\obj\Debug\net8.0\easysave.csproj.Up2Date

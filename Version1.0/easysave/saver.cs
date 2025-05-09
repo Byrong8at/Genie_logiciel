@@ -4,7 +4,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
-
+//using Log_generate;
 public class saver
 {
     private List<Save_work> Save_work = new List<Save_work>();
@@ -21,7 +21,7 @@ public class saver
             Console.WriteLine("Liste des livres dans la bibliothèque :");
             foreach (var save_work in Save_work)
             {
-                Console.WriteLine("- "+save_work.Name);
+                Console.WriteLine("- " + save_work.Name);
             }
         }
         else
@@ -122,9 +122,9 @@ public class saver
         }
     }
 
-    public void Create_backup(string name_path,string path, string path_cible)
+    public void Create_backup(string name_path, string path, string path_cible)
     {
-        
+
         if (File.Exists(path_cible))
         {
             Console.WriteLine("Veuillez ne pas choisir un fichier mais un dossier comme destination.");
@@ -133,16 +133,16 @@ public class saver
         string fullBackupPath = Path.Combine(path_cible, name_path);
 
         Save_work.Add(new Save_work(name_path, path, fullBackupPath, "Complete"));//modifié par rapport au type de sauvegarde
-        
+
 
     }
 
-    static void CopyFile(string name_path,string sourceDir, string destDir)
+    static void CopyFile(string name_path, string sourceDir, string destDir)
     {
         try
         {
             string fichier = Path.GetFileName(sourceDir);
-            string backupFolder = Path.Combine(destDir, name_path); 
+            string backupFolder = Path.Combine(destDir, name_path);
             Directory.CreateDirectory(backupFolder);
 
             string destination = Path.Combine(backupFolder, fichier);
@@ -184,7 +184,7 @@ public class saver
             if (!dir.Exists)
                 throw new DirectoryNotFoundException($"Source directory not found: {dir.FullName}");
 
-            string backupFolder = Path.Combine(destinationDir, name_path); 
+            string backupFolder = Path.Combine(destinationDir, name_path);
             Directory.CreateDirectory(backupFolder);
 
             string folderName = dir.Name;
@@ -197,34 +197,43 @@ public class saver
             int filesCopied = 0;
             long totalSize = 0;
 
-            // Copier les fichiers du dossier principal
+            generate_log_state(
+                name: name_path,
+                srcPath: sourceDir,
+                dstPath: backupFolder,
+                state: "ACTIVE",
+                TotalFiles: totalFiles,
+                TotalSize: totalSize,
+                FilesLeft: totalFiles,
+                Progression: 0
+            );
+
             foreach (FileInfo file in dir.GetFiles())
             {
                 string targetFilePath = Path.Combine(backupFolder, file.Name);
                 file.CopyTo(targetFilePath, true);
                 totalSize += file.Length;
                 filesCopied++;
+
+                generate_log_state(
+                    name: name_path,
+                    srcPath: file.FullName,
+                    dstPath: targetFilePath,
+                    state: "ACTIVE",
+                    TotalFiles: totalFiles,
+                    TotalSize: totalSize,
+                    FilesLeft: totalFiles - filesCopied,
+                    Progression: (int)((filesCopied / (double)totalFiles) * 100)
+                );
             }
 
-            // Copier les sous-dossiers
             if (recursive)
             {
                 foreach (DirectoryInfo subDir in dirs)
                 {
                     string newDestinationDir = Path.Combine(backupFolder, subDir.Name);
-                    CopyDirectory(subDir.Name, subDir.FullName, newDestinationDir, true);
-                    filesCopied++;
-
-                    generate_log_state(
-                        name: name_path,
-                        srcPath: sourceDir,
-                        dstPath: newDestinationDir,
-                        state: "ACTIVE",
-                        TotalFiles: totalFiles,
-                        TotalSize: totalSize,
-                        FilesLeft: totalFiles - filesCopied,
-                        Progression: (int)((filesCopied / (double)totalFiles) * 100)
-                    );
+                    CopyDirectory(name_path, subDir.FullName, newDestinationDir, true);  
+                    filesCopied++;  
                 }
             }
 
@@ -232,15 +241,16 @@ public class saver
             double totalDuration = (end - start).TotalSeconds;
 
             generate_log_day(name_path, sourceDir, backupFolder, totalSize, totalDuration);
+
             generate_log_state(
                 name: name_path,
-                srcPath: sourceDir,
-                dstPath: backupFolder,
+                srcPath: "",
+                dstPath: "",
                 state: "END",
-                TotalFiles: totalFiles,
-                TotalSize: totalSize,
+                TotalFiles: 0,
+                TotalSize: 0,
                 FilesLeft: 0,
-                Progression: 100
+                Progression: 0 
             );
 
             Console.WriteLine("Sauvegarde réussie avec succès.");
@@ -253,10 +263,11 @@ public class saver
 
 
 
+
     public static void generate_log_day(string name, string fileSource, string fileTarget, long fileSize, double fileTransferTime)
     {
         string logDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "EasySave", "day_Logs");
-        Directory.CreateDirectory(logDirectory); 
+        Directory.CreateDirectory(logDirectory);
 
         string name_file = DateTime.Now.ToString("yyyy-MM-dd") + ".json";
         string logPath = Path.Combine(logDirectory, name_file);
@@ -291,7 +302,7 @@ public class saver
 
     public static void generate_log_state(string name, string srcPath, string dstPath, string state, int TotalFiles, long TotalSize, int FilesLeft, int Progression)
     {
-        string logDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "EasySave", "state_Logs");
+        string logDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "EasySave");
         Directory.CreateDirectory(logDirectory);
 
         string name_file = "state.json";
@@ -315,6 +326,12 @@ public class saver
         {
             string existing = File.ReadAllText(logPath);
             logs = JsonSerializer.Deserialize<List<state_log>>(existing) ?? new List<state_log>();
+
+            var existingLog = logs.FirstOrDefault(logEntry => logEntry.name == name);
+            if (existingLog != null)
+            {
+                logs.Remove(existingLog);
+            }
         }
         else
         {
@@ -326,5 +343,4 @@ public class saver
         string json = JsonSerializer.Serialize(logs, new JsonSerializerOptions { WriteIndented = true });
         File.WriteAllText(logPath, json);
     }
-
 }

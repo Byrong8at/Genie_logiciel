@@ -7,4 +7,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="Log_generate">
+      <HintPath>..\Log_generate\bin\Debug\net8.0\Log_generate.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
