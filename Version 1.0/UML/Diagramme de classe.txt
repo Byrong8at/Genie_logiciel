@@ -1,0 +1,54 @@
+classDiagram
+
+    class SaveControler {
+	    - string rootDirectoryPath
+          + Job CreateSaveJob(saveName,sourceDirectory,targetDirectory,saveType)
+    }
+
+    class LogsControler {
+	    - string logsDirectory
+    }
+
+    class DailyLogs {
+	    - Datetime dayDate
+	    - string logFilePath
+          + void WriteNewChanges()
+    }
+
+    class ChangeListener {
+	    - DateTime timestamp
+	    - string saveName
+	    - string sourceFilePath
+	    - string targetFilePath
+	    - int filesSize
+	    - int transferDuration
+    }
+
+    class CurrentTransferStateListener {
+	    - string saveName
+	    - DateTime timestampLastAction
+	    - bool isActive
+	    - int numberOfFile
+	    - int transferSize
+	    - int remainingFileNumber
+	    - int remainingFileSize
+	    - int sourceFilePath
+	    - int targetFilePath
+          + void SaveNewChange()
+    }
+
+    class Job {
+	    - string saveName
+	    - string sourceDirectory
+	    - string targetDirectory
+	    - string saveType
+          + void DoSave()
+    }
+
+    SaveControler "1" ..> "n" LogsControler
+    SaveControler "1" ..> "0 to 5" Job
+    LogsControler --> DailyLogs
+    LogsControler --> CurrentTransferStateListener
+    CurrentTransferStateListener --> ChangeListener
+    DailyLogs --> ChangeListener
+
