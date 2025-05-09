@@ -7,6 +7,10 @@
       "RelativeMoniker": "D:0:0:{6D4CA463-F7CE-4EFD-8A6F-1C38BE89FB8A}|easysave.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{6D4CA463-F7CE-4EFD-8A6F-1C38BE89FB8A}|easysave.csproj|c:\\users\\lefhu\\onedrive\\documents\\github\\genie_logiciel\\version1.0\\easysave\\references\\log_generate.dll||{177559E0-D141-11D0-92DF-00A0C9138C45}",
+      "RelativeMoniker": "D:0:0:{6D4CA463-F7CE-4EFD-8A6F-1C38BE89FB8A}|easysave.csproj|solutionrelative:references\\log_generate.dll||{177559E0-D141-11D0-92DF-00A0C9138C45}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6D4CA463-F7CE-4EFD-8A6F-1C38BE89FB8A}|easysave.csproj|c:\\users\\lefhu\\onedrive\\documents\\github\\genie_logiciel\\version1.0\\easysave\\saver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6D4CA463-F7CE-4EFD-8A6F-1C38BE89FB8A}|easysave.csproj|solutionrelative:saver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -18,8 +22,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Log_generate.dll",
+              "DocumentMoniker": "C:\\Users\\lefhu\\OneDrive\\Documents\\GitHub\\Genie_logiciel\\Version1.0\\easysave\\References\\Log_generate.dll",
+              "RelativeDocumentMoniker": "References\\Log_generate.dll",
+              "ToolTip": "C:\\Users\\lefhu\\OneDrive\\Documents\\GitHub\\Genie_logiciel\\Version1.0\\easysave\\References\\Log_generate.dll",
+              "RelativeToolTip": "References\\Log_generate.dll",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001697|",
+              "WhenOpened": "2025-05-09T11:24:32.894Z"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -35,7 +50,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "saver.cs",
               "DocumentMoniker": "C:\\Users\\lefhu\\OneDrive\\Documents\\GitHub\\Genie_logiciel\\Version1.0\\easysave\\saver.cs",
               "RelativeDocumentMoniker": "saver.cs",
@@ -43,8 +58,7 @@
               "RelativeToolTip": "saver.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-09T11:07:22.362Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-09T11:07:22.362Z"
             }
           ]
         }
