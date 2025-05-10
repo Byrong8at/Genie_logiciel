@@ -1,0 +1,11 @@
+C:\Users\lefhu\source\repos\Log_generate\bin\Debug\net8.0\Log_generate.deps.json
+C:\Users\lefhu\source\repos\Log_generate\bin\Debug\net8.0\Log_generate.dll
+C:\Users\lefhu\source\repos\Log_generate\bin\Debug\net8.0\Log_generate.pdb
+C:\Users\lefhu\source\repos\Log_generate\obj\Debug\net8.0\Log_generate.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lefhu\source\repos\Log_generate\obj\Debug\net8.0\Log_generate.AssemblyInfoInputs.cache
+C:\Users\lefhu\source\repos\Log_generate\obj\Debug\net8.0\Log_generate.AssemblyInfo.cs
+C:\Users\lefhu\source\repos\Log_generate\obj\Debug\net8.0\Log_generate.csproj.CoreCompileInputs.cache
+C:\Users\lefhu\source\repos\Log_generate\obj\Debug\net8.0\Log_generate.dll
+C:\Users\lefhu\source\repos\Log_generate\obj\Debug\net8.0\refint\Log_generate.dll
+C:\Users\lefhu\source\repos\Log_generate\obj\Debug\net8.0\Log_generate.pdb
+C:\Users\lefhu\source\repos\Log_generate\obj\Debug\net8.0\ref\Log_generate.dll
