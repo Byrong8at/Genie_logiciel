@@ -26,6 +26,8 @@ class Program
         ["save_name_prompt"] = ("Nom de la sauvegarde : ", "Backup name: "),
         ["source_path_prompt"] = ("Chemin du fichier à sauvegarder : ", "Path of the file to back up: "),
         ["target_path_prompt"] = ("Chemin du dossier de destination : ", "Destination folder path: "),
+        ["save_type_prompt"] = ("Choisir le type de sauvegarde (Séquentielle ou complète) : ", "Choose the type of backup (Sequential or Full) "),
+        ["save_type_error"] = ("Veuillez rentrer le type correctement: ", "Please write correclty "),
         ["paths_empty"] = ("Les chemins ne peuvent pas être vides.", "Paths cannot be empty."),
         ["save_exists"] = ("Ce nom de sauvegarde existe déjà, choisissez-en un autre :", "This backup name already exists, please choose another one:"),
         ["enter_save_to_delete"] = ("Entrez le nom exact de la sauvegarde à supprimer :", "Enter the exact name of the backup to delete:"),
@@ -47,23 +49,23 @@ class Program
             switch (choix.KeyChar)
             {
                 case '1':
-                    language_choice(); // Modifiée : plus de `saver` ici
+                    Language_choice(); // Modifiée : plus de `saver` ici
                     saver.SetLangue(langueActuelle);
                     break;
 
                 case '2':
-                    save_selection(saver);
+                    Save_selection(saver);
                     break;
 
                 case '3':
-                    path_saver(saver);
+                    Path_saver(saver);
                     break;
 
                 case '4':
-                    display_save(saver);
+                    Display_save(saver);
                     break;
                 case '5':
-                    manage_save(saver);
+                    Manage_save(saver);
                     break;
 
                 case '6':
@@ -102,7 +104,7 @@ class Program
         Console.Write(GetMessage("menu_input"));
     }
 
-    static void language_choice()
+    static void Language_choice()
     {
         Console.Write(GetMessage("choose_lang"));
         string langue = Console.ReadLine()?.ToLower();
@@ -123,12 +125,12 @@ class Program
         }
     }
 
-    static void display_save(saver saver)
+    static void Display_save(saver saver)
     {
         saver.Show_backup();
     }
 
-    static void manage_save(saver saver)
+    static void Manage_save(saver saver)
     {
         saver.Show_backup();
         if (saver.Get_Save_Work().Count > 0)
@@ -140,14 +142,14 @@ class Program
 
     }
 
-    static void save_selection(saver saver)
+    static void Save_selection(saver saver)
     {
         Console.Write(GetMessage("select_save"));
         string sauvegarde = Console.ReadLine();
         saver.Open_save(sauvegarde);
     }
 
-    static void path_saver(saver saver)
+    static void Path_saver(saver saver)
     {
         if (saver.Get_Save_Work().Count >= 5)
         {
@@ -164,9 +166,23 @@ class Program
             Console.Write(GetMessage("target_path_prompt"));
             string targetPath = Console.ReadLine();
 
+            Console.Write(GetMessage("save_type_prompt"));
+            string type_save = Console.ReadLine();
+
             if (!string.IsNullOrWhiteSpace(sourcePath) && !string.IsNullOrWhiteSpace(targetPath))
             {
-                saver.Create_backup(save_name, sourcePath, targetPath);
+                string typeSaveLower = type_save.ToLower();
+
+                if (typeSaveLower != "complete" && typeSaveLower != "full" &&
+                    typeSaveLower != "séquentielle" && typeSaveLower != "sequentielle" &&
+                    typeSaveLower != "sequential")
+                {
+                    Console.Write(GetMessage("save_type_error"));
+                }
+                else
+                {
+                    saver.Create_backup(save_name, sourcePath, targetPath, type_save);
+                }
             }
             else
             {
@@ -176,7 +192,7 @@ class Program
         else
         {
             Console.WriteLine(GetMessage("save_exists"));
-            path_saver(saver);
+            Path_saver(saver);
         }
         
     }

@@ -166,10 +166,12 @@ public class saver
         string name_path = save.Name;
         string path = save.Source_repertory;
         string path_cible = save.Cible_repertory;
+        string type_save = save.Save_type;
+
 
         if (File.Exists(path))
         {
-            CopyFile(name_path, path, path_cible);
+            CopyFile(name_path, path, path_cible, type_save);
         }
         else
         {
@@ -177,7 +179,7 @@ public class saver
         }
     }
 
-    public void Create_backup(string name_path, string path, string path_cible)
+    public void Create_backup(string name_path, string path, string path_cible, string type_save)
     {
 
         if (File.Exists(path_cible))
@@ -187,11 +189,11 @@ public class saver
         }
         string fullBackupPath = Path.Combine(path_cible, name_path);
 
-        Save_work.Add(new Save_work(name_path, path, fullBackupPath, "Complete"));//modifié par rapport au type de sauvegarde
+        Save_work.Add(new Save_work(name_path, path, fullBackupPath, type_save));
 
 
     }
-    static void CopyFile(string name_path, string sourceDir, string destDir)
+    static void CopyFile(string name_path, string sourceDir, string destDir, string typeSave)
     {
         try
         {
@@ -199,7 +201,20 @@ public class saver
             string backupFolder = Path.Combine(destDir, name_path);
             Directory.CreateDirectory(backupFolder);
 
-            string destination = Path.Combine(backupFolder, fichier);
+            string destination;
+
+            if (typeSave.ToLower() == "séquentielle" || typeSave.ToLower() == "sequentielle" || typeSave.ToLower() == "sequential")
+            {
+                string timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
+                string extension = Path.GetExtension(fichier);
+                string filenameWithoutExt = Path.GetFileNameWithoutExtension(fichier);
+                string newFileName = $"{filenameWithoutExt}_{timestamp}{extension}";
+                destination = Path.Combine(backupFolder, newFileName);
+            }
+            else
+            {
+                destination = Path.Combine(backupFolder, fichier);
+            }
 
             var start = DateTime.Now;
 
@@ -212,15 +227,15 @@ public class saver
             DailyLogGenerator.GenerateLogDay(fichier, sourceDir, destination, size, duration);
 
             LogGenerator.GenerateLogState(
-            name: name_path,
-            srcPath: "",
-            dstPath: "",
-            state: "END",
-            totalFiles: 0,
-            totalSize: 0,
-            filesLeft: 0,
-            progression: 0
-        );
+                name: name_path,
+                srcPath: sourceDir,
+                dstPath: destination,
+                state: "END",
+                totalFiles: 1,
+                totalSize: size,
+                filesLeft: 0,
+                progression: 100
+            );
 
             Console.WriteLine($"Fichier copié avec succès en {duration:F2} secondes.");
         }
@@ -229,6 +244,7 @@ public class saver
             Console.WriteLine("Erreur pendant la copie : " + e.Message);
         }
     }
+
 
     static void CopyDirectory(string name_path, string sourceDir, string destinationDir, bool recursive)
     {
