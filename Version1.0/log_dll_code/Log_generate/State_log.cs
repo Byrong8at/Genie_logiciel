@@ -15,42 +15,52 @@ namespace LogLibrary
     }
 
     public static class LogGenerator
+{
+    public static void GenerateLogState(string name, string srcPath, string dstPath, string state, int totalFiles, long totalSize, int filesLeft, int progression)
     {
-        public static void GenerateLogState(string name, string srcPath, string dstPath, string state, int totalFiles, long totalSize, int filesLeft, int progression)
+        string logDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "EasySave");
+        Directory.CreateDirectory(logDirectory);
+
+        string logPath = Path.Combine(logDirectory, "state.json");
+
+        var newLog = new StateLog
         {
-            string logDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "EasySave", "state_Logs");
-            Directory.CreateDirectory(logDirectory);
+            Name = name,
+            SourceFilePath = srcPath,
+            TargetFilePath = dstPath,
+            State = state,
+            TotalFilesToCopy = totalFiles,
+            TotalFilesSize = totalSize,
+            NbFilesLeftToDo = filesLeft,
+            Progression = progression
+        };
 
-            string logPath = Path.Combine(logDirectory, "state.json");
+        List<StateLog> logs;
 
-            var log = new StateLog
-            {
-                Name = name,
-                SourceFilePath = srcPath,
-                TargetFilePath = dstPath,
-                State = state,
-                TotalFilesToCopy = totalFiles,
-                TotalFilesSize = totalSize,
-                NbFilesLeftToDo = filesLeft,
-                Progression = progression
-            };
-
-            List<StateLog> logs;
-
-            if (File.Exists(logPath))
-            {
-                string existing = File.ReadAllText(logPath);
-                logs = JsonSerializer.Deserialize<List<StateLog>>(existing) ?? new List<StateLog>();
-            }
-            else
-            {
-                logs = new List<StateLog>();
-            }
-
-            logs.Add(log);
-
-            string json = JsonSerializer.Serialize(logs, new JsonSerializerOptions { WriteIndented = true });
-            File.WriteAllText(logPath, json);
+        if (File.Exists(logPath))
+        {
+            string existing = File.ReadAllText(logPath);
+            logs = JsonSerializer.Deserialize<List<StateLog>>(existing) ?? new List<StateLog>();
         }
+        else
+        {
+            logs = new List<StateLog>();
+        }
+
+        // Remplacer l'entrée si elle existe déjà
+        int index = logs.FindIndex(log => log.Name == name);
+        if (index != -1)
+        {
+            logs[index] = newLog;
+        }
+        else
+        {
+            logs.Add(newLog);
+        }
+
+        string json = JsonSerializer.Serialize(logs, new JsonSerializerOptions { WriteIndented = true });
+        File.WriteAllText(logPath, json);
     }
+}
+
 }
