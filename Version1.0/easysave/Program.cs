@@ -144,6 +144,11 @@ class Program
 
     static void Save_selection(saver saver)
     {
+        saver.Show_backup();
+        if (saver.Get_Save_Work().Count == 0)
+        {
+            return;
+        }
         Console.Write(GetMessage("select_save"));
         string sauvegarde = Console.ReadLine();
         saver.Open_save(sauvegarde);

@@ -28,23 +28,24 @@ public class saver
         ["backup_error"] = ("Erreur durant la sauvegarde : ", "Error during backup: ")
     };
 
+    public List<Save_work> Get_Save_Work()
+    {
+        return Save_work;
+    }
+    //fonction qui récupère la valeur pour la langue choisit
     private string GetMessage(string key, params object[] args)
     {
         if (!messages.ContainsKey(key)) return "???";
         string template = (langue == "en") ? messages[key].en : messages[key].fr;
         return string.Format(template, args);
     }
-
+    //fonction qui défini la langue
     public void SetLangue(string lang)
     {
         langue = (lang == "en") ? "en" : "fr";
     }
 
-    public List<Save_work> Get_Save_Work()
-    {
-        return Save_work;
-    }
-
+    //fonction qui montre les backup
     public void Show_backup()
     {
         if (Save_work.Count > 0)
@@ -61,6 +62,7 @@ public class saver
         }
     }
 
+    //fonction qui supprime une save
     public void Delete_Save(string save_name)
     {
         var saveToDelete = Save_work.FirstOrDefault(s => s.Name == save_name);
@@ -83,13 +85,14 @@ public class saver
         }
     }
 
-
+    //fonction qui cherche le nom d'une save
     public bool Check_save(string filename)
     {
         var saveToDelete = Save_work.FirstOrDefault(s => s.Name == filename);
         return saveToDelete != null;
     }
 
+    //permet d'ouvrir une sauvegarde pour l'executer
     public void Open_save(string choice)
     {
         if (string.IsNullOrWhiteSpace(choice) || (!choice.Contains("-") && !choice.Contains(";") && !int.TryParse(choice, out _)))
@@ -161,6 +164,7 @@ public class saver
         }
     }
 
+    //fonction gérant quel type de copie
     public void Copy_Backup(Save_work save)
     {
         string name_path = save.Name;
@@ -179,6 +183,7 @@ public class saver
         }
     }
 
+    //la creation des travaux de sauvegarde
     public void Create_backup(string name_path, string path, string path_cible, string type_save)
     {
 
@@ -193,6 +198,7 @@ public class saver
 
 
     }
+    //fonction qui permet la copie de fichier
     static void CopyFile(string name_path, string sourceDir, string destDir, string typeSave)
     {
         try
@@ -245,7 +251,7 @@ public class saver
         }
     }
 
-
+    //fonction qui gere la copie de dossier
     static void CopyDirectory(string name_path, string sourceDir, string destinationDir, bool recursive)
     {
         try
@@ -254,23 +260,20 @@ public class saver
             if (!dir.Exists)
                 throw new DirectoryNotFoundException($"Source directory not found: {dir.FullName}");
 
-            string backupFolder = Path.Combine(destinationDir, name_path);
-            Directory.CreateDirectory(backupFolder);
-
-            string folderName = dir.Name;
-            DirectoryInfo[] dirs = dir.GetDirectories();
+            string rootDestination = destinationDir;
+            Directory.CreateDirectory(rootDestination);
 
             var start = DateTime.Now;
-            FileInfo[] files = dir.GetFiles("*", recursive ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly);
 
-            int totalFiles = files.Length;
-            int filesCopied = 0;
+            FileInfo[] allFiles = dir.GetFiles("*", recursive ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly);
+            int totalFiles = allFiles.Length;
             long totalSize = 0;
+            int filesCopied = 0;
 
             LogGenerator.GenerateLogState(
                 name: name_path,
                 srcPath: sourceDir,
-                dstPath: backupFolder,
+                dstPath: rootDestination,
                 state: "ACTIVE",
                 totalFiles: totalFiles,
                 totalSize: totalSize,
@@ -278,39 +281,47 @@ public class saver
                 progression: 0
             );
 
-            foreach (FileInfo file in dir.GetFiles())
-            {
-                string targetFilePath = Path.Combine(backupFolder, file.Name);
-                file.CopyTo(targetFilePath, true);
-                totalSize += file.Length;
-                filesCopied++;
+            Stack<(DirectoryInfo src, string dst)> dirsToProcess = new Stack<(DirectoryInfo, string)>();
+            dirsToProcess.Push((dir, rootDestination));
 
-                LogGenerator.GenerateLogState(
-                    name: name_path,
-                    srcPath: file.FullName,
-                    dstPath: targetFilePath,
-                    state: "ACTIVE",
-                    totalFiles: totalFiles,
-                    totalSize: totalSize,
-                    filesLeft: totalFiles - filesCopied,
-                    progression: (int)((filesCopied / (double)totalFiles) * 100)
-                );
-            }
-
-            if (recursive)
+            while (dirsToProcess.Count > 0)
             {
-                foreach (DirectoryInfo subDir in dirs)
+                var (currentSource, currentDestination) = dirsToProcess.Pop();
+                Directory.CreateDirectory(currentDestination);
+
+                foreach (FileInfo file in currentSource.GetFiles())
                 {
-                    string newDestinationDir = Path.Combine(backupFolder, subDir.Name);
-                    CopyDirectory(name_path, subDir.FullName, newDestinationDir, true);
+                    string targetFilePath = Path.Combine(currentDestination, file.Name);
+                    file.CopyTo(targetFilePath, true);
+                    totalSize += file.Length;
                     filesCopied++;
+
+                    LogGenerator.GenerateLogState(
+                        name: name_path,
+                        srcPath: file.FullName,
+                        dstPath: targetFilePath,
+                        state: "ACTIVE",
+                        totalFiles: totalFiles,
+                        totalSize: totalSize,
+                        filesLeft: totalFiles - filesCopied,
+                        progression: (int)((filesCopied / (double)totalFiles) * 100)
+                    );
+                }
+
+                if (recursive)
+                {
+                    foreach (DirectoryInfo subDir in currentSource.GetDirectories())
+                    {
+                        string newDestinationDir = Path.Combine(currentDestination, subDir.Name);
+                        dirsToProcess.Push((subDir, newDestinationDir));
+                    }
                 }
             }
 
             var end = DateTime.Now;
             double totalDuration = (end - start).TotalSeconds;
 
-            DailyLogGenerator.GenerateLogDay(name_path, sourceDir, backupFolder, totalSize, totalDuration);
+            DailyLogGenerator.GenerateLogDay(name_path, sourceDir, rootDestination, totalSize, totalDuration);
 
             LogGenerator.GenerateLogState(
                 name: name_path,
@@ -323,7 +334,6 @@ public class saver
                 progression: 0
             );
 
-
             Console.WriteLine("Sauvegarde réussie avec succès.");
         }
         catch (Exception ex)
@@ -331,6 +341,4 @@ public class saver
             Console.WriteLine("Erreur durant la sauvegarde : " + ex.Message);
         }
     }
-
-
 }
