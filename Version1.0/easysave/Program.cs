@@ -178,7 +178,7 @@ class Program
             {
                 string typeSaveLower = type_save.ToLower();
 
-                if (typeSaveLower != "complete" && typeSaveLower != "full" &&
+                if (typeSaveLower != "complete" && typeSaveLower != "complète" && typeSaveLower != "full" &&
                     typeSaveLower != "séquentielle" && typeSaveLower != "sequentielle" &&
                     typeSaveLower != "sequential")
                 {

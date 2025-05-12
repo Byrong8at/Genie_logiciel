@@ -108,17 +108,25 @@ public class saver
             {
                 for (int i = start; i <= end; i++)
                 {
-                    var save = Save_work[i - 1];
-                    Copy_Backup(save);
-                    if (langue == "fr")
+                    if ((i - 1) < 0 || (i - 1) >= Save_work.Count)
                     {
-                        Console.WriteLine($"Sauvegarde {i} exécutée.");
+                        if (langue == "fr")
+                            Console.WriteLine($"Sauvegarde {i} inexistante.");
+                        else if (langue == "en")
+                            Console.WriteLine($"Save {i} does not exist.");
                     }
-                    if (langue == "en")
-                    {
-                        Console.WriteLine($"backup {i} executed.");
-                    }
-                }
+                    else {
+                        var save = Save_work[i - 1];
+                        Copy_Backup(save);
+                        if (langue == "fr")
+                        {
+                            Console.WriteLine($"Sauvegarde {i} exécutée.");
+                        }
+                        if (langue == "en")
+                        {
+                            Console.WriteLine($"backup {i} executed.");
+                        }
+                    } }
             }
             else
             {
@@ -127,10 +135,15 @@ public class saver
         }
         else if (choice.Contains(";"))
         {
+            
             string[] subs = choice.Split(';');
             foreach (string s in subs)
             {
-                if (int.TryParse(s, out int num))
+                if (int.TryParse(s, out int value) && (value - 1 < 0 || value - 1 >= Save_work.Count))
+                {
+                    Console.WriteLine($"Save {value} no exist");
+                }
+                else if (int.TryParse(s, out int num))
                 {
                     var save = Save_work[num - 1];
                     Copy_Backup(save);
@@ -151,6 +164,14 @@ public class saver
         }
         else if (int.TryParse(choice, out int unique))
         {
+            if ((unique - 1) < 0 || (unique - 1) >= Save_work.Count)
+            {
+                if (langue == "fr")
+                    Console.WriteLine($"Sauvegarde {unique} inexistante.");
+                else if (langue == "en")
+                    Console.WriteLine($"Save {unique} does not exist.");
+                return;
+            }
             var save = Save_work[unique - 1];
             Copy_Backup(save);
             if (langue == "fr")
