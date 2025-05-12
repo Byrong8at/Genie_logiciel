@@ -95,7 +95,7 @@ public class saver
     //permet d'ouvrir une sauvegarde pour l'executer
     public void Open_save(string choice)
     {
-        if (string.IsNullOrWhiteSpace(choice) || (!choice.Contains("-") && !choice.Contains(";") && !int.TryParse(choice, out _)))
+        if (string.IsNullOrWhiteSpace(choice) || (!choice.Contains("-") && !choice.Contains(";") && !choice.Contains("*") && !int.TryParse(choice, out _)))
         {
             Console.WriteLine(GetMessage("invalid_format"));
             return;
@@ -160,6 +160,37 @@ public class saver
                 {
                     Console.WriteLine(GetMessage("invalid_entry") + s);
                 }
+            }
+        }
+        else if (choice.Contains("*"))
+        {
+            if (Save_work.Count > 0)
+            {
+                for (int s = 0; s < Save_work.Count; s++)
+                {
+                    var save = Save_work[s];
+                    Copy_Backup(save);
+                    if (langue == "fr")
+                    {
+                        Console.WriteLine($"Sauvegarde {s + 1} exécutée.");
+                    }
+                    if (langue == "en")
+                    {
+                        Console.WriteLine($"backup {s + 1} executed.");
+                    }
+                }
+            }
+            else
+            {
+                if (langue == "fr")
+                {
+                    Console.WriteLine($"Aucune sauvegarde existante.");
+                }
+                if (langue == "en")
+                {
+                    Console.WriteLine($"No backup job found.");
+                }
+                return;
             }
         }
         else if (int.TryParse(choice, out int unique))
