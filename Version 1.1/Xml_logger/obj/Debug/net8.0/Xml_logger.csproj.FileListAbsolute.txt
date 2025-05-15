@@ -1,0 +1,11 @@
+C:\Users\lefhu\source\repos\Xml_logger\bin\Debug\net8.0\Xml_logger.deps.json
+C:\Users\lefhu\source\repos\Xml_logger\bin\Debug\net8.0\Xml_logger.dll
+C:\Users\lefhu\source\repos\Xml_logger\bin\Debug\net8.0\Xml_logger.pdb
+C:\Users\lefhu\source\repos\Xml_logger\obj\Debug\net8.0\Xml_logger.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lefhu\source\repos\Xml_logger\obj\Debug\net8.0\Xml_logger.AssemblyInfoInputs.cache
+C:\Users\lefhu\source\repos\Xml_logger\obj\Debug\net8.0\Xml_logger.AssemblyInfo.cs
+C:\Users\lefhu\source\repos\Xml_logger\obj\Debug\net8.0\Xml_logger.csproj.CoreCompileInputs.cache
+C:\Users\lefhu\source\repos\Xml_logger\obj\Debug\net8.0\Xml_logger.dll
+C:\Users\lefhu\source\repos\Xml_logger\obj\Debug\net8.0\refint\Xml_logger.dll
+C:\Users\lefhu\source\repos\Xml_logger\obj\Debug\net8.0\Xml_logger.pdb
+C:\Users\lefhu\source\repos\Xml_logger\obj\Debug\net8.0\ref\Xml_logger.dll
