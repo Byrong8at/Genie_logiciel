@@ -14,7 +14,7 @@ namespace Xml_logger
 
     
 
-    public static class DailyLogGenerator
+    public static class DailyLogGestionnary
     {
         public static void GenerateXMLDay(string name, string fileSource, string fileTarget, long fileSize, double fileTransferTime)
         {

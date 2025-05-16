@@ -14,7 +14,7 @@ namespace Xml_logger
         public int Progression { get; set; }
     }
 
-    public static class LogGenerator
+    public static class LogGestionnary
     {
         public static void GenerateLogState(string name, string srcPath, string dstPath, string state, int totalFiles, long totalSize, int filesLeft, int progression)
         {

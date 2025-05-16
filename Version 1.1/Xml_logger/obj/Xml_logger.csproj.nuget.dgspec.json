@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lefhu\\source\\repos\\Xml_logger\\Xml_logger.csproj": {}
+    "C:\\Users\\lefhu\\OneDrive\\Documents\\GitHub\\Genie_logiciel\\Version 1.1\\Xml_logger\\Xml_logger.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lefhu\\source\\repos\\Xml_logger\\Xml_logger.csproj": {
+    "C:\\Users\\lefhu\\OneDrive\\Documents\\GitHub\\Genie_logiciel\\Version 1.1\\Xml_logger\\Xml_logger.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lefhu\\source\\repos\\Xml_logger\\Xml_logger.csproj",
+        "projectUniqueName": "C:\\Users\\lefhu\\OneDrive\\Documents\\GitHub\\Genie_logiciel\\Version 1.1\\Xml_logger\\Xml_logger.csproj",
         "projectName": "Xml_logger",
-        "projectPath": "C:\\Users\\lefhu\\source\\repos\\Xml_logger\\Xml_logger.csproj",
+        "projectPath": "C:\\Users\\lefhu\\OneDrive\\Documents\\GitHub\\Genie_logiciel\\Version 1.1\\Xml_logger\\Xml_logger.csproj",
         "packagesPath": "C:\\Users\\lefhu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lefhu\\source\\repos\\Xml_logger\\obj\\",
+        "outputPath": "C:\\Users\\lefhu\\OneDrive\\Documents\\GitHub\\Genie_logiciel\\Version 1.1\\Xml_logger\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
