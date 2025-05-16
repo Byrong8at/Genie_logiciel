@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+
 
 class Program
 {
@@ -31,7 +33,11 @@ class Program
         ["paths_empty"] = ("Les chemins ne peuvent pas être vides.", "Paths cannot be empty."),
         ["save_exists"] = ("Ce nom de sauvegarde existe déjà, choisissez-en un autre :", "This backup name already exists, please choose another one:"),
         ["enter_save_to_delete"] = ("Entrez le nom exact de la sauvegarde à supprimer :", "Enter the exact name of the backup to delete:"),
-        ["select_save"] = ("Choisissez la ou les sauvegardes souhaitées (ex: 1-3 ou 1;3 ou 1) ou entrez \"*\" pour faire une sauvegarde séquencée : ", "Select the desired backup(s) (e.g., 1-3 or 1;3 or 1) or enter \"*\" to launch a sequenced backup: ")
+        ["select_save"] = ("Choisissez la ou les sauvegardes souhaitées (ex: 1-3 ou 1;3 ou 1) ou entrez \"*\" pour faire une sauvegarde séquencée : ", "Select the desired backup(s) (e.g., 1-3 or 1;3 or 1) or enter \"*\" to launch a sequenced backup: "),
+        ["software_running"]= ("Présence de logiciel métier détecté merci de fermer avant de continuer","Businnes software detected please close it before continuing"),
+        ["menu_7"]= ("7. Choisi un logiciel métier","7. Choose a business software"),
+        ["user_input"]=("Entrer le logiciel métier que vous souhaitez bloquer","Please enter the business software you would like to block "),
+        ["software_choice"]=("Logiciel bloquer","Software Blocked")
     };
 
     static void Main(string[] args)
@@ -73,6 +79,10 @@ class Program
                     Console.WriteLine(GetMessage("exit_msg"));
                     break;
 
+                case '7':
+                    askLogicielMetier();
+                    break;
+
                 default:
                     Console.WriteLine(GetMessage("invalid_choice"));
                     break;
@@ -100,6 +110,7 @@ class Program
         Console.WriteLine(GetMessage("menu_4"));
         Console.WriteLine(GetMessage("menu_5"));
         Console.WriteLine(GetMessage("menu_6"));
+        Console.WriteLine(GetMessage("menu_7"));
         Console.WriteLine("=============================");
         Console.Write(GetMessage("menu_input"));
     }
@@ -142,6 +153,39 @@ class Program
 
     }
 
+    private static string logicielMetierProcessName = "explorer.exe";
+
+    public static void SetLogicielMetier(string ProcessName)
+    {
+        logicielMetierProcessName = ProcessName;
+    }
+
+    public static bool IsLogicielMetier()
+    {
+        if (string.IsNullOrEmpty(logicielMetierProcessName)) return false;
+
+        Process[] process = Process.GetProcessesByName(logicielMetierProcessName.Replace(".exe", ""));
+        return process.Length > 0;
+    }
+
+    public static void askLogicielMetier()
+    {
+        Console.WriteLine(GetMessage("user_input"));
+        string UserInput = Console.ReadLine();
+
+        if (string.IsNullOrEmpty(UserInput))
+        {
+            
+            Console.WriteLine(GetMessage("invalid_choice"));
+
+        }
+        else
+        {
+            SetLogicielMetier(UserInput);
+            Console.WriteLine(GetMessage("software_choice"));
+        }
+    }
+
     static void Save_selection(saver saver)
     {
         saver.Show_backup();
@@ -152,6 +196,13 @@ class Program
         Console.Write(GetMessage("select_save"));
         string sauvegarde = Console.ReadLine();
         saver.Open_save(sauvegarde);
+
+        if (IsLogicielMetier())
+        {
+            Console.WriteLine(GetMessage("software_running"));
+            // Enregistrement dand le log necessaire 
+            return;
+        }
     }
 
     static void Path_saver(saver saver)
@@ -161,6 +212,13 @@ class Program
             Console.WriteLine(GetMessage("too_many_saves"));
             return;  // Empêche de continuer la création de sauvegarde
         }
+        if (IsLogicielMetier())
+        {
+            Console.WriteLine(GetMessage("software_running"));
+            // Enregistrement dand le log necessaire 
+            return; 
+        }
+
         Console.Write(GetMessage("save_name_prompt"));
         string save_name = Console.ReadLine();
         if (!saver.Check_save(save_name))
