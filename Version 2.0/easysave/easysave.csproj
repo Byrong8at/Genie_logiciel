@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="Log_generate">
+      <HintPath>..\Log_generate\bin\Debug\net8.0\Log_generate.dll</HintPath>
+    </Reference>
+    <Reference Include="Xml_logger">
+      <HintPath>..\..\source\repos\Xml_logger\bin\Debug\net8.0\Xml_logger.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
