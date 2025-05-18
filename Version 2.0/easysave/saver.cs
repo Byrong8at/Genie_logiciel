@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -26,7 +27,8 @@ public class saver
         ["file_copied"] = ("Fichier copié avec succès en {0:F2} secondes.", "File copied successfully in {0:F2} seconds."),
         ["copy_error"] = ("Erreur pendant la copie : ", "Error during file copy: "),
         ["backup_success"] = ("Sauvegarde réussie avec succès.", "Backup completed successfully."),
-        ["backup_error"] = ("Erreur durant la sauvegarde : ", "Error during backup: ")
+        ["backup_error"] = ("Erreur durant la sauvegarde : ", "Error during backup: "),
+        ["software_running"] = ("Présence de logiciel métier détecté merci de fermer avant de continuer", "Businnes software detected please close it before continuing"),
     };
 
     private string GetMessage(string key, params object[] args)
@@ -41,13 +43,53 @@ public class saver
         langue = (lang == "en") ? "en" : "fr";
     }
 
+
+
     public List<Save_work> Get_Save_Work()
     {
         return Save_work;
     }
 
+    public static List<string> logicielMetierProcessName = new List<string> { "explorer.exe", "calc.exe" }; // Liste des logiciels métier 
+
+    public static void AddLogicielMetier(string processName)
+    {
+        if (!string.IsNullOrEmpty(processName) && !logicielMetierProcessName.Contains(processName))
+        {
+            logicielMetierProcessName.Add(processName);
+        }
+    }
+
+    public static void RemoveLogicielMetier(string processName)
+    {
+        logicielMetierProcessName.Remove(processName);
+    }
+
+    public static bool IsLogicielMetier()
+    {
+        if (logicielMetierProcessName == null || logicielMetierProcessName.Count == 0) return false;
+
+        foreach (string processName in logicielMetierProcessName)
+        {
+            if (string.IsNullOrEmpty(processName)) continue;
+
+            Process[] processes = Process.GetProcessesByName(processName.Replace(".exe", ""));
+            if (processes.Length > 0)
+            {
+                return true; // Au moins un logiciel métier est en cours
+            }
+        }
+        return false; // Aucun logiciel métier n'est en cours
+    }
+
     public void Show_backup()
     {
+        if (IsLogicielMetier())
+        {
+            Console.WriteLine(GetMessage("software_running"));
+            return;
+        }
+
         if (Save_work.Count > 0)
         {
             Console.WriteLine(GetMessage("list_header"));
@@ -239,6 +281,11 @@ public class saver
 
     public void Create_backup(string name_path, string path, string path_cible, string type_save, string log_type)
     {
+        if (IsLogicielMetier())
+        {
+                Console.WriteLine(GetMessage("software_running"));
+                return;
+        }
 
         if (File.Exists(path_cible))
         {

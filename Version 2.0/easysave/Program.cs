@@ -166,39 +166,6 @@ class Program
 
     }
 
-    private static List<string> logicielMetierProcessName = new List<string> { "explorer.exe", "calc.exe" }; // Liste des logiciels métier 
-
-    public static void AddLogicielMetier(string processName)
-    {
-        if (!string.IsNullOrEmpty(processName) && !logicielMetierProcessName.Contains(processName))
-        {
-            logicielMetierProcessName.Add(processName);
-        }
-    }
-
-    public static void RemoveLogicielMetier(string processName)
-    {
-        logicielMetierProcessName.Remove(processName);
-    }
-    //            LogGestionnary.GenerateLogState(name_save, "", "", "STOP", 0, 0, 0, 0);
-
-    public static bool IsLogicielMetier()
-    {
-        if (logicielMetierProcessName == null || logicielMetierProcessName.Count == 0) return false;
-
-        foreach (string processName in logicielMetierProcessName)
-        {
-            if (string.IsNullOrEmpty(processName)) continue;
-
-            Process[] processes = Process.GetProcessesByName(processName.Replace(".exe", ""));
-            if (processes.Length > 0)
-            {
-                return true; // Au moins un logiciel métier est en cours
-            }
-        }
-        return false; // Aucun logiciel métier n'est en cours
-    }
-
     public static void askLogicielMetier()
     {
         Console.WriteLine(GetMessage("user_input")); // Nouveau message pour l'utilisateur
@@ -214,19 +181,19 @@ class Program
             case "1":
                 Console.WriteLine(GetMessage("user_input_add"));
                 string addProcessName = Console.ReadLine();
-                AddLogicielMetier(addProcessName);
+                saver.AddLogicielMetier(addProcessName);
                 Console.WriteLine(GetMessage("software_added"));
                 askLogicielMetier();
                 break;
             case "2":
                 Console.WriteLine(GetMessage("user_input_remove"));
                 string removeProcessName = Console.ReadLine();
-                RemoveLogicielMetier(removeProcessName);
+                saver.RemoveLogicielMetier(removeProcessName);
                 Console.WriteLine(GetMessage("software_removed"));
                 askLogicielMetier();
                 break;
             case "3":
-                foreach (string processName in logicielMetierProcessName)
+                foreach (string processName in saver.logicielMetierProcessName)
                 {
                     Console.WriteLine(processName);
                 }
@@ -250,20 +217,15 @@ class Program
         Console.Write(GetMessage("select_save"));
         string sauvegarde = Console.ReadLine();
         saver.Open_save(sauvegarde);
-
-        if (IsLogicielMetier())
-        {
-            Console.WriteLine(GetMessage("software_running"));
-            // Enregistrement dand le log necessaire 
-            return;
-        }
     }
 
     static void Path_saver(saver saver)
     {
-        
-       
-
+        if (saver.IsLogicielMetier())
+        {
+            Console.WriteLine(GetMessage("software_running"));
+            return;
+        }
         Console.Write(GetMessage("save_name_prompt"));
         string save_name = Console.ReadLine();
         if (!saver.Check_save(save_name))
