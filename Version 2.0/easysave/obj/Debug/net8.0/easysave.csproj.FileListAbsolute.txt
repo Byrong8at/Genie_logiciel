@@ -1,0 +1,6 @@
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version 2.0\easysave\obj\Debug\net8.0\easysave.csproj.AssemblyReference.cache
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version 2.0\easysave\obj\Debug\net8.0\easysave.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version 2.0\easysave\obj\Debug\net8.0\easysave.AssemblyInfoInputs.cache
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version 2.0\easysave\obj\Debug\net8.0\easysave.AssemblyInfo.cs
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version 2.0\easysave\obj\Debug\net8.0\easysave.csproj.CoreCompileInputs.cache
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version 2.0\easysave\obj\Debug\net8.0\easysave.sourcelink.json

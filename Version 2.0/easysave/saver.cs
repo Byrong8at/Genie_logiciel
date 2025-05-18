@@ -93,6 +93,7 @@ public class saver
 
     public void Open_save(string choice)
     {
+
         if (string.IsNullOrWhiteSpace(choice) || (!choice.Contains("-") && !choice.Contains(";") && !choice.Contains("*") && !int.TryParse(choice, out _)))
         {
             Console.WriteLine(GetMessage("invalid_format"));

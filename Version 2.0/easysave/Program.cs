@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Xml_logger;
 
 
 class Program
@@ -32,6 +33,8 @@ class Program
         ["save_type_prompt"] = ("Choisir le type de sauvegarde (Séquentielle ou complète) : ", "Choose the type of backup (Sequential or Full) "),
         ["save_type_error"] = ("Veuillez rentrer le type correctement: ", "Please write correclty "),
         ["paths_empty"] = ("Les chemins ne peuvent pas être vides.", "Paths cannot be empty."),
+        ["save_type_error"] = ("Veuillez rentrer le type correctement: ", "Please write correclty "),
+        ["log_choice_prompt"] = ("Choissisez un type de log entre Json et XML : ", "Choose log type between Json and XML : "),
         ["save_exists"] = ("Ce nom de sauvegarde existe déjà, choisissez-en un autre :", "This backup name already exists, please choose another one:"),
         ["enter_save_to_delete"] = ("Entrez le nom exact de la sauvegarde à supprimer :", "Enter the exact name of the backup to delete:"),
         ["select_save"] = ("Choisissez la ou les sauvegardes souhaitées (ex: 1-3 ou 1;3 ou 1) ou entrez \"*\" pour faire une sauvegarde séquencée : ", "Select the desired backup(s) (e.g., 1-3 or 1;3 or 1) or enter \"*\" to launch a sequenced backup: "),
@@ -44,6 +47,7 @@ class Program
         ["software_removed"] = ("Logiciel enlever de la liste", "Software removed from the lsit"),
         ["menu_logiciel1"] = ("1. Ajouter un logiciel métier", "1. Add a business software"),
         ["menu_logiciel2"] = ("2. Retirer un logiciel métier", "1. Remove a business software"),
+
         ["menu_logiciel3"] = ("3. Vérifier les logiciels métiers", "3. Check business software"),
         ["menu_logiciel4"] = ("4. Quitter", "4. Quit")
     };
@@ -176,6 +180,7 @@ class Program
     {
         logicielMetierProcessName.Remove(processName);
     }
+    //            LogGestionnary.GenerateLogState(name_save, "", "", "STOP", 0, 0, 0, 0);
 
     public static bool IsLogicielMetier()
     {
@@ -256,17 +261,8 @@ class Program
 
     static void Path_saver(saver saver)
     {
-        if (saver.Get_Save_Work().Count >= 5)
-        {
-            Console.WriteLine(GetMessage("too_many_saves"));
-            return;  // Empêche de continuer la création de sauvegarde
-        }
-        if (IsLogicielMetier())
-        {
-            Console.WriteLine(GetMessage("software_running"));
-            // Enregistrement dand le log necessaire 
-            return;
-        }
+        
+       
 
         Console.Write(GetMessage("save_name_prompt"));
         string save_name = Console.ReadLine();
@@ -281,6 +277,15 @@ class Program
             Console.Write(GetMessage("save_type_prompt"));
             string type_save = Console.ReadLine();
 
+            Console.Write(GetMessage("log_choice_prompt"));
+            string log_type = Console.ReadLine();
+            while (log_type.ToLower() != "json" && log_type.ToLower() != "xml")
+            {
+                Console.WriteLine(GetMessage("choice_error_log"));
+                Console.Write(GetMessage("log_choice_prompt"));
+                log_type = Console.ReadLine();
+            }
+
             if (!string.IsNullOrWhiteSpace(sourcePath) && !string.IsNullOrWhiteSpace(targetPath))
             {
                 string typeSaveLower = type_save.ToLower();
@@ -293,7 +298,7 @@ class Program
                 }
                 else
                 {
-                    saver.Create_backup(save_name, sourcePath, targetPath, type_save);
+                    saver.Create_backup(save_name, sourcePath, targetPath, type_save,log_type);
                 }
             }
             else
