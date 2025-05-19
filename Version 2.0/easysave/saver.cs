@@ -82,13 +82,18 @@ public class saver
         return false; // Aucun logiciel métier n'est en cours
     }
 
-    public void Show_backup()
+    public void LogicielHandler()
     {
         if (IsLogicielMetier())
         {
             Console.WriteLine(GetMessage("software_running"));
             return;
         }
+    }
+
+    public void Show_backup()
+    {
+        LogicielHandler();
 
         if (Save_work.Count > 0)
         {
@@ -281,11 +286,7 @@ public class saver
 
     public void Create_backup(string name_path, string path, string path_cible, string type_save, string log_type)
     {
-        if (IsLogicielMetier())
-        {
-                Console.WriteLine(GetMessage("software_running"));
-                return;
-        }
+        LogicielHandler();
 
         if (File.Exists(path_cible))
         {
