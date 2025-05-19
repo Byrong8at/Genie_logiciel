@@ -209,6 +209,10 @@ class Program
 
     static void Save_selection(saver saver)
     {
+        if (!saver.LogicielHandler()) //check si
+        {
+            return;
+        }
         saver.Show_backup();
         if (saver.Get_Save_Work().Count == 0)
         {
@@ -221,11 +225,6 @@ class Program
 
     static void Path_saver(saver saver)
     {
-        if (saver.IsLogicielMetier())
-        {
-            Console.WriteLine(GetMessage("software_running"));
-            return;
-        }
         Console.Write(GetMessage("save_name_prompt"));
         string save_name = Console.ReadLine();
         if (!saver.Check_save(save_name))

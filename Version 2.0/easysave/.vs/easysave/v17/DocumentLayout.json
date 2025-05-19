@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\lefhu\\OneDrive\\Documents\\GitHub\\Genie_logiciel\\Version 2.0\\easysave\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{6D4CA463-F7CE-4EFD-8A6F-1C38BE89FB8A}|easysave.csproj|c:\\users\\lefhu\\onedrive\\documents\\github\\genie_logiciel\\version 2.0\\easysave\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D4CA463-F7CE-4EFD-8A6F-1C38BE89FB8A}|easysave.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6D4CA463-F7CE-4EFD-8A6F-1C38BE89FB8A}|easysave.csproj|c:\\users\\lefhu\\onedrive\\documents\\github\\genie_logiciel\\version 2.0\\easysave\\saver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6D4CA463-F7CE-4EFD-8A6F-1C38BE89FB8A}|easysave.csproj|solutionrelative:saver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6D4CA463-F7CE-4EFD-8A6F-1C38BE89FB8A}|easysave.csproj|c:\\users\\lefhu\\onedrive\\documents\\github\\genie_logiciel\\version 2.0\\easysave\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D4CA463-F7CE-4EFD-8A6F-1C38BE89FB8A}|easysave.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6D4CA463-F7CE-4EFD-8A6F-1C38BE89FB8A}|easysave.csproj|c:\\users\\lefhu\\onedrive\\documents\\github\\genie_logiciel\\version 2.0\\easysave\\save_work.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D4CA463-F7CE-4EFD-8A6F-1C38BE89FB8A}|easysave.csproj|solutionrelative:save_work.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,30 +22,43 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "save_work.cs",
+              "DocumentMoniker": "C:\\Users\\lefhu\\OneDrive\\Documents\\GitHub\\Genie_logiciel\\Version 2.0\\easysave\\save_work.cs",
+              "RelativeDocumentMoniker": "save_work.cs",
+              "ToolTip": "C:\\Users\\lefhu\\OneDrive\\Documents\\GitHub\\Genie_logiciel\\Version 2.0\\easysave\\save_work.cs",
+              "RelativeToolTip": "save_work.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-19T11:32:44.187Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "saver.cs",
               "DocumentMoniker": "C:\\Users\\lefhu\\OneDrive\\Documents\\GitHub\\Genie_logiciel\\Version 2.0\\easysave\\saver.cs",
               "RelativeDocumentMoniker": "saver.cs",
               "ToolTip": "C:\\Users\\lefhu\\OneDrive\\Documents\\GitHub\\Genie_logiciel\\Version 2.0\\easysave\\saver.cs",
               "RelativeToolTip": "saver.cs",
-              "ViewState": "AgIAAM0AAAAAAAAAAAAAwF8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAANoAAAAAAAAAAAAawDQAAABNAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-18T08:37:40.84Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\lefhu\\OneDrive\\Documents\\GitHub\\Genie_logiciel\\Version 2.0\\easysave\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\lefhu\\OneDrive\\Documents\\GitHub\\Genie_logiciel\\Version 2.0\\easysave\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAKcAAAAAAAAAAADwv70AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAMUAAAAAAAAAAAAqwOIAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-18T08:37:34.026Z",
               "EditorCaption": ""

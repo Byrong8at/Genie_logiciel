@@ -50,7 +50,7 @@ public class saver
         return Save_work;
     }
 
-    public static List<string> logicielMetierProcessName = new List<string> { "explorer.exe", "calc.exe" }; // Liste des logiciels métier 
+    public static List<string> logicielMetierProcessName = new List<string> { "calc.exe" }; // Liste des logiciels métier 
 
     public static void AddLogicielMetier(string processName)
     {
@@ -82,18 +82,18 @@ public class saver
         return false; // Aucun logiciel métier n'est en cours
     }
 
-    public void LogicielHandler()
+    public bool LogicielHandler()
     {
         if (IsLogicielMetier())
         {
             Console.WriteLine(GetMessage("software_running"));
-            return;
+            return false;
         }
+        return true;
     }
 
     public void Show_backup()
     {
-        LogicielHandler();
 
         if (Save_work.Count > 0)
         {
@@ -217,14 +217,49 @@ public class saver
                 for (int s = 0; s < Save_work.Count; s++)
                 {
                     var save = Save_work[s];
-                    Copy_Backup(save);
-                    if (langue == "fr")
+                    string type_log = save.Log_type;
+
+                    if (!LogicielHandler())
                     {
-                        Console.WriteLine($"Sauvegarde {s + 1} exécutée.");
+                        if (langue == "fr")
+                        {
+                            Console.WriteLine($"Sauvegarde {s + 1} bloqué.");
+                        }
+                        if (langue == "en")
+                        {
+                            Console.WriteLine($"backup {s + 1} block.");
+                        }
+                        if (type_log.ToLower() == "json")
+                        {
+
+                            LogGenerator.GenerateLogState(
+                                name: save.Name,
+                                srcPath: "",
+                                dstPath: "",
+                                state: "STOP",
+                                totalFiles: 0,
+                                totalSize: 0,
+                                filesLeft: 0,
+                                progression: 0
+                            );
+                        }
+                        else
+                        {
+                            LogGestionnary.GenerateLogState(save.Name, "", "", "STOP", 0, 0, 0, 0);
+                        }
+
                     }
-                    if (langue == "en")
+                    else
                     {
-                        Console.WriteLine($"backup {s + 1} executed.");
+                        Copy_Backup(save);
+                        if (langue == "fr")
+                        {
+                            Console.WriteLine($"Sauvegarde {s + 1} exécutée.");
+                        }
+                        if (langue == "en")
+                        {
+                            Console.WriteLine($"backup {s + 1} executed.");
+                        }
                     }
                 }
             }
@@ -286,7 +321,6 @@ public class saver
 
     public void Create_backup(string name_path, string path, string path_cible, string type_save, string log_type)
     {
-        LogicielHandler();
 
         if (File.Exists(path_cible))
         {
