@@ -39,15 +39,16 @@ class Program
         ["enter_save_to_delete"] = ("Entrez le nom exact de la sauvegarde à supprimer :", "Enter the exact name of the backup to delete:"),
         ["select_save"] = ("Choisissez la ou les sauvegardes souhaitées (ex: 1-3 ou 1;3 ou 1) ou entrez \"*\" pour faire une sauvegarde séquencée : ", "Select the desired backup(s) (e.g., 1-3 or 1;3 or 1) or enter \"*\" to launch a sequenced backup: "),
         ["software_running"] = ("Présence de logiciel métier détecté merci de fermer avant de continuer", "Businnes software detected please close it before continuing"),
-        ["user_input"] = ("Entrer le logiciel métier que vous souhaitez bloquer", "Please enter the business software you would like to block "),
+        ["user_input"] = ("Votre choix logiciel métiers: ", "Your choice business software: "),
         ["software_choice"] = ("Logiciel bloquer", "Software Blocked"),
         ["user_input_add"] = ("Rajouter un logiciel métier interdit", "Add a forbidden business software"),
         ["software_added"] = ("Logiciel rajouter à la liste", "Software added to the list"),
+        ["not_software"] = ("Veuillez saisir un logiciel valide avec l'extension .exe", "Please enter a valid software with the .exe extension"),
         ["user_input_remove"] = ("Supprimer un logiciel métier interdit", "Remove a forbidden business software"),
         ["software_removed"] = ("Logiciel enlever de la liste", "Software removed from the lsit"),
+        ["software_does_not_exist"] = ("Logiciel n'existe pas dans la liste", "Software does not exist in the list"),
         ["menu_logiciel1"] = ("1. Ajouter un logiciel métier", "1. Add a business software"),
         ["menu_logiciel2"] = ("2. Retirer un logiciel métier", "1. Remove a business software"),
-
         ["menu_logiciel3"] = ("3. Vérifier les logiciels métiers", "3. Check business software"),
         ["menu_logiciel4"] = ("4. Quitter", "4. Quit")
     };
@@ -181,15 +182,29 @@ class Program
             case "1":
                 Console.WriteLine(GetMessage("user_input_add"));
                 string addProcessName = Console.ReadLine();
-                saver.AddLogicielMetier(addProcessName);
-                Console.WriteLine(GetMessage("software_added"));
+                if (addProcessName.Contains(".exe"))
+                {
+                    saver.AddLogicielMetier(addProcessName);
+                    Console.WriteLine(GetMessage("software_added"));
+                }
+                else
+                {
+                    Console.WriteLine(GetMessage("not_software"));
+                }
                 askLogicielMetier();
                 break;
             case "2":
                 Console.WriteLine(GetMessage("user_input_remove"));
                 string removeProcessName = Console.ReadLine();
-                saver.RemoveLogicielMetier(removeProcessName);
-                Console.WriteLine(GetMessage("software_removed"));
+                if (!saver.logicielMetierProcessName.Contains(removeProcessName)) // Check de la liste logiciel
+                {
+                        Console.WriteLine(GetMessage("software_does_not_exist")); // Logiciel n'existe pas dans la liste
+                }
+                else
+                {
+                        saver.RemoveLogicielMetier(removeProcessName);
+                        Console.WriteLine(GetMessage("software_removed"));
+                }    
                 askLogicielMetier();
                 break;
             case "3":
