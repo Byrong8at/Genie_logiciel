@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "6fz/qIlhoxw=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\1\\Documents\\CESI TEMP\\Genie_logiciel\\WPF premiere version\\Versionn 1.9 WPF\\Versionn 1.9 WPF\\Versionn 1.9 WPF.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\1\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\9.0.5\\microsoft.extensions.dependencyinjection.9.0.5.nupkg.sha512",
+    "C:\\Users\\1\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\9.0.5\\microsoft.extensions.dependencyinjection.abstractions.9.0.5.nupkg.sha512"
+  ],
+  "logs": []
+}
