@@ -2,6 +2,7 @@
 
 namespace Xml_logger
 {
+    //class definissant le contenu du json
     public class SaverLog
     {
         public string Name_save { get; set; }
@@ -13,19 +14,19 @@ namespace Xml_logger
     }
 
     
-
+    //fonction créeant les logs
     public static class DailyLogGestionnary
     {
         public static void GenerateXMLDay(string name, string fileSource, string fileTarget, long fileSize, double fileTransferTime)
         {
-            string logDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "EasySave", "day_Logs");
+            string logDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "EasySave", "day_Logs");//crée le chemin d'acces
             Directory.CreateDirectory(logDirectory);
 
-            string fileName = DateTime.Now.ToString("yyyy-MM-dd") + ".xml";
+            string fileName = DateTime.Now.ToString("yyyy-MM-dd") + ".xml";//defini le nom du fichier
             string logPath = Path.Combine(logDirectory, fileName);
 
             if (!File.Exists(logPath))
-            {
+            {//Check si le fichier existe, et le créer si il n'existe pas
                 using (XmlWriter writer = XmlWriter.Create(logPath, new XmlWriterSettings { Indent = true }))
                 {
                     writer.WriteStartDocument();
@@ -40,7 +41,7 @@ namespace Xml_logger
             doc.Load(logPath);
 
             XmlNode logNode = doc.CreateElement("Log");
-
+            //charger les informations dans le xml
             XmlElement nameElem = doc.CreateElement("Name_save");
             nameElem.InnerText = name;
             logNode.AppendChild(nameElem);

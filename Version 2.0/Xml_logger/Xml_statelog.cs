@@ -36,7 +36,8 @@ namespace Xml_logger
             // Charger le document XML existant
             XmlDocument doc = new XmlDocument();
             doc.Load(logPath);
-
+            
+            // check si la balise et si elle existe, on le supprime pour la remplacer.
             XmlNode existingNode = doc.SelectSingleNode($"/Logs/State[Name='{name}']");
             if (existingNode != null)
             {
