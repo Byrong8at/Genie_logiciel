@@ -29,3 +29,13 @@ C:\Users\1\Documents\CESI TEMP\Genie_logiciel\WPF premiere version\Versionn 1.9 
 C:\Users\1\Documents\CESI TEMP\Genie_logiciel\WPF premiere version\Versionn 1.9 WPF\Versionn 1.9 WPF\obj\Debug\net8.0-windows\MVVM\View\LanguageView.baml
 C:\Users\1\Documents\CESI TEMP\Genie_logiciel\WPF premiere version\Versionn 1.9 WPF\Versionn 1.9 WPF\obj\Debug\net8.0-windows\MVVM\View\MainWindow.baml
 C:\Users\1\Documents\CESI TEMP\Genie_logiciel\WPF premiere version\Versionn 1.9 WPF\Versionn 1.9 WPF\obj\Debug\net8.0-windows\Versionn.6582FDE3.Up2Date
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\WPF premiere version\Versionn 1.9 WPF\Versionn 1.9 WPF\obj\Debug\net8.0-windows\MVVM\View\CheckView.g.cs
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\WPF premiere version\Versionn 1.9 WPF\Versionn 1.9 WPF\obj\Debug\net8.0-windows\MVVM\View\CreateView.g.cs
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\WPF premiere version\Versionn 1.9 WPF\Versionn 1.9 WPF\obj\Debug\net8.0-windows\MVVM\View\DeleteView.g.cs
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\WPF premiere version\Versionn 1.9 WPF\Versionn 1.9 WPF\obj\Debug\net8.0-windows\MVVM\View\ExecuteView.g.cs
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\WPF premiere version\Versionn 1.9 WPF\Versionn 1.9 WPF\obj\Debug\net8.0-windows\MVVM\View\OverviewView.g.cs
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\WPF premiere version\Versionn 1.9 WPF\Versionn 1.9 WPF\obj\Debug\net8.0-windows\MVVM\View\CheckView.baml
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\WPF premiere version\Versionn 1.9 WPF\Versionn 1.9 WPF\obj\Debug\net8.0-windows\MVVM\View\CreateView.baml
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\WPF premiere version\Versionn 1.9 WPF\Versionn 1.9 WPF\obj\Debug\net8.0-windows\MVVM\View\DeleteView.baml
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\WPF premiere version\Versionn 1.9 WPF\Versionn 1.9 WPF\obj\Debug\net8.0-windows\MVVM\View\ExecuteView.baml
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\WPF premiere version\Versionn 1.9 WPF\Versionn 1.9 WPF\obj\Debug\net8.0-windows\MVVM\View\OverviewView.baml

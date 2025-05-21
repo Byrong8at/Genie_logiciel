@@ -27,6 +27,11 @@ namespace Versionn_1._9_WPF
             services.AddSingleton<MainViewModel>();
             services.AddSingleton<HomeViewModel>();
             services.AddSingleton<LanguageViewModel>();
+            services.AddSingleton<ExecuteViewModel>();
+            services.AddSingleton<CreateViewModel>();
+            services.AddSingleton<OverviewViewModel>();
+            services.AddSingleton<DeleteViewModel>();
+            services.AddSingleton<CheckViewModel>();
             services.AddSingleton<INavigationService, NavigationService>();
 
             services.AddSingleton<Func<Type, ViewModel>>(serviceProvider => viewModelType => (ViewModel)serviceProvider.GetRequiredService(viewModelType));

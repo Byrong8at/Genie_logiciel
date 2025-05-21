@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
 C:\Users\1\Documents\CESI TEMP\Genie_logiciel\WPF premiere version\Versionn 1.9 WPF\Versionn 1.9 WPF\App.xaml
-31369386251
+8-525221183
 
-15766566915
+251234445478
 200-1222411515
-MVVM\View\HomeView.xaml;MVVM\View\LanguageView.xaml;MVVM\View\MainWindow.xaml;
+MVVM\View\CheckView.xaml;MVVM\View\CreateView.xaml;MVVM\View\DeleteView.xaml;MVVM\View\ExecuteView.xaml;MVVM\View\HomeView.xaml;MVVM\View\LanguageView.xaml;MVVM\View\MainWindow.xaml;MVVM\View\OverviewView.xaml;
 
-True
+False
 

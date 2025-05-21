@@ -5,16 +5,67 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Versionn_1._9_WPF.MVVM.View"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"
-             Background="#303030">
+             d:DesignHeight="450" d:DesignWidth="800" 
+             Background="#252525">
     <Grid>
-        <StackPanel HorizontalAlignment="Center" 
-                    VerticalAlignment="Center">
-            <TextBlock Text="Menu des langues" 
-                       Foreground="White" 
-                       FontSize="24" />
-            <Button Content="Menu Principal" 
-                    Height="40" />
-        </StackPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+
+        <TextBlock Text="EasySave" 
+               Foreground="#FF8F3FBC" 
+               FontSize="36" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0" FontWeight="Bold" />
+
+        <TextBlock Grid.Row="1"
+        Text="Langue" 
+        Foreground="White" 
+        FontSize="44" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,0,0,0" FontWeight="Bold" />
+
+        <Grid Grid.Row="3"
+          Height="{Binding RelativeSource={RelativeSource FindAncestor,
+                       AncestorType={x:Type Grid}},
+                       Path=RowDefinitions[3].ActualHeight}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Button Grid.Column="1" Grid.Row="1"
+                ToolTip="Français"
+                Height="{Binding RelativeSource={RelativeSource FindAncestor,
+                        AncestorType={x:Type Grid}},
+                        Path=RowDefinitions[1].ActualHeight}"
+                Width="{Binding RelativeSource={RelativeSource FindAncestor,
+                        AncestorType={x:Type Grid}},
+                        Path=ColumnDefinitions[1].ActualWidth}" BorderThickness="0,0,0,0" BorderBrush="{x:Null}" Click="Button_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="/MVVM/View/Flag_of_France.png"/>
+                </Button.Background>
+            </Button>
+            <Button Grid.Column="3" Grid.Row="1" 
+                ToolTip="Anglais"
+                Height="{Binding RelativeSource={RelativeSource FindAncestor,
+                        AncestorType={x:Type Grid}},
+                        Path=RowDefinitions[1].ActualHeight}"
+                Width="{Binding RelativeSource={RelativeSource FindAncestor,
+                        AncestorType={x:Type Grid}},
+                        Path=ColumnDefinitions[3].ActualWidth}" BorderThickness="0,0,0,0" BorderBrush="{x:Null}" Click="Button_Click_1">
+                <Button.Background>
+                    <ImageBrush ImageSource="/MVVM/View/Flag_of_the_United_Kingdom.png"/>
+                </Button.Background>
+            </Button>
+        </Grid>
     </Grid>
 </UserControl>

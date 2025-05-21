@@ -24,5 +24,15 @@ namespace Versionn_1._9_WPF.MVVM.View
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            // Change language to French
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            // Change language to English
+        }
     }
 }

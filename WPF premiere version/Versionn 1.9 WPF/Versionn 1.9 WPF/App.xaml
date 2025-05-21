@@ -12,5 +12,26 @@
         <DataTemplate DataType="{x:Type TypeName=viewModel:LanguageViewModel}">
             <view:LanguageView/>
         </DataTemplate>
+
+        <DataTemplate DataType="{x:Type TypeName=viewModel:CreateViewModel}">
+            <view:CreateView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type TypeName=viewModel:ExecuteViewModel}">
+            <view:ExecuteView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type TypeName=viewModel:OverviewViewModel}">
+            <view:OverviewView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type TypeName=viewModel:DeleteViewModel}">
+            <view:DeleteView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type TypeName=viewModel:CheckViewModel}">
+            <view:CheckView/>
+        </DataTemplate>
+        
     </Application.Resources>
 </Application>

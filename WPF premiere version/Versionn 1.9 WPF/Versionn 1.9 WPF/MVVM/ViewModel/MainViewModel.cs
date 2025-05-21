@@ -26,11 +26,24 @@ public class MainViewModel : Core.ViewModel
 
     public RelayCommand NavigateHomeCommand { get; set; }
     public RelayCommand NavigateLanguageCommand { get; set; }
+    public RelayCommand NavigateExecuteCommand { get; set; }
+    public RelayCommand NavigateCreateCommand { get; set; }
+    public RelayCommand NavigateOverviewCommand { get; set; }
+    public RelayCommand NavigateDeleteCommand { get; set; }
+    public RelayCommand NavigateCheckCommand { get; set; }
 
     public MainViewModel(INavigationService navService)
     {
         Navigation = navService;
         NavigateHomeCommand = new RelayCommand( o => { Navigation.NavigateTo<HomeViewModel>(); }, o => true);
         NavigateLanguageCommand = new RelayCommand( o => { Navigation.NavigateTo<LanguageViewModel>(); }, o => true);
+        NavigateExecuteCommand = new RelayCommand(o => { Navigation.NavigateTo<ExecuteViewModel>(); }, o => true);
+        NavigateCreateCommand = new RelayCommand(o => { Navigation.NavigateTo<CreateViewModel>(); }, o => true);
+        NavigateOverviewCommand = new RelayCommand(o => { Navigation.NavigateTo<OverviewViewModel>(); }, o => true);
+        NavigateDeleteCommand = new RelayCommand(o => { Navigation.NavigateTo<DeleteViewModel>(); }, o => true);
+        NavigateCheckCommand = new RelayCommand(o => { Navigation.NavigateTo<CheckViewModel>(); }, o => true);
+
+        // Set the initial currentView to HomeView
+        Navigation.NavigateTo<HomeViewModel>();
     }
 }
