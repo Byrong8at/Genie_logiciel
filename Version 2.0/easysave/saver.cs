@@ -7,41 +7,13 @@ using System.Linq;
 using System.Text.Json;
 using LogLibrary;
 using Xml_logger;
+using EasySave_Logger;
+using EasySave_Logiciel;
+using EasySave_Dictionnary;
+
 public class saver
 {
     private List<Save_work> Save_work = new List<Save_work>();
-
-    private string langue = "fr";
-
-    private Dictionary<string, (string fr, string en)> messages = new()
-    {
-        ["list_header"] = ("Liste des livres dans la bibliothèque :", "List of books in the library:"),
-        ["no_backup"] = ("Aucune Sauvegarde n'a encore été mise en place", "No backup has been set up yet."),
-        ["not_found"] = ("Aucune sauvegarde trouvée avec le nom : ", "No backup found with the name: "),
-        ["delete_success"] = ("Sauvegarde \"{0}\" supprimée avec succès.", "Backup \"{0}\" successfully deleted."),
-        ["delete_error"] = ("Erreur lors de la suppression du dossier : ", "Error while deleting the folder: "),
-        ["invalid_range"] = ("Format de plage invalide.", "Invalid range format."),
-        ["invalid_entry"] = ("Entrée invalide : ", "Invalid input: "),
-        ["invalid_format"] = ("Veuillez rentrer une valeur au format 1-3, 1;3 ou un seul chiffre.", "Please enter a value in the format 1-3, 1;3 or a single number."),
-        ["file_as_target"] = ("Veuillez ne pas choisir un fichier mais un dossier comme destination.", "Please choose a folder, not a file, as destination."),
-        ["file_copied"] = ("Fichier copié avec succès en {0:F2} secondes.", "File copied successfully in {0:F2} seconds."),
-        ["copy_error"] = ("Erreur pendant la copie : ", "Error during file copy: "),
-        ["backup_success"] = ("Sauvegarde réussie avec succès.", "Backup completed successfully."),
-        ["backup_error"] = ("Erreur durant la sauvegarde : ", "Error during backup: "),
-        ["software_running"] = ("Présence de logiciel métier détecté merci de fermer avant de continuer", "Businnes software detected please close it before continuing"),
-    };
-
-    private string GetMessage(string key, params object[] args)
-    {
-        if (!messages.ContainsKey(key)) return "???";
-        string template = (langue == "en") ? messages[key].en : messages[key].fr;
-        return string.Format(template, args);
-    }
-
-    public void SetLangue(string lang)
-    {
-        langue = (lang == "en") ? "en" : "fr";
-    }
 
 
 
@@ -50,54 +22,12 @@ public class saver
         return Save_work;
     }
 
-    public static List<string> logicielMetierProcessName = new List<string> { "calc.exe" }; // Liste des logiciels métier 
-
-    public static void AddLogicielMetier(string processName)
-    {
-        if (!string.IsNullOrEmpty(processName) && !logicielMetierProcessName.Contains(processName))
-        {
-            logicielMetierProcessName.Add(processName);
-        }
-    }
-
-    public static void RemoveLogicielMetier(string processName)
-    {
-        logicielMetierProcessName.Remove(processName);
-    }
-
-    public static bool IsLogicielMetier()
-    {
-        if (logicielMetierProcessName == null || logicielMetierProcessName.Count == 0) return false;
-
-        foreach (string processName in logicielMetierProcessName)
-        {
-            if (string.IsNullOrEmpty(processName)) continue;
-
-            Process[] processes = Process.GetProcessesByName(processName.Replace(".exe", ""));
-            if (processes.Length > 0)
-            {
-                return true; // Au moins un logiciel métier est en cours
-            }
-        }
-        return false; // Aucun logiciel métier n'est en cours
-    }
-
-    public bool LogicielHandler()
-    {
-        if (IsLogicielMetier())
-        {
-            Console.WriteLine(GetMessage("software_running"));
-            return false;
-        }
-        return true;
-    }
-
     public void Show_backup()
     {
 
         if (Save_work.Count > 0)
         {
-            Console.WriteLine(GetMessage("list_header"));
+            Console.WriteLine(Dictionnary.GetMessage("list_header"));
             foreach (var save_work in Save_work)
             {
                 Console.WriteLine("- " + save_work.Name);
@@ -105,7 +35,7 @@ public class saver
         }
         else
         {
-            Console.WriteLine(GetMessage("no_backup"));
+            Console.WriteLine(Dictionnary.GetMessage("no_backup"));
         }
     }
 
@@ -115,7 +45,7 @@ public class saver
 
         if (saveToDelete == null)
         {
-            Console.WriteLine(GetMessage("not_found") + save_name);
+            Console.WriteLine(Dictionnary.GetMessage("not_found") + save_name);
             return;
         }
 
@@ -123,14 +53,13 @@ public class saver
         {
             Directory.Delete(saveToDelete.Cible_repertory, true);
             Save_work.Remove(saveToDelete);
-            Console.WriteLine(GetMessage("delete_success", save_name));
+            Console.WriteLine(Dictionnary.GetMessage("delete_success", save_name));
         }
         catch (Exception ex)
         {
-            Console.WriteLine(GetMessage("delete_error") + ex.Message);
+            Console.WriteLine(Dictionnary.GetMessage("delete_error") + ex.Message);
         }
     }
-
 
     public bool Check_save(string filename)
     {
@@ -143,7 +72,7 @@ public class saver
 
         if (string.IsNullOrWhiteSpace(choice) || (!choice.Contains("-") && !choice.Contains(";") && !choice.Contains("*") && !int.TryParse(choice, out _)))
         {
-            Console.WriteLine(GetMessage("invalid_format"));
+            Console.WriteLine(Dictionnary.GetMessage("invalid_format"));
             return;
         }
 
@@ -156,20 +85,20 @@ public class saver
                 {
                     if ((i - 1) < 0 || (i - 1) >= Save_work.Count)
                     {
-                        if (langue == "fr")
+                        if (Dictionnary.GetLangue() == "fr")
                             Console.WriteLine($"Sauvegarde {i} inexistante.");
-                        else if (langue == "en")
+                        else if (Dictionnary.GetLangue() == "en")
                             Console.WriteLine($"Save {i} does not exist.");
                     }
                     else
                     {
                         var save = Save_work[i - 1];
                         Copy_Backup(save);
-                        if (langue == "fr")
+                        if (Dictionnary.GetLangue() == "fr")
                         {
                             Console.WriteLine($"Sauvegarde {i} exécutée.");
                         }
-                        if (langue == "en")
+                        if (Dictionnary.GetLangue() == "en")
                         {
                             Console.WriteLine($"backup {i} executed.");
                         }
@@ -178,7 +107,7 @@ public class saver
             }
             else
             {
-                Console.WriteLine(GetMessage("invalid_range"));
+                Console.WriteLine(Dictionnary.GetMessage("invalid_range"));
             }
         }
         else if (choice.Contains(";"))
@@ -195,18 +124,18 @@ public class saver
                 {
                     var save = Save_work[num - 1];
                     Copy_Backup(save);
-                    if (langue == "fr")
+                    if (Dictionnary.GetLangue() == "fr")
                     {
                         Console.WriteLine($"Sauvegarde {num} exécutée.");
                     }
-                    if (langue == "en")
+                    if (Dictionnary.GetLangue() == "en")
                     {
                         Console.WriteLine($"backup {num} executed.");
                     }
                 }
                 else
                 {
-                    Console.WriteLine(GetMessage("invalid_entry") + s);
+                    Console.WriteLine(Dictionnary.GetMessage("invalid_entry") + s);
                 }
             }
         }
@@ -219,13 +148,13 @@ public class saver
                     var save = Save_work[s];
                     string type_log = save.Log_type;
 
-                    if (!LogicielHandler())
+                    if (!Logiciel.LogicielHandler())
                     {
-                        if (langue == "fr")
+                        if (Dictionnary.GetLangue() == "fr")
                         {
                             Console.WriteLine($"Sauvegarde {s + 1} bloqué.");
                         }
-                        if (langue == "en")
+                        if (Dictionnary.GetLangue() == "en")
                         {
                             Console.WriteLine($"backup {s + 1} block.");
                         }
@@ -252,11 +181,11 @@ public class saver
                     else
                     {
                         Copy_Backup(save);
-                        if (langue == "fr")
+                        if (Dictionnary.GetLangue() == "fr")
                         {
                             Console.WriteLine($"Sauvegarde {s + 1} exécutée.");
                         }
-                        if (langue == "en")
+                        if (Dictionnary.GetLangue() == "en")
                         {
                             Console.WriteLine($"backup {s + 1} executed.");
                         }
@@ -265,11 +194,11 @@ public class saver
             }
             else
             {
-                if (langue == "fr")
+                if (Dictionnary.GetLangue() == "fr")
                 {
                     Console.WriteLine($"Aucune sauvegarde existante.");
                 }
-                if (langue == "en")
+                if (Dictionnary.GetLangue() == "en")
                 {
                     Console.WriteLine($"No backup job found.");
                 }
@@ -280,19 +209,19 @@ public class saver
         {
             if ((unique - 1) < 0 || (unique - 1) >= Save_work.Count)
             {
-                if (langue == "fr")
+                if (Dictionnary.GetLangue() == "fr")
                     Console.WriteLine($"Sauvegarde {unique} inexistante.");
-                else if (langue == "en")
+                else if (Dictionnary.GetLangue() == "en")
                     Console.WriteLine($"Save {unique} does not exist.");
                 return;
             }
             var save = Save_work[unique - 1];
             Copy_Backup(save);
-            if (langue == "fr")
+            if (Dictionnary.GetLangue() == "fr")
             {
                 Console.WriteLine($"Sauvegarde {unique} exécutée.");
             }
-            if (langue == "en")
+            if (Dictionnary.GetLangue() == "en")
             {
                 Console.WriteLine($"backup {unique} executed.");
             }
@@ -319,7 +248,7 @@ public class saver
         }
     }
 
-    public void Create_backup(string name_path, string path, string path_cible, string type_save, string log_type)
+    public void Create_backup(string name_path, string path, string path_cible, string log_type)
     {
 
         if (File.Exists(path_cible))
@@ -329,7 +258,7 @@ public class saver
         }
         string fullBackupPath = Path.Combine(path_cible, name_path);
 
-        Save_work.Add(new Save_work(name_path, path, fullBackupPath, type_save, log_type));
+        Save_work.Add(new Save_work(name_path, path, fullBackupPath, "full", log_type));
 
 
     }
@@ -361,61 +290,17 @@ public class saver
             File.Copy(sourceDir, destination, true);
 
             var end = DateTime.Now;
-            var duration = (end - start).TotalSeconds;
-            long size = new FileInfo(sourceDir).Length;
+            var totalDuration = (end - start).TotalSeconds;
+            long totalSize = new FileInfo(sourceDir).Length;
+            Logger.Log_end(log_type, name_path, sourceDir, backupFolder, totalSize, totalDuration);
 
-            if (log_type.ToLower() == "json")
-            {
-                DailyLogGenerator.GenerateLogDay(fichier, sourceDir, destination, size, duration);
-
-                LogGenerator.GenerateLogState(
-                    name: name_path,
-                    srcPath: "",
-                    dstPath: "",
-                    state: "END",
-                    totalFiles: 0,
-                    totalSize: 0,
-                    filesLeft: 0,
-                    progression: 0
-                );
-            }
-            else
-            {
-                DailyLogGestionnary.GenerateXMLDay(name_path, sourceDir, destination, size, duration);
-                LogGestionnary.GenerateLogState(name_path, "", "", "END", 0, 0, 0, 0);
-            }
-
-                Console.WriteLine($"Fichier copié avec succès en {duration:F2} secondes.");
+           Console.WriteLine($"Fichier copié avec succès en {totalDuration:F2} secondes.");
         }
         catch (Exception e)
         {
             Console.WriteLine("Erreur pendant la copie : " + e.Message);
         }
     }
-
-    public static void Log_State(string name_path,string File, string TargetDest,int TotalFile, long TotalSize,int FileCopied, string log_type)
-    {
-
-        if (log_type.ToLower() == "json")
-        {
-            LogGenerator.GenerateLogState(
-                        name: name_path,
-                        srcPath: File,
-                        dstPath: TargetDest,
-                        state: "ACTIVE",
-                        totalFiles: TotalFile,
-                        totalSize: TotalSize,
-                        filesLeft: TotalFile - FileCopied,
-                        progression: (int)((FileCopied / (double)TotalFile) * 100)
-                    );
-        }
-        else
-        {
-            LogGestionnary.GenerateLogState(name_path, File, TargetDest, "ACTIVE", TotalFile, TotalSize, TotalFile - FileCopied, (int)((FileCopied / (double)TotalFile) * 100)  );
-
-        }
-    }
-
 
     static void CopyDirectory(string name_path, string sourceDir, string destinationDir,string type_log, bool recursive)
     {
@@ -438,8 +323,8 @@ public class saver
             int filesCopied = 0;
             long totalSize = 0;
 
-            
-            Log_State(name_path, sourceDir, backupFolder, totalFiles, totalSize, filesCopied, type_log);
+
+            Logger.Log_State(name_path, sourceDir, backupFolder, totalFiles, totalSize, filesCopied, type_log);
 
             foreach (FileInfo file in dir.GetFiles())
             {
@@ -447,7 +332,7 @@ public class saver
                 file.CopyTo(targetFilePath, true);
                 totalSize += file.Length;
                 filesCopied++;
-                Log_State(name_path, file.FullName, targetFilePath, totalFiles, totalSize, filesCopied, type_log);
+                Logger.Log_State(name_path, file.FullName, targetFilePath, totalFiles, totalSize, filesCopied, type_log);
 
             }
 
@@ -463,27 +348,8 @@ public class saver
 
             var end = DateTime.Now;
             double totalDuration = (end - start).TotalSeconds;
-
-            if (type_log.ToLower() == "json")
-            {
-                DailyLogGenerator.GenerateLogDay(name_path, sourceDir, backupFolder, totalSize, totalDuration);
-
-                LogGenerator.GenerateLogState(
-                    name: name_path,
-                    srcPath: "",
-                    dstPath: "",
-                    state: "END",
-                    totalFiles: 0,
-                    totalSize: 0,
-                    filesLeft: 0,
-                    progression: 0
-                );
-            }
-            else
-            {
-                DailyLogGestionnary.GenerateXMLDay(name_path, sourceDir, backupFolder, totalSize, totalDuration);
-                LogGestionnary.GenerateLogState(name_path, "", "", "END", 0, 0, 0, 0);
-            }
+            Logger.Log_end(type_log,name_path, sourceDir, backupFolder, totalSize, totalDuration);
+            
 
             Console.WriteLine("Sauvegarde réussie avec succès.");
         }

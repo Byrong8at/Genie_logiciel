@@ -22,4 +22,7 @@ public class Save_work
             Save_type = save_type;
             Log_type = log_type;
         }
+
+
     }
+
