@@ -1,0 +1,194 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\1\\Documents\\CESI TEMP\\Genie_logiciel\\Genie_logiciel\\Version2.0\\EasySave\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\1\\Documents\\CESI TEMP\\Genie_logiciel\\Genie_logiciel\\Version2.0\\EasySave\\Versionn 1.9 WPF\\EasySave.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Versionn 1.9 WPF\\EasySave.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\1\\Documents\\CESI TEMP\\Genie_logiciel\\Genie_logiciel\\Version2.0\\EasySave\\Versionn 1.9 WPF\\EasySave.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Versionn 1.9 WPF\\EasySave.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\1\\Documents\\CESI TEMP\\Genie_logiciel\\Genie_logiciel\\Version2.0\\EasySave\\Versionn 1.9 WPF\\MVVM\\View\\MainWindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Versionn 1.9 WPF\\MVVM\\View\\MainWindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\1\\Documents\\CESI TEMP\\Genie_logiciel\\Genie_logiciel\\Version2.0\\EasySave\\Versionn 1.9 WPF\\MVVM\\View\\HomeView.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Versionn 1.9 WPF\\MVVM\\View\\HomeView.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\1\\Documents\\CESI TEMP\\Genie_logiciel\\Genie_logiciel\\Version2.0\\EasySave\\Versionn 1.9 WPF\\MVVM\\View\\LanguageView.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Versionn 1.9 WPF\\MVVM\\View\\LanguageView.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\1\\Documents\\CESI TEMP\\Genie_logiciel\\Genie_logiciel\\Version2.0\\EasySave\\Versionn 1.9 WPF\\MVVM\\View\\ExecuteView.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Versionn 1.9 WPF\\MVVM\\View\\ExecuteView.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\1\\Documents\\CESI TEMP\\Genie_logiciel\\Genie_logiciel\\Version2.0\\EasySave\\Versionn 1.9 WPF\\MVVM\\View\\CreateView.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Versionn 1.9 WPF\\MVVM\\View\\CreateView.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\1\\Documents\\CESI TEMP\\Genie_logiciel\\Genie_logiciel\\Version2.0\\EasySave\\Versionn 1.9 WPF\\MVVM\\View\\OverviewView.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Versionn 1.9 WPF\\MVVM\\View\\OverviewView.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\1\\Documents\\CESI TEMP\\Genie_logiciel\\Genie_logiciel\\Version2.0\\EasySave\\Versionn 1.9 WPF\\MVVM\\View\\DeleteView.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Versionn 1.9 WPF\\MVVM\\View\\DeleteView.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\1\\Documents\\CESI TEMP\\Genie_logiciel\\Genie_logiciel\\Version2.0\\EasySave\\Versionn 1.9 WPF\\MVVM\\View\\CheckView.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Versionn 1.9 WPF\\MVVM\\View\\CheckView.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\1\\Documents\\CESI TEMP\\Genie_logiciel\\Genie_logiciel\\Version2.0\\EasySave\\Versionn 1.9 WPF\\MVVM\\View\\ExecuteView.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Versionn 1.9 WPF\\MVVM\\View\\ExecuteView.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 8,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\1\\Documents\\CESI TEMP\\Genie_logiciel\\Genie_logiciel\\Version2.0\\EasySave\\Versionn 1.9 WPF\\MVVM\\View\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "Versionn 1.9 WPF\\MVVM\\View\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\1\\Documents\\CESI TEMP\\Genie_logiciel\\Genie_logiciel\\Version2.0\\EasySave\\Versionn 1.9 WPF\\MVVM\\View\\MainWindow.xaml",
+              "RelativeToolTip": "Versionn 1.9 WPF\\MVVM\\View\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-21T11:42:47.109Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HomeView.xaml",
+              "DocumentMoniker": "C:\\Users\\1\\Documents\\CESI TEMP\\Genie_logiciel\\Genie_logiciel\\Version2.0\\EasySave\\Versionn 1.9 WPF\\MVVM\\View\\HomeView.xaml",
+              "RelativeDocumentMoniker": "Versionn 1.9 WPF\\MVVM\\View\\HomeView.xaml",
+              "ToolTip": "C:\\Users\\1\\Documents\\CESI TEMP\\Genie_logiciel\\Genie_logiciel\\Version2.0\\EasySave\\Versionn 1.9 WPF\\MVVM\\View\\HomeView.xaml",
+              "RelativeToolTip": "Versionn 1.9 WPF\\MVVM\\View\\HomeView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-21T11:52:01.193Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "LanguageView.xaml",
+              "DocumentMoniker": "C:\\Users\\1\\Documents\\CESI TEMP\\Genie_logiciel\\Genie_logiciel\\Version2.0\\EasySave\\Versionn 1.9 WPF\\MVVM\\View\\LanguageView.xaml",
+              "RelativeDocumentMoniker": "Versionn 1.9 WPF\\MVVM\\View\\LanguageView.xaml",
+              "ToolTip": "C:\\Users\\1\\Documents\\CESI TEMP\\Genie_logiciel\\Genie_logiciel\\Version2.0\\EasySave\\Versionn 1.9 WPF\\MVVM\\View\\LanguageView.xaml",
+              "RelativeToolTip": "Versionn 1.9 WPF\\MVVM\\View\\LanguageView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-21T11:52:34.637Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ExecuteView.xaml",
+              "DocumentMoniker": "C:\\Users\\1\\Documents\\CESI TEMP\\Genie_logiciel\\Genie_logiciel\\Version2.0\\EasySave\\Versionn 1.9 WPF\\MVVM\\View\\ExecuteView.xaml",
+              "RelativeDocumentMoniker": "Versionn 1.9 WPF\\MVVM\\View\\ExecuteView.xaml",
+              "ToolTip": "C:\\Users\\1\\Documents\\CESI TEMP\\Genie_logiciel\\Genie_logiciel\\Version2.0\\EasySave\\Versionn 1.9 WPF\\MVVM\\View\\ExecuteView.xaml",
+              "RelativeToolTip": "Versionn 1.9 WPF\\MVVM\\View\\ExecuteView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-21T11:52:41.944Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CreateView.xaml",
+              "DocumentMoniker": "C:\\Users\\1\\Documents\\CESI TEMP\\Genie_logiciel\\Genie_logiciel\\Version2.0\\EasySave\\Versionn 1.9 WPF\\MVVM\\View\\CreateView.xaml",
+              "RelativeDocumentMoniker": "Versionn 1.9 WPF\\MVVM\\View\\CreateView.xaml",
+              "ToolTip": "C:\\Users\\1\\Documents\\CESI TEMP\\Genie_logiciel\\Genie_logiciel\\Version2.0\\EasySave\\Versionn 1.9 WPF\\MVVM\\View\\CreateView.xaml",
+              "RelativeToolTip": "Versionn 1.9 WPF\\MVVM\\View\\CreateView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-21T11:52:48.865Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "OverviewView.xaml",
+              "DocumentMoniker": "C:\\Users\\1\\Documents\\CESI TEMP\\Genie_logiciel\\Genie_logiciel\\Version2.0\\EasySave\\Versionn 1.9 WPF\\MVVM\\View\\OverviewView.xaml",
+              "RelativeDocumentMoniker": "Versionn 1.9 WPF\\MVVM\\View\\OverviewView.xaml",
+              "ToolTip": "C:\\Users\\1\\Documents\\CESI TEMP\\Genie_logiciel\\Genie_logiciel\\Version2.0\\EasySave\\Versionn 1.9 WPF\\MVVM\\View\\OverviewView.xaml",
+              "RelativeToolTip": "Versionn 1.9 WPF\\MVVM\\View\\OverviewView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-21T11:53:02.509Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "DeleteView.xaml",
+              "DocumentMoniker": "C:\\Users\\1\\Documents\\CESI TEMP\\Genie_logiciel\\Genie_logiciel\\Version2.0\\EasySave\\Versionn 1.9 WPF\\MVVM\\View\\DeleteView.xaml",
+              "RelativeDocumentMoniker": "Versionn 1.9 WPF\\MVVM\\View\\DeleteView.xaml",
+              "ToolTip": "C:\\Users\\1\\Documents\\CESI TEMP\\Genie_logiciel\\Genie_logiciel\\Version2.0\\EasySave\\Versionn 1.9 WPF\\MVVM\\View\\DeleteView.xaml",
+              "RelativeToolTip": "Versionn 1.9 WPF\\MVVM\\View\\DeleteView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-21T11:53:06.531Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CheckView.xaml",
+              "DocumentMoniker": "C:\\Users\\1\\Documents\\CESI TEMP\\Genie_logiciel\\Genie_logiciel\\Version2.0\\EasySave\\Versionn 1.9 WPF\\MVVM\\View\\CheckView.xaml",
+              "RelativeDocumentMoniker": "Versionn 1.9 WPF\\MVVM\\View\\CheckView.xaml",
+              "ToolTip": "C:\\Users\\1\\Documents\\CESI TEMP\\Genie_logiciel\\Genie_logiciel\\Version2.0\\EasySave\\Versionn 1.9 WPF\\MVVM\\View\\CheckView.xaml",
+              "RelativeToolTip": "Versionn 1.9 WPF\\MVVM\\View\\CheckView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-21T11:53:09.703Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EasySave.csproj",
+              "DocumentMoniker": "C:\\Users\\1\\Documents\\CESI TEMP\\Genie_logiciel\\Genie_logiciel\\Version2.0\\EasySave\\Versionn 1.9 WPF\\EasySave.csproj",
+              "RelativeDocumentMoniker": "Versionn 1.9 WPF\\EasySave.csproj",
+              "ToolTip": "C:\\Users\\1\\Documents\\CESI TEMP\\Genie_logiciel\\Genie_logiciel\\Version2.0\\EasySave\\Versionn 1.9 WPF\\EasySave.csproj",
+              "RelativeToolTip": "Versionn 1.9 WPF\\EasySave.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-05-21T16:15:33.519Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EasySave.csproj",
+              "DocumentMoniker": "C:\\Users\\1\\Documents\\CESI TEMP\\Genie_logiciel\\Genie_logiciel\\Version2.0\\EasySave\\Versionn 1.9 WPF\\EasySave.csproj",
+              "RelativeDocumentMoniker": "Versionn 1.9 WPF\\EasySave.csproj",
+              "ToolTip": "C:\\Users\\1\\Documents\\CESI TEMP\\Genie_logiciel\\Genie_logiciel\\Version2.0\\EasySave\\Versionn 1.9 WPF\\EasySave.csproj",
+              "RelativeToolTip": "Versionn 1.9 WPF\\EasySave.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-05-21T16:13:48.901Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ExecuteView.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\1\\Documents\\CESI TEMP\\Genie_logiciel\\Genie_logiciel\\Version2.0\\EasySave\\Versionn 1.9 WPF\\MVVM\\View\\ExecuteView.xaml.cs",
+              "RelativeDocumentMoniker": "Versionn 1.9 WPF\\MVVM\\View\\ExecuteView.xaml.cs",
+              "ToolTip": "C:\\Users\\1\\Documents\\CESI TEMP\\Genie_logiciel\\Genie_logiciel\\Version2.0\\EasySave\\Versionn 1.9 WPF\\MVVM\\View\\ExecuteView.xaml.cs",
+              "RelativeToolTip": "Versionn 1.9 WPF\\MVVM\\View\\ExecuteView.xaml.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAASwB0AAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-21T14:18:12.744Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
