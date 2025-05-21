@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EasySave_Dictionnary;
+using EasySave_Logiciel;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using Xml_logger;
@@ -69,7 +71,7 @@ class Program
             {
                 case '1':
                     Language_choice(); // Modifiée : plus de `saver` ici
-                    saver.SetLangue(langueActuelle);
+                    Dictionnary.SetLangue(langueActuelle);
                     break;
 
                 case '2':
@@ -184,7 +186,7 @@ class Program
                 string addProcessName = Console.ReadLine();
                 if (addProcessName.Contains(".exe"))
                 {
-                    saver.AddLogicielMetier(addProcessName);
+                    Logiciel.AddLogicielMetier(addProcessName);
                     Console.WriteLine(GetMessage("software_added"));
                 }
                 else
@@ -196,19 +198,19 @@ class Program
             case "2":
                 Console.WriteLine(GetMessage("user_input_remove"));
                 string removeProcessName = Console.ReadLine();
-                if (!saver.logicielMetierProcessName.Contains(removeProcessName)) // Check de la liste logiciel
+                if (!Logiciel.logicielMetierProcessName.Contains(removeProcessName)) // Check de la liste logiciel
                 {
                         Console.WriteLine(GetMessage("software_does_not_exist")); // Logiciel n'existe pas dans la liste
                 }
                 else
                 {
-                        saver.RemoveLogicielMetier(removeProcessName);
+                    Logiciel.RemoveLogicielMetier(removeProcessName);
                         Console.WriteLine(GetMessage("software_removed"));
                 }    
                 askLogicielMetier();
                 break;
             case "3":
-                foreach (string processName in saver.logicielMetierProcessName)
+                foreach (string processName in Logiciel.logicielMetierProcessName)
                 {
                     Console.WriteLine(processName);
                 }
@@ -224,7 +226,7 @@ class Program
 
     static void Save_selection(saver saver)
     {
-        if (!saver.LogicielHandler()) //check si
+        if (!Logiciel.LogicielHandler()) //check si
         {
             return;
         }
@@ -250,9 +252,6 @@ class Program
             Console.Write(GetMessage("target_path_prompt"));
             string targetPath = Console.ReadLine();
 
-            Console.Write(GetMessage("save_type_prompt"));
-            string type_save = Console.ReadLine();
-
             Console.Write(GetMessage("log_choice_prompt"));
             string log_type = Console.ReadLine();
             while (log_type.ToLower() != "json" && log_type.ToLower() != "xml")
@@ -264,18 +263,9 @@ class Program
 
             if (!string.IsNullOrWhiteSpace(sourcePath) && !string.IsNullOrWhiteSpace(targetPath))
             {
-                string typeSaveLower = type_save.ToLower();
-
-                if (typeSaveLower != "complete" && typeSaveLower != "complète" && typeSaveLower != "full" &&
-                    typeSaveLower != "séquentielle" && typeSaveLower != "sequentielle" &&
-                    typeSaveLower != "sequential")
-                {
-                    Console.Write(GetMessage("save_type_error"));
-                }
-                else
-                {
-                    saver.Create_backup(save_name, sourcePath, targetPath, type_save,log_type);
-                }
+                
+                    saver.Create_backup(save_name, sourcePath, targetPath,log_type);
+                
             }
             else
             {

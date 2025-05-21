@@ -11,8 +11,20 @@
       "RelativeMoniker": "D:0:0:{6D4CA463-F7CE-4EFD-8A6F-1C38BE89FB8A}|easysave.csproj|solutionrelative:saver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{6D4CA463-F7CE-4EFD-8A6F-1C38BE89FB8A}|easysave.csproj|c:\\users\\lefhu\\onedrive\\documents\\github\\genie_logiciel\\version 2.0\\easysave\\logger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D4CA463-F7CE-4EFD-8A6F-1C38BE89FB8A}|easysave.csproj|solutionrelative:logger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D4CA463-F7CE-4EFD-8A6F-1C38BE89FB8A}|easysave.csproj|c:\\users\\lefhu\\onedrive\\documents\\github\\genie_logiciel\\version 2.0\\easysave\\dictionnary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D4CA463-F7CE-4EFD-8A6F-1C38BE89FB8A}|easysave.csproj|solutionrelative:dictionnary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6D4CA463-F7CE-4EFD-8A6F-1C38BE89FB8A}|easysave.csproj|c:\\users\\lefhu\\onedrive\\documents\\github\\genie_logiciel\\version 2.0\\easysave\\save_work.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6D4CA463-F7CE-4EFD-8A6F-1C38BE89FB8A}|easysave.csproj|solutionrelative:save_work.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D4CA463-F7CE-4EFD-8A6F-1C38BE89FB8A}|easysave.csproj|c:\\users\\lefhu\\onedrive\\documents\\github\\genie_logiciel\\version 2.0\\easysave\\logiciel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D4CA463-F7CE-4EFD-8A6F-1C38BE89FB8A}|easysave.csproj|solutionrelative:logiciel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,19 +34,58 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
+              "Title": "Dictionnary.cs",
+              "DocumentMoniker": "C:\\Users\\lefhu\\OneDrive\\Documents\\GitHub\\Genie_logiciel\\Version 2.0\\easysave\\Dictionnary.cs",
+              "RelativeDocumentMoniker": "Dictionnary.cs",
+              "ToolTip": "C:\\Users\\lefhu\\OneDrive\\Documents\\GitHub\\Genie_logiciel\\Version 2.0\\easysave\\Dictionnary.cs",
+              "RelativeToolTip": "Dictionnary.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAwC4AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-21T07:42:41.39Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "save_work.cs",
               "DocumentMoniker": "C:\\Users\\lefhu\\OneDrive\\Documents\\GitHub\\Genie_logiciel\\Version 2.0\\easysave\\save_work.cs",
               "RelativeDocumentMoniker": "save_work.cs",
               "ToolTip": "C:\\Users\\lefhu\\OneDrive\\Documents\\GitHub\\Genie_logiciel\\Version 2.0\\easysave\\save_work.cs",
               "RelativeToolTip": "save_work.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-19T11:32:44.187Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Logiciel.cs",
+              "DocumentMoniker": "C:\\Users\\lefhu\\OneDrive\\Documents\\GitHub\\Genie_logiciel\\Version 2.0\\easysave\\Logiciel.cs",
+              "RelativeDocumentMoniker": "Logiciel.cs",
+              "ToolTip": "C:\\Users\\lefhu\\OneDrive\\Documents\\GitHub\\Genie_logiciel\\Version 2.0\\easysave\\Logiciel.cs",
+              "RelativeToolTip": "Logiciel.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAgwAkAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-21T07:31:04.987Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Logger.cs",
+              "DocumentMoniker": "C:\\Users\\lefhu\\OneDrive\\Documents\\GitHub\\Genie_logiciel\\Version 2.0\\easysave\\Logger.cs",
+              "RelativeDocumentMoniker": "Logger.cs",
+              "ToolTip": "C:\\Users\\lefhu\\OneDrive\\Documents\\GitHub\\Genie_logiciel\\Version 2.0\\easysave\\Logger.cs",
+              "RelativeToolTip": "Logger.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAuwCgAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-21T07:18:15.888Z",
               "EditorCaption": ""
             },
             {
@@ -45,7 +96,7 @@
               "RelativeDocumentMoniker": "saver.cs",
               "ToolTip": "C:\\Users\\lefhu\\OneDrive\\Documents\\GitHub\\Genie_logiciel\\Version 2.0\\easysave\\saver.cs",
               "RelativeToolTip": "saver.cs",
-              "ViewState": "AgIAANoAAAAAAAAAAAAawDQAAABNAAAAAAAAAA==",
+              "ViewState": "AgIAABoBAAAAAAAAAAAuwCgBAABKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-18T08:37:40.84Z",
               "EditorCaption": ""
@@ -58,7 +109,7 @@
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\lefhu\\OneDrive\\Documents\\GitHub\\Genie_logiciel\\Version 2.0\\easysave\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAMUAAAAAAAAAAAAqwOIAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAALUAAAAAAAAAAAAqwPwAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-18T08:37:34.026Z",
               "EditorCaption": ""
