@@ -47,17 +47,33 @@
                 <RowDefinition Height="3*"/>
             </Grid.RowDefinitions>
 
-            <TextBlock Grid.Column="1" Grid.Row="0"
-                       Text="Nom de la sauvegarde"
+            <Grid Grid.Column="1" Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0"
+                           Text="Nom de la sauvegarde :"
+                            Height="{Binding RelativeSource={RelativeSource FindAncestor,
+                                    AncestorType={x:Type Grid}},
+                                    Path=RowDefinitions[0].ActualHeight}"
+                            HorizontalAlignment="Center" Foreground="White"/>
+
+                <TextBox Grid.Row="1"
+                     
                     Height="{Binding RelativeSource={RelativeSource FindAncestor,
                             AncestorType={x:Type Grid}},
-                            Path=RowDefinitions[0].ActualHeight}"
+                            Path=RowDefinitions[1].ActualHeight}"
                     Width="{Binding RelativeSource={RelativeSource FindAncestor,
                             AncestorType={x:Type Grid}},
-                            Path=ColumnDefinitions[1].ActualWidth}" Background="White"/>
+                            Path=ColumnDefinitions[0].ActualWidth}" Background="White"/>
+
+            </Grid>
 
 
             <Button Grid.Column="1" Grid.Row="2"
+                    Content="Sélectionner un chemin de source" Command="{Binding SelectFolderCommand_1}"
                     Height="{Binding RelativeSource={RelativeSource FindAncestor,
                             AncestorType={x:Type Grid}},
                             Path=RowDefinitions[2].ActualHeight}"
@@ -67,6 +83,7 @@
 
 
             <Button Grid.Column="1" Grid.Row="4"
+                    Content="Sélectionner un chemin de cible" Command="{Binding SelectFolderCommand_2}"
                     Height="{Binding RelativeSource={RelativeSource FindAncestor,
                             AncestorType={x:Type Grid}},
                             Path=RowDefinitions[4].ActualHeight}"
@@ -82,7 +99,7 @@
                 </Grid.RowDefinitions>
 
                 <TextBlock Grid.Row="0"
-                           Text="Formet de fichier log :"
+                           Text="Format de fichier log :"
                     Height="{Binding RelativeSource={RelativeSource FindAncestor,
                             AncestorType={x:Type Grid}},
                             Path=RowDefinitions[0].ActualHeight}"

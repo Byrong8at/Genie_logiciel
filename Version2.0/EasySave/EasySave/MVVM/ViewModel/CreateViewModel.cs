@@ -7,35 +7,19 @@ using System.Threading.Tasks;
 using System.Windows.Navigation;
 using EasySave.Core;
 using EasySave.Services;
+using Microsoft.Win32;
 
 namespace EasySave.MVVM.ViewModel;
 
 public class CreateViewModel : Core.ViewModel
 {
-    private string _selectedPath_1;
-    public string SelectedPath_1
+    public void SelectFolder()
     {
-        get { return _selectedPath_1; }
-        set { _selectedPath_1 = value; OnPropertyChanged("SelectedPath"); }
-    }
-
-    private RelayCommand _openCommand;
-    public RelayCommand OpenCommand
-    {
-        get { return _openCommand; }
-        set
+        OpenFolderDialog openFolderDialog = new OpenFolderDialog();
+        if (openFolderDialog.ShowDialog() == true)
         {
-            _openCommand = value;
-            OnPropertyChanged("OpenCommand");
-        }
-    }
-
-    private void OpenFile()
-    {
-        SelectedPath_1 = Navigation.OpenFileDialog(@"C:\");
-        if (SelectedPath_1 == null)
-        {
-            SelectedPath_1 = string.Empty;
+            string selectedFolderPath = openFolderDialog.FolderName;
+            // Process the selected file path as needed
         }
     }
 
@@ -59,6 +43,9 @@ public class CreateViewModel : Core.ViewModel
     public RelayCommand NavigateDeleteCommand { get; set; }
     public RelayCommand NavigateCheckCommand { get; set; }
 
+    public RelayCommand SelectFolderCommand_1 { get; set; }
+    public RelayCommand SelectFolderCommand_2 { get; set; }
+
     public CreateViewModel(INavigationService navService)
     {
         Navigation = navService;
@@ -69,6 +56,13 @@ public class CreateViewModel : Core.ViewModel
         NavigateOverviewCommand = new RelayCommand(o => { Navigation.NavigateTo<OverviewViewModel>(); }, o => true);
         NavigateDeleteCommand = new RelayCommand(o => { Navigation.NavigateTo<DeleteViewModel>(); }, o => true);
         NavigateCheckCommand = new RelayCommand(o => { Navigation.NavigateTo<CheckViewModel>(); }, o => true);
-        OpenCommand = new RelayCommand(o => { OpenFile(); }, o => true);
+        SelectFolderCommand_1 = new RelayCommand(o =>
+        {
+            SelectFolder();
+        }, o => true);
+        SelectFolderCommand_2 = new RelayCommand(o =>
+        {
+            SelectFolder();
+        }, o => true);
     }
 }

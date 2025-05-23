@@ -139,10 +139,4 @@ public abstract class ViewModel : ObservableObject
         }
     }
 
-    public interface IOService
-    {
-        string OpenFileDialog(string defaultPath);
-        Stream OpenFile(string path);
-    }
-
 }
