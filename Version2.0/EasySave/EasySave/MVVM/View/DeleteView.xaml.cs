@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Versionn_1._9_WPF.MVVM.View
+namespace EasySave.MVVM.View
 {
     /// <summary>
     /// Logique d'interaction pour DeleteView.xaml

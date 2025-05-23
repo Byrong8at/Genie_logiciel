@@ -4,27 +4,27 @@ using System.Diagnostics;
 using Xml_logger;
 
 
-class Program
+namespace EasySave.MVVM.Model;
+
+class Controller
 {
-    static string langueActuelle = "fr";
+    static saver currentSaver = new saver();
+    public static string langueActuelle = "fr";
 
     static Dictionary<string, (string fr, string en)> messages = new Dictionary<string, (string, string)>()
     {
-        ["menu_title"] = ("===== Menu Bibliothèque =====", "===== Library Menu ====="),
-        ["menu_1"] = ("1. Choisir la langue", "1. Choose language"),
-        ["menu_2"] = ("2. Exécuter la sauvegarde", "2. Execute the backup"),
-        ["menu_3"] = ("3. Créer une sauvegarde", "3. Create a backup"),
-        ["menu_4"] = ("4. Voir les Sauvegardes en cours", "4. View active backups"),
-        ["menu_5"] = ("5. Supprimer une sauvegarde", "5. Delete a backup"),
-        ["menu_6"] = ("6. Logiciels métiers", "6. Business softwares"),
-        ["menu_7"] = ("7. Quitter", "7. Quit"),
-        ["menu_input"] = ("Votre choix : ", "Your choice: "),
-        ["exit_msg"] = ("Merci d'avoir utilisé le gestionnaire de bibliothèque.", "Thank you for using the library manager."),
+        ["menu_title"] = ("Menu Principal", "Main Menu"),
+        ["menu_1"] = ("Langue", "Language"),
+        ["menu_2"] = ("Exécuter la/les sauvegarde(s)", "Execute the backup(s)"),
+        ["menu_3"] = ("Créer une sauvegarde", "Create a backup"),
+        ["menu_4"] = ("Voir la/les sauvegarde(s) en cours", "View active backup(s)"),
+        ["menu_5"] = ("Supprimer une sauvegarde", "Delete a backup"),
+        ["menu_6"] = ("Configuration vérification logiciels métier", "Business softwares verification configuration"),
+        ["menu_7"] = ("Quitter", "Quit"),
+        ["exit_msg"] = ("Etes vous sûr de vouloir fermer EasySave ? Certaines sauvegardes peuvent être en cours. Merci de vérifier leurs status avant de continuer.", "Are you sure you want to close EasySave? There could be some backups running. Please check the backup status before continuing."),
         ["invalid_choice"] = ("Choix non valide, veuillez réessayer.", "Invalid choice, please try again."),
         ["press_continue"] = ("\nAppuyez sur une touche pour continuer...", "\nPress any key to continue..."),
         ["choose_lang"] = ("Choisissez la langue souhaitée (fr/en) : ", "Choose your language (fr/en): "),
-        ["lang_fr"] = ("Langue définie sur le français.", "Language set to French."),
-        ["lang_en"] = ("Langue définie sur l'anglais.", "Language set to English."),
         ["lang_inconnu"] = ("Langue inconnue. Aucune modification.", "Unknown language. No change."),
         ["too_many_saves"] = ("Vous ne pouvez pas créer plus de 5 sauvegardes. Supprimez-en une avant d'en ajouter une nouvelle.", "You cannot create more than 5 backups. Delete one before adding another."),
         ["save_name_prompt"] = ("Nom de la sauvegarde : ", "Backup name: "),
@@ -52,109 +52,34 @@ class Program
         ["menu_logiciel4"] = ("4. Quitter", "4. Quit")
     };
 
-    static void Main(string[] args)
-    {
-        saver saver = new saver();
-        bool quitter = false;
-
-        while (!quitter)
-        {
-            AfficherMenu();
-
-            ConsoleKeyInfo choix = Console.ReadKey();
-            Console.Clear();
-
-            switch (choix.KeyChar)
-            {
-                case '1':
-                    Language_choice(); // Modifiée : plus de `saver` ici
-                    saver.SetLangue(langueActuelle);
-                    break;
-
-                case '2':
-                    Save_selection(saver);
-                    break;
-
-                case '3':
-                    Path_saver(saver);
-                    break;
-
-                case '4':
-                    Display_save(saver);
-                    break;
-                case '5':
-                    Manage_save(saver);
-                    break;
-
-                case '6':
-                    askLogicielMetier();
-                    break;
-
-                case '7':
-                    quitter = true;
-                    Console.WriteLine(GetMessage("exit_msg"));
-                    break;
-
-
-                default:
-                    Console.WriteLine(GetMessage("invalid_choice"));
-                    break;
-            }
-
-            Console.WriteLine(GetMessage("press_continue"));
-            Console.ReadKey();
-            Console.Clear();
-        }
-    }
-
-    static string GetMessage(string key)
+    public static string GetMessage(string key)
     {
         if (messages.ContainsKey(key))
             return langueActuelle == "en" ? messages[key].en : messages[key].fr;
         return "???";
     }
 
-    static void AfficherMenu()
-    {
-        Console.WriteLine(GetMessage("menu_title"));
-        Console.WriteLine(GetMessage("menu_1"));
-        Console.WriteLine(GetMessage("menu_2"));
-        Console.WriteLine(GetMessage("menu_3"));
-        Console.WriteLine(GetMessage("menu_4"));
-        Console.WriteLine(GetMessage("menu_5"));
-        Console.WriteLine(GetMessage("menu_6"));
-        Console.WriteLine(GetMessage("menu_7"));
-        Console.WriteLine("=============================");
-        Console.Write(GetMessage("menu_input"));
-    }
 
-    static void Language_choice()
+    public static void Language_choice(string choice)
     {
-        Console.Write(GetMessage("choose_lang"));
-        string langue = Console.ReadLine()?.ToLower();
-
-        if (langue == "en")
+        if (choice == "en")
         {
             langueActuelle = "en";
-            Console.WriteLine(GetMessage("lang_en"));
+            currentSaver.SetLangue(langueActuelle);
         }
-        else if (langue == "fr")
+        else if (choice == "fr")
         {
             langueActuelle = "fr";
-            Console.WriteLine(GetMessage("lang_fr"));
-        }
-        else
-        {
-            Console.WriteLine(GetMessage("lang_inconnu"));
+            currentSaver.SetLangue(langueActuelle);
         }
     }
 
-    static void Display_save(saver saver)
+    public static List<SaveWork> Display_save(saver saver)
     {
-        saver.Show_backup();
+        return saver.Get_Save_Work();
     }
 
-    static void Manage_save(saver saver)
+    public static void Manage_save(saver saver)
     {
         saver.Show_backup();
         if (saver.Get_Save_Work().Count > 0)
@@ -168,11 +93,8 @@ class Program
 
     public static void askLogicielMetier()
     {
-        Console.WriteLine(GetMessage("user_input")); // Nouveau message pour l'utilisateur
-        Console.WriteLine(GetMessage("menu_logiciel1"));
-        Console.WriteLine(GetMessage("menu_logiciel2"));
-        Console.WriteLine(GetMessage("menu_logiciel3"));
-        Console.WriteLine(GetMessage("menu_logiciel4"));
+
+        //currentSaver.logicielMetierProcessName
 
         string userInput = Console.ReadLine();
 
@@ -207,72 +129,35 @@ class Program
         }
     }
 
-    static void Save_selection(saver saver)
+    public static void Save_selection(saver saver,string selectedBackup)
     {
-        saver.Show_backup();
-        if (saver.Get_Save_Work().Count == 0)
-        {
-            return;
-        }
-        Console.Write(GetMessage("select_save"));
-        string sauvegarde = Console.ReadLine();
-        saver.Open_save(sauvegarde);
+        saver.Open_save(selectedBackup);
     }
 
-    static void Path_saver(saver saver)
+    public static void BackupCreation(saver saver, string saveName, string sourcePath, string targetPath, string logType)
     {
         if (saver.IsLogicielMetier())
         {
             Console.WriteLine(GetMessage("software_running"));
             return;
         }
-        Console.Write(GetMessage("save_name_prompt"));
-        string save_name = Console.ReadLine();
-        if (!saver.Check_save(save_name))
+
+        if (!saver.Check_save(saveName))
         {
-            Console.Write(GetMessage("source_path_prompt"));
-            string sourcePath = Console.ReadLine();
-
-            Console.Write(GetMessage("target_path_prompt"));
-            string targetPath = Console.ReadLine();
-
-            Console.Write(GetMessage("save_type_prompt"));
-            string type_save = Console.ReadLine();
-
-            Console.Write(GetMessage("log_choice_prompt"));
-            string log_type = Console.ReadLine();
-            while (log_type.ToLower() != "json" && log_type.ToLower() != "xml")
-            {
-                Console.WriteLine(GetMessage("choice_error_log"));
-                Console.Write(GetMessage("log_choice_prompt"));
-                log_type = Console.ReadLine();
-            }
-
             if (!string.IsNullOrWhiteSpace(sourcePath) && !string.IsNullOrWhiteSpace(targetPath))
             {
-                string typeSaveLower = type_save.ToLower();
-
-                if (typeSaveLower != "complete" && typeSaveLower != "complète" && typeSaveLower != "full" &&
-                    typeSaveLower != "séquentielle" && typeSaveLower != "sequentielle" &&
-                    typeSaveLower != "sequential")
-                {
-                    Console.Write(GetMessage("save_type_error"));
-                }
-                else
-                {
-                    saver.Create_backup(save_name, sourcePath, targetPath, type_save, log_type);
-                }
+                saver.Create_backup(saveName, sourcePath, targetPath, logType);
             }
             else
             {
-                Console.WriteLine(GetMessage("paths_empty"));
+                //Error not handled (no paths)
             }
         }
         else
         {
-            Console.WriteLine(GetMessage("save_exists"));
-            Path_saver(saver);
+            //Error not handled (save already exists)
         }
 
     }
 }
+

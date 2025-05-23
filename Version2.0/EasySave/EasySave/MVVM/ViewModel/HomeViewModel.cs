@@ -4,23 +4,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Navigation;
-using Versionn_1._9_WPF.Core;
-using Versionn_1._9_WPF.Services;
+using EasySave.Core;
+using EasySave.Services;
+using EasySave.MVVM.Model;
 
-namespace Versionn_1._9_WPF.MVVM.ViewModel;
+namespace EasySave.MVVM.ViewModel;
+
 
 
 public class HomeViewModel : Core.ViewModel
 {
     private INavigationService _navigation;
 
-    public INavigationService Navigation { 
+    public INavigationService Navigation
+    {
         get => _navigation;
         set
         {
             _navigation = value;
             OnPropertyChanged();
-        } 
+        }
     }
 
     public RelayCommand NavigateHomeCommand { get; set; }

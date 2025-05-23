@@ -1,9 +1,9 @@
-﻿<UserControl x:Class="Versionn_1._9_WPF.MVVM.View.CreateView"
+﻿<UserControl x:Class="EasySave.MVVM.View.CreateView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Versionn_1._9_WPF.MVVM.View"
+             xmlns:local="clr-namespace:EasySave.MVVM.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" 
              Background="#252525">
@@ -37,9 +37,11 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="3*"/>
-                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1*"/>
                 <RowDefinition Height="3*"/>
-                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="1*"/>
                 <RowDefinition Height="3*"/>
                 <RowDefinition Height="2*"/>
                 <RowDefinition Height="3*"/>
@@ -73,14 +75,47 @@
                             Path=ColumnDefinitions[1].ActualWidth}" Background="White"/>
 
 
-            <Button Grid.Column="1" Grid.Row="6"
+            <Grid Grid.Column="1" Grid.Row="6">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0"
+                           Text="Formet de fichier log :"
                     Height="{Binding RelativeSource={RelativeSource FindAncestor,
                             AncestorType={x:Type Grid}},
-                            Path=RowDefinitions[6].ActualHeight}"
-                    Width="{Binding RelativeSource={RelativeSource FindAncestor,
+                            Path=RowDefinitions[0].ActualHeight}"
+                    HorizontalAlignment="Center" Foreground="White"/>
+
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <RadioButton Grid.Column="0" 
+                                 Content="JSON" 
+                                 HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"
+                                 />
+
+                                 <RadioButton Grid.Column="2" 
+                                 Content="XML" 
+                                 HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"
+                                 />
+                </Grid>
+                
+
+            </Grid>
+
+            <Button Grid.Column="1" Grid.Row="8"
+                    Height="{Binding RelativeSource={RelativeSource FindAncestor,
                             AncestorType={x:Type Grid}},
-                            Path=ColumnDefinitions[1].ActualWidth}" Background="White"/>
-            
+                            Path=RowDefinitions[7].ActualHeight}"
+                    Width="150" Background="White" HorizontalAlignment="Center" VerticalAlignment="Center"
+                    Content="Créer la sauvegarde"/>
+
         </Grid>
     </Grid>
 </UserControl>

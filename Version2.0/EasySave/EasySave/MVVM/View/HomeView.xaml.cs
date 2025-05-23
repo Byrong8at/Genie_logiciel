@@ -12,8 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using EasySave.MVVM.Model;
+using EasySave.MVVM.ViewModel;
 
-namespace Versionn_1._9_WPF.MVVM.View
+namespace EasySave.MVVM.View
 {
     /// <summary>
     /// Logique d'interaction pour HomeView.xaml

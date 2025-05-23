@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text.Json;
 using LogLibrary;
 using Xml_logger;
+
 public class saver
 {
     private List<SaveWork> Save_work = new List<SaveWork>();
@@ -265,13 +266,12 @@ public class saver
         string name_path = save.Name;
         string path = save.Source_repertory;
         string path_cible = save.Cible_repertory;
-        string type_save = save.Save_type;
         string type_log= save.Log_type;
 
 
         if (File.Exists(path))
         {
-            CopyFile(name_path, path, path_cible, type_save, type_log);
+            CopyFile(name_path, path, path_cible, type_log);
         }
         else
         {
@@ -279,7 +279,7 @@ public class saver
         }
     }
 
-    public void Create_backup(string name_path, string path, string path_cible, string type_save, string log_type)
+    public void Create_backup(string name_path, string path, string path_cible, string log_type)
     {
         if (IsLogicielMetier())
         {
@@ -294,11 +294,11 @@ public class saver
         }
         string fullBackupPath = Path.Combine(path_cible, name_path);
 
-        Save_work.Add(new SaveWork(name_path, path, fullBackupPath, type_save, log_type));
+        Save_work.Add(new SaveWork(name_path, path, fullBackupPath, log_type));
 
 
     }
-    static void CopyFile(string name_path, string sourceDir, string destDir, string typeSave, string log_type)
+    static void CopyFile(string name_path, string sourceDir, string destDir, string log_type)
     {
         try
         {
@@ -308,18 +308,15 @@ public class saver
 
             string destination;
 
-            if (typeSave.ToLower() == "séquentielle" || typeSave.ToLower() == "sequentielle" || typeSave.ToLower() == "sequential")
-            {
-                string timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
-                string extension = Path.GetExtension(fichier);
-                string filenameWithoutExt = Path.GetFileNameWithoutExtension(fichier);
-                string newFileName = $"{filenameWithoutExt}_{timestamp}{extension}";
-                destination = Path.Combine(backupFolder, newFileName);
-            }
-            else
-            {
-                destination = Path.Combine(backupFolder, fichier);
-            }
+           
+            string timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
+            string extension = Path.GetExtension(fichier);
+            string filenameWithoutExt = Path.GetFileNameWithoutExtension(fichier);
+            string newFileName = $"{filenameWithoutExt}_{timestamp}{extension}";
+            destination = Path.Combine(backupFolder, newFileName);
+            
+            //destination = Path.Combine(backupFolder, fichier);
+            
 
             var start = DateTime.Now;
 

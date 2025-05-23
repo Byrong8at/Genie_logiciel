@@ -1,16 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Navigation;
-using Versionn_1._9_WPF.Core;
-using Versionn_1._9_WPF.Services;
+using EasySave.Core;
+using EasySave.Services;
 
-namespace Versionn_1._9_WPF.MVVM.ViewModel;
+namespace EasySave.MVVM.ViewModel;
 
 public class CreateViewModel : Core.ViewModel
 {
+    private string _selectedPath_1;
+    public string SelectedPath_1
+    {
+        get { return _selectedPath_1; }
+        set { _selectedPath_1 = value; OnPropertyChanged("SelectedPath"); }
+    }
+
+    private RelayCommand _openCommand;
+    public RelayCommand OpenCommand
+    {
+        get { return _openCommand; }
+        set
+        {
+            _openCommand = value;
+            OnPropertyChanged("OpenCommand");
+        }
+    }
+
+    private void OpenFile()
+    {
+        SelectedPath_1 = Navigation.OpenFileDialog(@"C:\");
+        if (SelectedPath_1 == null)
+        {
+            SelectedPath_1 = string.Empty;
+        }
+    }
+
     private INavigationService _navigation;
 
     public INavigationService Navigation
@@ -41,5 +69,6 @@ public class CreateViewModel : Core.ViewModel
         NavigateOverviewCommand = new RelayCommand(o => { Navigation.NavigateTo<OverviewViewModel>(); }, o => true);
         NavigateDeleteCommand = new RelayCommand(o => { Navigation.NavigateTo<DeleteViewModel>(); }, o => true);
         NavigateCheckCommand = new RelayCommand(o => { Navigation.NavigateTo<CheckViewModel>(); }, o => true);
+        OpenCommand = new RelayCommand(o => { OpenFile(); }, o => true);
     }
 }

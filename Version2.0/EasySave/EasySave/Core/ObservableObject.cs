@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Versionn_1._9_WPF.Core;
+namespace EasySave.Core;
 
 
 public class ObservableObject : INotifyPropertyChanged
