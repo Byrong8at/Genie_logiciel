@@ -1,0 +1,103 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\1\\Documents\\CESI TEMP\\Genie_logiciel\\Genie_logiciel\\Version2.0\\EasySave\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9D2EB032-778E-4141-BCDE-7C5C4C3E5F37}|EasySave\\EasySave.csproj|c:\\users\\1\\documents\\cesi temp\\genie_logiciel\\genie_logiciel\\version2.0\\easysave\\easysave\\mvvm\\model\\statelog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9D2EB032-778E-4141-BCDE-7C5C4C3E5F37}|EasySave\\EasySave.csproj|solutionrelative:easysave\\mvvm\\model\\statelog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9D2EB032-778E-4141-BCDE-7C5C4C3E5F37}|EasySave\\EasySave.csproj|c:\\users\\1\\documents\\cesi temp\\genie_logiciel\\genie_logiciel\\version2.0\\easysave\\easysave\\mvvm\\model\\cryptosoftwrapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9D2EB032-778E-4141-BCDE-7C5C4C3E5F37}|EasySave\\EasySave.csproj|solutionrelative:easysave\\mvvm\\model\\cryptosoftwrapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9D2EB032-778E-4141-BCDE-7C5C4C3E5F37}|EasySave\\EasySave.csproj|c:\\users\\1\\documents\\cesi temp\\genie_logiciel\\genie_logiciel\\version2.0\\easysave\\easysave\\mvvm\\model\\controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9D2EB032-778E-4141-BCDE-7C5C4C3E5F37}|EasySave\\EasySave.csproj|solutionrelative:easysave\\mvvm\\model\\controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9D2EB032-778E-4141-BCDE-7C5C4C3E5F37}|EasySave\\EasySave.csproj|c:\\users\\1\\documents\\cesi temp\\genie_logiciel\\genie_logiciel\\version2.0\\easysave\\easysave\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{9D2EB032-778E-4141-BCDE-7C5C4C3E5F37}|EasySave\\EasySave.csproj|solutionrelative:easysave\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9D2EB032-778E-4141-BCDE-7C5C4C3E5F37}|EasySave\\EasySave.csproj|c:\\users\\1\\documents\\cesi temp\\genie_logiciel\\genie_logiciel\\version2.0\\easysave\\easysave\\mvvm\\view\\overviewview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{9D2EB032-778E-4141-BCDE-7C5C4C3E5F37}|EasySave\\EasySave.csproj|solutionrelative:easysave\\mvvm\\view\\overviewview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "StateLog.cs",
+              "DocumentMoniker": "C:\\Users\\1\\Documents\\CESI TEMP\\Genie_logiciel\\Genie_logiciel\\Version2.0\\EasySave\\EasySave\\MVVM\\Model\\StateLog.cs",
+              "RelativeDocumentMoniker": "EasySave\\MVVM\\Model\\StateLog.cs",
+              "ToolTip": "C:\\Users\\1\\Documents\\CESI TEMP\\Genie_logiciel\\Genie_logiciel\\Version2.0\\EasySave\\EasySave\\MVVM\\Model\\StateLog.cs",
+              "RelativeToolTip": "EasySave\\MVVM\\Model\\StateLog.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-21T16:41:26.475Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CryptoSoftWrapper.cs",
+              "DocumentMoniker": "C:\\Users\\1\\Documents\\CESI TEMP\\Genie_logiciel\\Genie_logiciel\\Version2.0\\EasySave\\EasySave\\MVVM\\Model\\CryptoSoftWrapper.cs",
+              "RelativeDocumentMoniker": "EasySave\\MVVM\\Model\\CryptoSoftWrapper.cs",
+              "ToolTip": "C:\\Users\\1\\Documents\\CESI TEMP\\Genie_logiciel\\Genie_logiciel\\Version2.0\\EasySave\\EasySave\\MVVM\\Model\\CryptoSoftWrapper.cs",
+              "RelativeToolTip": "EasySave\\MVVM\\Model\\CryptoSoftWrapper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAwAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-21T16:39:19.384Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Controller.cs",
+              "DocumentMoniker": "C:\\Users\\1\\Documents\\CESI TEMP\\Genie_logiciel\\Genie_logiciel\\Version2.0\\EasySave\\EasySave\\MVVM\\Model\\Controller.cs",
+              "RelativeDocumentMoniker": "EasySave\\MVVM\\Model\\Controller.cs",
+              "ToolTip": "C:\\Users\\1\\Documents\\CESI TEMP\\Genie_logiciel\\Genie_logiciel\\Version2.0\\EasySave\\EasySave\\MVVM\\Model\\Controller.cs",
+              "RelativeToolTip": "EasySave\\MVVM\\Model\\Controller.cs",
+              "ViewState": "AgIAAG4AAAAAAAAAAAAIwHYAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-21T16:30:48.232Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "App.xaml",
+              "DocumentMoniker": "C:\\Users\\1\\Documents\\CESI TEMP\\Genie_logiciel\\Genie_logiciel\\Version2.0\\EasySave\\EasySave\\App.xaml",
+              "RelativeDocumentMoniker": "EasySave\\App.xaml",
+              "ToolTip": "C:\\Users\\1\\Documents\\CESI TEMP\\Genie_logiciel\\Genie_logiciel\\Version2.0\\EasySave\\EasySave\\App.xaml",
+              "RelativeToolTip": "EasySave\\App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-21T16:27:17.719Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "OverviewView.xaml",
+              "DocumentMoniker": "C:\\Users\\1\\Documents\\CESI TEMP\\Genie_logiciel\\Genie_logiciel\\Version2.0\\EasySave\\EasySave\\MVVM\\View\\OverviewView.xaml",
+              "RelativeDocumentMoniker": "EasySave\\MVVM\\View\\OverviewView.xaml",
+              "ToolTip": "C:\\Users\\1\\Documents\\CESI TEMP\\Genie_logiciel\\Genie_logiciel\\Version2.0\\EasySave\\EasySave\\MVVM\\View\\OverviewView.xaml",
+              "RelativeToolTip": "EasySave\\MVVM\\View\\OverviewView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-21T16:23:59.274Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
