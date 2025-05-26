@@ -48,7 +48,9 @@
                             Path=RowDefinitions[0].ActualHeight}"
                     Width="{Binding RelativeSource={RelativeSource FindAncestor,
                             AncestorType={x:Type Grid}},
-                            Path=ColumnDefinitions[1].ActualWidth}" Background="White"/>
+                            Path=ColumnDefinitions[1].ActualWidth}" Background="White"
+                      ItemsSource="{Binding Path=listCurrentBackups}"
+                      />
 
 
             <Grid Grid.Column="1" Grid.Row="2"
@@ -66,7 +68,7 @@
                         Path=RowDefinitions[0].ActualHeight}"
                         Width="{Binding RelativeSource={RelativeSource FindAncestor,
                         AncestorType={x:Type Grid}},
-                        Path=ColumnDefinitions[1].ActualWidth}" Click="Button_Click" Background="White"/>
+                        Path=ColumnDefinitions[1].ActualWidth}" Background="White"/>
             </Grid>
 
         </Grid>

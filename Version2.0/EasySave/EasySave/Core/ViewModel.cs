@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EasySave.MVVM.Model;
+using EasySave_Logiciel;
 
 namespace EasySave.Core;
 
@@ -125,7 +126,7 @@ public abstract class ViewModel : ObservableObject
         }
     }
 
-    private List<String> _currentProJobList = saver.logicielMetierProcessName;
+    private List<String> _currentProJobList = Logiciel.logicielMetierProcessName;
     public List<String> currentProJobList
     {
         get => _currentProJobList;
@@ -139,4 +140,33 @@ public abstract class ViewModel : ObservableObject
         }
     }
 
+    // List of all current backups
+    private List<SaveWork> _listCurrentBackups = Controller.Display_save();
+    public List<SaveWork> listCurrentBackups
+    {
+        get => _listCurrentBackups;
+        set
+        {
+            if (_listCurrentBackups != value)
+            {
+                _listCurrentBackups = value;
+                OnPropertyChanged();
+            }
+        }
+    }
+
+    private string _currentLanguageChoice = Controller.langueActuelle;
+    public string currentLanguageChoice
+    {
+        get => currentLanguageChoice;
+        set
+        {
+            if (currentLanguageChoice != value)
+            {
+                Controller.Language_choice(value);
+                currentLanguageChoice = value;
+                OnPropertyChanged();
+            }
+        }
+    }
 }

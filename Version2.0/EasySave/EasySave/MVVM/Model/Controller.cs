@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using Xml_logger;
-using EasySave_Dictionnary;
 using EasySave_Logiciel;
 
 namespace EasySave.MVVM.Model;
 
 class Controller
 {
-    static saver currentSaver = new saver();
+    static Saver currentSaver = new Saver();
     public static string langueActuelle = "fr";
 
     static Dictionary<string, (string fr, string en)> messages = new Dictionary<string, (string, string)>()
@@ -81,12 +80,12 @@ class Controller
         langueActuelle = choice;
     }
 
-    public static List<SaveWork> Display_save(saver saver)
+    public static List<SaveWork> Display_save()
     {
-        return saver.Get_Save_Work();
+        return currentSaver.Get_Save_Work();
     }
 
-    public static void Manage_save(saver saver)
+    public static void Manage_save(Saver saver)
     {
         saver.Show_backup();
         if (saver.Get_Save_Work().Count > 0)
@@ -98,52 +97,15 @@ class Controller
 
     }
 
-    public static void askLogicielMetier()
-    {
 
-        //currentSaver.logicielMetierProcessName
-
-        string userInput = Console.ReadLine();
-
-        switch (userInput)
-        {
-            case "1":
-                Console.WriteLine(GetMessage("user_input_add"));
-                string addProcessName = Console.ReadLine();
-                saver.AddLogicielMetier(addProcessName);
-                Console.WriteLine(GetMessage("software_added"));
-                askLogicielMetier();
-                break;
-            case "2":
-                Console.WriteLine(GetMessage("user_input_remove"));
-                string removeProcessName = Console.ReadLine();
-                saver.RemoveLogicielMetier(removeProcessName);
-                Console.WriteLine(GetMessage("software_removed"));
-                askLogicielMetier();
-                break;
-            case "3":
-                foreach (string processName in saver.logicielMetierProcessName)
-                {
-                    Console.WriteLine(processName);
-                }
-                askLogicielMetier();
-                break;
-            case "4":
-                return; // Quitter la méthode
-            default:
-                Console.WriteLine(GetMessage("invalid_choice"));
-                break;
-        }
-    }
-
-    public static void Save_selection(saver saver,string selectedBackup)
+    public static void Save_selection(Saver saver,string selectedBackup)
     {
         saver.Open_save(selectedBackup);
     }
 
-    public static void BackupCreation(saver saver, string saveName, string sourcePath, string targetPath, string logType)
+    public static void BackupCreation(Saver saver, string saveName, string sourcePath, string targetPath, string logType)
     {
-        if (saver.IsLogicielMetier())
+        if (Logiciel.IsLogicielMetier())
         {
             Console.WriteLine(GetMessage("software_running"));
             return;
