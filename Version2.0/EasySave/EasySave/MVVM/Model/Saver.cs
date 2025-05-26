@@ -8,7 +8,7 @@ using System.Text.Json;
 using LogLibrary;
 using Xml_logger;
 
-public class saver
+public class Saver
 {
     private List<SaveWork> Save_work = new List<SaveWork>();
 

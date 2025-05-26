@@ -61,7 +61,7 @@ namespace EasySave.MVVM.View {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/EasySave;component/mvvm/view/checkview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/EasySave;V1.0.0.0;component/mvvm/view/checkview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\MVVM\View\CheckView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

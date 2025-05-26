@@ -53,7 +53,7 @@ namespace EasySave.MVVM.View {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/EasySave;component/mvvm/view/createview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/EasySave;V1.0.0.0;component/mvvm/view/createview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\MVVM\View\CreateView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
