@@ -14,6 +14,19 @@ namespace EasySave.Core;
 
 public abstract class ViewModel : ObservableObject
 {
+    // in your constructor you subscribe:
+    public ViewModel()
+    {
+        _currentMenuTitle = Controller.GetMessage("menu_title");
+
+        Controller.LanguageChanged += OnLanguageChanged; // Subscribe to the event
+    }
+
+    private void OnLanguageChanged()
+    {
+        currentMenuTitle = Controller.GetMessage("menu_title"); // Refresh property when language changes
+    }
+
     private string _currentMenuTitle = Controller.GetMessage("menu_title");
     public string currentMenuTitle
     {
@@ -158,13 +171,13 @@ public abstract class ViewModel : ObservableObject
     private string _currentLanguageChoice = Controller.langueActuelle;
     public string currentLanguageChoice
     {
-        get => currentLanguageChoice;
+        get => _currentLanguageChoice;
         set
         {
-            if (currentLanguageChoice != value)
+            if (_currentLanguageChoice != value)
             {
                 Controller.Language_choice(value);
-                currentLanguageChoice = value;
+                _currentLanguageChoice = value;
                 OnPropertyChanged();
             }
         }

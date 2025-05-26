@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Xml_logger;
 using EasySave_Logiciel;
+using System.Windows;
 
 namespace EasySave.MVVM.Model;
 
-class Controller
+public class Controller
 {
-    static Saver currentSaver = new Saver();
-    public static string langueActuelle = "fr";
+    public static Saver currentSaver = new Saver();
+
+    
+    public static string langueActuelle = "en";
+    public static event Action LanguageChanged;
 
     static Dictionary<string, (string fr, string en)> messages = new Dictionary<string, (string, string)>()
     {
@@ -70,7 +74,10 @@ class Controller
     public static string GetMessage(string key)
     {
         if (messages.ContainsKey(key))
-            return langueActuelle == "en" ? messages[key].en : messages[key].fr;
+            if (langueActuelle == "fr")
+                return messages[key].fr;
+            else if (langueActuelle == "en")
+                return messages[key].en;
         return "???";
     }
 
@@ -78,6 +85,7 @@ class Controller
     public static void Language_choice(string choice)
     {
         langueActuelle = choice;
+        LanguageChanged?.Invoke();
     }
 
     public static List<SaveWork> Display_save()

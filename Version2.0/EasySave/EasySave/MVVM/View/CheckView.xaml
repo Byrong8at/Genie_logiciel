@@ -27,7 +27,7 @@
                FontSize="44" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,0,0,0" FontWeight="Bold" />
 
         <Grid Grid.Row="3"
-  Height="{Binding RelativeSource={RelativeSource FindAncestor,
+            Height="{Binding RelativeSource={RelativeSource FindAncestor,
                AncestorType={x:Type Grid}},
                Path=RowDefinitions[3].ActualHeight}">
             <Grid.ColumnDefinitions>
@@ -36,10 +36,19 @@
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
 
-            <ListView Grid.Column="1" Name="ProJobListDisplay">
+            <ListView Grid.Column="1" Name="ProJobListDisplay" 
+                      ItemsSource="{Binding currentProJobList}"
+                      SelectionMode="Multiple">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Logiciel métier" DisplayMemberBinding="{Binding currentProJobList}" Width="200"/>
+                        <GridViewColumn Width="80" >
+                            <GridViewColumn.HeaderTemplate>
+                                <DataTemplate>
+                                    <CheckBox/>
+                                </DataTemplate>
+                            </GridViewColumn.HeaderTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Logiciel métier" DisplayMemberBinding="{Binding}" Width="400"/>
                     </GridView>
                 </ListView.View>
             </ListView>

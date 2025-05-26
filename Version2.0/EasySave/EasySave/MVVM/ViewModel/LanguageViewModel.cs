@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Navigation;
 using EasySave.Core;
 using EasySave.MVVM.Model;
@@ -12,8 +13,15 @@ namespace EasySave.MVVM.ViewModel;
 
 public class LanguageViewModel : Core.ViewModel
 {
-    private void LanguageChoiceFr() => Controller.Language_choice("fr");
-    private void LanguageChoiceEn() => Controller.Language_choice("en");
+    private void LanguageChoiceFr()
+    {
+        Controller.Language_choice("fr");
+    }
+
+    private void LanguageChoiceEn()
+    {
+        Controller.Language_choice("en");
+    }
 
     private INavigationService _navigation;
 

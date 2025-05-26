@@ -26,6 +26,8 @@ public class HomeViewModel : Core.ViewModel
         }
     }
 
+    
+
     public RelayCommand NavigateHomeCommand { get; set; }
     public RelayCommand NavigateLanguageCommand { get; set; }
     public RelayCommand NavigateExecuteCommand { get; set; }
