@@ -9,6 +9,8 @@ namespace EasySave_Logiciel
 {
     public static class Logiciel
     {
+
+        public static event Action ProJobChanged;
         public static List<string> logicielMetierProcessName = new List<string> { "calc.exe" }; // Liste des logiciels métier 
 
         public static void AddLogicielMetier(string processName)
@@ -16,12 +18,14 @@ namespace EasySave_Logiciel
             if (!string.IsNullOrEmpty(processName) && !logicielMetierProcessName.Contains(processName))
             {
                 logicielMetierProcessName.Add(processName);
+                ProJobChanged?.Invoke(); // Notifie les abonnés que la liste a changé
             }
         }
 
         public static void RemoveLogicielMetier(string processName)
         {
             logicielMetierProcessName.Remove(processName);
+            ProJobChanged?.Invoke(); // Notifie les abonnés que la liste a changé
         }
 
         public static bool IsLogicielMetier()

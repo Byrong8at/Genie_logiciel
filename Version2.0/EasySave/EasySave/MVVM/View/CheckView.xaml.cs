@@ -23,8 +23,6 @@ namespace EasySave.MVVM.View
         public CheckView()
         {
             InitializeComponent();
-
-
         }
 
         private void EditCategory(object sender, EventArgs e)

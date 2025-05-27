@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EasySave.Core;
+using EasySave.MVVM.Model;
 using EasySave.MVVM.ViewModel;
 
 namespace EasySave.Services;
@@ -39,6 +40,5 @@ public class NavigationService : ObservableObject, INavigationService
     {
         ViewModel viewModel = _viewModelFactory.Invoke(typeof(TViewModel));
         CurrentView = viewModel;
-
     }
 }

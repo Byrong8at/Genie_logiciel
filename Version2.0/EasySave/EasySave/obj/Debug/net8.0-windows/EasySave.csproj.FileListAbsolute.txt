@@ -1,10 +1,3 @@
-C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\EasySave.exe
-C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\EasySave.deps.json
-C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\EasySave.runtimeconfig.json
-C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\EasySave.dll
-C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\EasySave.pdb
-C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.dll
-C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.csproj.AssemblyReference.cache
 C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\CheckView.g.cs
 C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\CreateView.g.cs
@@ -18,6 +11,15 @@ C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave
 C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs
 C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave_MarkupCompile.cache
 C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave_MarkupCompile.lref
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\EasySave.exe
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\EasySave.deps.json
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\EasySave.runtimeconfig.json
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\EasySave.dll
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\EasySave.pdb
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\Log_generate.dll
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\Xml_logger.dll
 C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\App.baml
 C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\CheckView.baml
 C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\CreateView.baml
@@ -39,5 +41,3 @@ C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave
 C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.pdb
 C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.genruntimeconfig.cache
 C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\ref\EasySave.dll
-C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\Log_generate.dll
-C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\Xml_logger.dll

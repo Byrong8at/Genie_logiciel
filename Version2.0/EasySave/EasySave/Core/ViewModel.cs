@@ -17,14 +17,26 @@ public abstract class ViewModel : ObservableObject
     // in your constructor you subscribe:
     public ViewModel()
     {
-        _currentMenuTitle = Controller.GetMessage("menu_title");
-
         Controller.LanguageChanged += OnLanguageChanged; // Subscribe to the event
+        Logiciel.ProJobChanged += OnProJobChanged; // Subscribe to the event
     }
 
     private void OnLanguageChanged()
     {
         currentMenuTitle = Controller.GetMessage("menu_title"); // Refresh property when language changes
+        currentMenu1 = Controller.GetMessage("menu_1");
+        currentMenu2 = Controller.GetMessage("menu_2");
+        currentMenu3 = Controller.GetMessage("menu_3");
+        currentMenu4 = Controller.GetMessage("menu_4");
+        currentMenu5 = Controller.GetMessage("menu_5");
+        currentMenu6 = Controller.GetMessage("menu_6");
+        currentMenu7 = Controller.GetMessage("menu_7");
+
+    }
+
+    private void OnProJobChanged()
+    {
+        currentProJobList = new List<String>(Logiciel.logicielMetierProcessName); // Refresh property when ProJob changes
     }
 
     private string _currentMenuTitle = Controller.GetMessage("menu_title");
@@ -139,7 +151,7 @@ public abstract class ViewModel : ObservableObject
         }
     }
 
-    private List<String> _currentProJobList = Logiciel.logicielMetierProcessName;
+    private List<String> _currentProJobList = new List<String>(Logiciel.logicielMetierProcessName);
     public List<String> currentProJobList
     {
         get => _currentProJobList;
@@ -152,6 +164,8 @@ public abstract class ViewModel : ObservableObject
             }
         }
     }
+
+
 
     // List of all current backups
     private List<SaveWork> _listCurrentBackups = Controller.Display_save();
