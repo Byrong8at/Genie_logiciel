@@ -61,19 +61,19 @@
                             HorizontalAlignment="Center" Foreground="White"/>
 
                 <TextBox Grid.Row="1"
-                     
+                     x:Name="NewBackupTextBox" Text="{Binding currentEnteredBackupName, UpdateSourceTrigger=PropertyChanged}" 
                     Height="{Binding RelativeSource={RelativeSource FindAncestor,
                             AncestorType={x:Type Grid}},
                             Path=RowDefinitions[1].ActualHeight}"
                     Width="{Binding RelativeSource={RelativeSource FindAncestor,
                             AncestorType={x:Type Grid}},
-                            Path=ColumnDefinitions[0].ActualWidth}" Background="White"/>
+                            Path=ActualWidth}" Background="White"/>
 
             </Grid>
 
 
             <Button Grid.Column="1" Grid.Row="2"
-                    Content="Sélectionner un chemin de source" Command="{Binding SelectFolderCommand_1}"
+                    Content="Sélectionner un chemin de source" Command="{Binding Path=SelectFolderCommand_1}"
                     Height="{Binding RelativeSource={RelativeSource FindAncestor,
                             AncestorType={x:Type Grid}},
                             Path=RowDefinitions[2].ActualHeight}"
@@ -83,7 +83,7 @@
 
 
             <Button Grid.Column="1" Grid.Row="4"
-                    Content="Sélectionner un chemin de cible" Command="{Binding SelectFolderCommand_2}"
+                    Content="Sélectionner un chemin de cible" Command="{Binding Path=SelectFolderCommand_2}"
                     Height="{Binding RelativeSource={RelativeSource FindAncestor,
                             AncestorType={x:Type Grid}},
                             Path=RowDefinitions[4].ActualHeight}"
@@ -99,7 +99,7 @@
                 </Grid.RowDefinitions>
 
                 <TextBlock Grid.Row="0"
-                           Text="Format de fichier log :"
+                           Text="Format de fichier log (dernier utilisé par défaut) :"
                     Height="{Binding RelativeSource={RelativeSource FindAncestor,
                             AncestorType={x:Type Grid}},
                             Path=RowDefinitions[0].ActualHeight}"
@@ -114,11 +114,13 @@
 
                     <RadioButton Grid.Column="0" 
                                  Content="JSON" 
+                                 Command="{Binding Path=RadioButtonJsonCommand}"
                                  HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"
                                  />
 
                                  <RadioButton Grid.Column="2" 
                                  Content="XML" 
+                                 Command="{Binding Path=RadioButtonXmlCommand}"
                                  HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"
                                  />
                 </Grid>
@@ -131,7 +133,8 @@
                             AncestorType={x:Type Grid}},
                             Path=RowDefinitions[7].ActualHeight}"
                     Width="150" Background="White" HorizontalAlignment="Center" VerticalAlignment="Center"
-                    Content="Créer la sauvegarde"/>
+                    Content="Créer la sauvegarde"
+                    Command="{Binding CreateBackupCommand}"/>
 
         </Grid>
     </Grid>

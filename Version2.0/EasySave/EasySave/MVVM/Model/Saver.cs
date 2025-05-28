@@ -11,6 +11,7 @@ using EasySave_Logger;
 using EasySave_Logiciel;
 using System.Collections;
 using EasySave.MVVM.Model;
+using System.Windows;
 
 public class Saver
 {
@@ -46,7 +47,7 @@ public class Saver
 
         if (saveToDelete == null)
         {
-            Console.WriteLine(Controller.GetMessage("not_found") + save_name);
+            MessageBox.Show(Controller.GetMessage("not_found") + save_name, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             return;
         }
 
@@ -54,11 +55,11 @@ public class Saver
         {
             Directory.Delete(saveToDelete.Cible_repertory, true);
             ListSaveWork.Remove(saveToDelete);
-            Console.WriteLine(Controller.GetMessage("delete_success"), save_name);
+            MessageBox.Show(string.Format(Controller.GetMessage("delete_success"), save_name), "Success", MessageBoxButton.OK, MessageBoxImage.Information);
         }
         catch (Exception ex)
         {
-            Console.WriteLine(Controller.GetMessage("delete_error") + ex.Message);
+            MessageBox.Show(Controller.GetMessage("delete_error") + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
 

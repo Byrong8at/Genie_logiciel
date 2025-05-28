@@ -11,7 +11,7 @@ public class Controller
 {
     public static Saver currentSaver = new Saver();
 
-    
+
     public static string langueActuelle = "en";
     public static event Action LanguageChanged;
 
@@ -25,6 +25,7 @@ public class Controller
         ["menu_5"] = ("Supprimer une sauvegarde", "Delete a backup"),
         ["menu_6"] = ("Configuration vérification logiciels métier", "Business softwares verification configuration"),
         ["menu_7"] = ("Quitter", "Quit"),
+
         ["exit_msg"] = ("Etes vous sûr de vouloir fermer EasySave ? Certaines sauvegardes peuvent être en cours. Merci de vérifier leurs status avant de continuer.", "Are you sure you want to close EasySave? There could be some backups running. Please check the backup status before continuing."),
         ["invalid_choice"] = ("Choix non valide, veuillez réessayer.", "Invalid choice, please try again."),
         ["press_continue"] = ("\nAppuyez sur une touche pour continuer...", "\nPress any key to continue..."),
@@ -106,35 +107,63 @@ public class Controller
     }
 
 
-    public static void Save_selection(Saver saver,string selectedBackup)
+    public static void Save_selection(Saver saver, string selectedBackup)
     {
         saver.Open_save(selectedBackup);
     }
 
-    public static void BackupCreation(Saver saver, string saveName, string sourcePath, string targetPath, string logType)
+    public static void BackupCreation(string saveName, string sourcePath, string targetPath, string logType)
     {
         if (Logiciel.IsLogicielMetier())
         {
-            Console.WriteLine(GetMessage("software_running"));
+            MessageBox.Show(GetMessage("software_running"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             return;
         }
 
-        if (!saver.Check_save(saveName))
+        if (!currentSaver.Check_save(saveName))
         {
-            if (!string.IsNullOrWhiteSpace(sourcePath) && !string.IsNullOrWhiteSpace(targetPath))
-            {
-                saver.Create_backup(saveName, sourcePath, targetPath, logType);
-            }
-            else
-            {
-                //Error not handled (no paths)
-            }
+            currentSaver.Create_backup(saveName, sourcePath, targetPath, logType);
         }
         else
         {
-            //Error not handled (save already exists)
+            MessageBox.Show(GetMessage("save_exists"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
+    }
+
+    public static void BackupDeletion(string saveName)
+    {
+        if (Logiciel.IsLogicielMetier())
+        {
+            MessageBox.Show(GetMessage("software_running"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            return;
+        }
+
+        if (currentSaver.Check_save(saveName))
+        {
+            currentSaver.Delete_Save(saveName);
+        }
+        else
+        {
+            MessageBox.Show(string.Format(GetMessage("not_found"), saveName), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+    }
+
+    public static void BackupExecution(string selectedBackup)
+    {
+        if (Logiciel.IsLogicielMetier())
+        {
+            MessageBox.Show(GetMessage("software_running"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            return;
+        }
+        if (selectedBackup == "*")
+        {
+            //currentSaver.Execute_sequenced_backup();
+        }
+        else
+        {
+            //currentSaver.Execute_backup(selectedBackup);
+        }
     }
 }
 

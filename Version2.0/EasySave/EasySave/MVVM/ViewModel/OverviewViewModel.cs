@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Navigation;
 using EasySave.Core;
 using EasySave.Services;
+using EasySave_Logiciel;
 
 namespace EasySave.MVVM.ViewModel;
 

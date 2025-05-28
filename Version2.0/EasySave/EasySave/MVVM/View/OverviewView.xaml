@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:EasySave.MVVM.View"
+             xmlns:local="clr-namespace:EasySave.MVVM.View" 
+             xmlns:ikriv="clr-namespace:EasySave.Core.IKriv.Wpf"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
@@ -34,18 +35,42 @@
                 <ColumnDefinition Width="6*"/>
                 <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
+            
             <ListView Grid.Column="1"
                       Name="ListViewInProgress"
-                      ItemsSource="{Binding InProgressTasks}"
-                      SelectedItem="{Binding SelectedTask}"
-                      Height="{Binding RelativeSource={RelativeSource FindAncestor,
-                            AncestorType={x:Type Grid}},
-                            Path=RowDefinitions[0].ActualHeight}">
+                      ItemsSource="{Binding listCurrentBackups}">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Nom" Width="160" DisplayMemberBinding="{Binding Name}"/>
-                        <GridViewColumn Header="Avancement" Width="160" DisplayMemberBinding="{Binding Progress}"/>
-                        <GridViewColumn Header="Taille" Width="160" DisplayMemberBinding="{Binding Size}"/>
+                        <GridViewColumn Header="Nom" Width="{Binding RelativeSource={RelativeSource FindAncestor,
+                                                            AncestorType={x:Type Grid}},
+                                                            Path=ColumnDefinitions[1].ActualWidth,
+                                                            Converter={ikriv:MathConverter}, ConverterParameter=x/7}"
+                                        DisplayMemberBinding="{Binding Name}"/>
+                        <GridViewColumn Header="Source" Width="{Binding RelativeSource={RelativeSource FindAncestor,
+                                    AncestorType={x:Type Grid}},
+                                    Path=ColumnDefinitions[1].ActualWidth,
+                                    Converter={ikriv:MathConverter}, ConverterParameter=x/7}"
+                                    DisplayMemberBinding="{Binding Source_repertory}"/>
+                        <GridViewColumn Header="Cible" Width="{Binding RelativeSource={RelativeSource FindAncestor,
+                                    AncestorType={x:Type Grid}},
+                                    Path=ColumnDefinitions[1].ActualWidth,
+                                    Converter={ikriv:MathConverter}, ConverterParameter=x/7}"
+                                    DisplayMemberBinding="{Binding Cible_repertory}"/>
+                        <GridViewColumn Header="Type de log" Width="{Binding RelativeSource={RelativeSource FindAncestor,
+                                    AncestorType={x:Type Grid}},
+                                    Path=ColumnDefinitions[1].ActualWidth,
+                                    Converter={ikriv:MathConverter}, ConverterParameter=x/7}"
+                                    DisplayMemberBinding="{Binding Log_type}"/>
+                        <GridViewColumn Header="Avancement" Width="{Binding RelativeSource={RelativeSource FindAncestor,
+                                                            AncestorType={x:Type Grid}},
+                                                            Path=ColumnDefinitions[1].ActualWidth,
+                                                            Converter={ikriv:MathConverter}, ConverterParameter=x/7}"
+                                                            DisplayMemberBinding="{Binding Progress}"/>
+                        <GridViewColumn Header="Taille" Width="{Binding RelativeSource={RelativeSource FindAncestor,
+                                                            AncestorType={x:Type Grid}},
+                                                            Path=ColumnDefinitions[1].ActualWidth,
+                                                            Converter={ikriv:MathConverter}, ConverterParameter=x/7}"
+                                                            DisplayMemberBinding="{Binding Size}"/>
                     </GridView>
                 </ListView.View>
             </ListView>
