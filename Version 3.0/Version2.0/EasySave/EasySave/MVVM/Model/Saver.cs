@@ -274,8 +274,7 @@ public class Saver
 
         try
         {
-            //while (Break_Save)
-            //{
+            
                 var dir = new DirectoryInfo(sourceDir);
                 if (!dir.Exists)
                     throw new DirectoryNotFoundException($"Source directory not found: {dir.FullName}");
@@ -303,6 +302,15 @@ public class Saver
                 // Fichiers prioritaires
                 foreach (FileInfo file in dir.GetFiles())
                 {
+                    if (!Break_Save)
+                    {
+                        Break_Save = true;
+                        Application.Current.Dispatcher.Invoke(() =>
+                        {
+                            MessageBox.Show("Le statut Break_Save a été remis à true.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                        });
+                    return;
+                    }
                     string targetFilePath = Path.Combine(backupFolder, file.Name);
                     string ext = Path.GetExtension(file.FullName).ToLower();
 
@@ -314,12 +322,25 @@ public class Saver
                     {
                         while (!Logiciel.LogicielHandler())
                         {
-                            Console.WriteLine("Logiciel métier détecté, sauvegarde en pause...");
-                            Thread.Sleep(1000);
+                            Application.Current.Dispatcher.Invoke(() =>
+                            {
+                                MessageBox.Show("Logiciel detecté.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                            }); 
+                            Thread.Sleep(2000);
 
                         }
 
-                        long File_length = new System.IO.FileInfo(file.FullName).Length;
+                        while (!State_Save)
+                        {
+                            Application.Current.Dispatcher.Invoke(() =>
+                            {
+                                MessageBox.Show("Le téléchargement est en pause.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                            });
+                            Thread.Sleep(2000);
+
+                        }
+
+                    long File_length = new System.IO.FileInfo(file.FullName).Length;
                         if (File_length > Max_SizeFile)
                         {
                             lock (largeFileLock) // empêche 2 gros fichiers d'être copiés en même temps
@@ -368,16 +389,38 @@ public class Saver
                 // Fichiers à copier après
                 foreach (string filePath in executeAfter)
                 {
+                    if (!Break_Save)
+                    {
+                        Break_Save = true;
+                        Application.Current.Dispatcher.Invoke(() =>
+                        {
+                            MessageBox.Show("Le statut Break_Save a été remis à true.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                        });
+                        return;
+                    }
                     FileInfo file = new FileInfo(filePath);
                     string targetFilePath = Path.Combine(backupFolder, file.Name);
 
                     long File_length = new System.IO.FileInfo(file.FullName).Length;
                     while (!Logiciel.LogicielHandler())
                     {
-                        Console.WriteLine("Logiciel métier détecté, sauvegarde en pause...");
-                        Thread.Sleep(5000);
+                        Application.Current.Dispatcher.Invoke(() =>
+                        {
+                            MessageBox.Show("Logiciel detecté.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                        }); 
+                        Thread.Sleep(2000);
                     }
-                    if (File_length > Max_SizeFile)
+
+                    while (!State_Save)
+                    {
+                        Application.Current.Dispatcher.Invoke(() =>
+                        {
+                            MessageBox.Show("Le téléchargement est en pause.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                        });
+                        Thread.Sleep(2000);
+
+                    }
+                if (File_length > Max_SizeFile)
                     {
                         lock (largeFileLock) // empêche 2 gros fichiers d'être copiés en même temps
                         {
@@ -422,13 +465,7 @@ public class Saver
                 }
 
                 Console.WriteLine("Sauvegarde réussie avec succès.");
-            /*}
-            Break_Save = true;
-            Application.Current.Dispatcher.Invoke(() =>
-            {
-                MessageBox.Show("Le statut Break_Save a été remis à true.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
-            });
-            return;*/
+            return;   
         }
         
         catch (Exception ex)

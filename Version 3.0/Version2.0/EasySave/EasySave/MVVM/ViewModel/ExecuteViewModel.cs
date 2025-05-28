@@ -13,6 +13,7 @@ namespace EasySave.MVVM.ViewModel;
 
 public class ExecuteViewModel : Core.ViewModel
 {
+
     private async void ExecuteBackup()
     {
         if (string.IsNullOrEmpty(targetBackupName))
@@ -53,6 +54,11 @@ public class ExecuteViewModel : Core.ViewModel
         }
     }
 
+    public RelayCommand Click_PauseCommand { get; set; }
+    public RelayCommand Click_StartCommand { get; set; }
+    public RelayCommand Click_BreakCommand { get; set; }
+
+
     private string _targetBackupName;
     public string targetBackupName
     {
@@ -86,5 +92,9 @@ public class ExecuteViewModel : Core.ViewModel
         ExecuteBackupCommand = new RelayCommand(o => { 
             ExecuteBackup(); 
         }, o => true);
+        Click_PauseCommand = new RelayCommand(o => Click_Pause(o, null), o => true);
+        Click_StartCommand = new RelayCommand(o => Click_Start(o, null), o => true);
+        Click_BreakCommand = new RelayCommand(o => Click_Break(o, null), o => true);
+
     }
 }

@@ -11,7 +11,7 @@ namespace EasySave_Logiciel
     {
 
         public static event Action ProJobChanged;
-        public static List<string> logicielMetierProcessName = new List<string> { "calc.exe" }; // Liste des logiciels métier 
+        public static List<string> logicielMetierProcessName = new List<string> { "notepad.exe" }; // Liste des logiciels métier 
 
         public static void AddLogicielMetier(string processName)
         {
