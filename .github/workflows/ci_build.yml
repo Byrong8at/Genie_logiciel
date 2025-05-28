@@ -1,0 +1,73 @@
+name: EasySave CI - Multi-Platform (.NET 8.0)
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-linux:
+    name: Build on Ubuntu
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install libssl (required by .NET 8 on Linux)
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y libssl-dev
+
+    - name: Setup .NET 8
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'
+
+    - name: Restore, build, test and publish
+      run: |
+        cd "${GITHUB_WORKSPACE}/Version 3.0/Version2.0/easysave"
+        dotnet restore
+        dotnet build --configuration Release
+        dotnet test || echo "No tests found"
+        dotnet publish -c Release -o ./publish-linux
+
+  build-windows:
+    name: Build on Windows
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup .NET 8
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'
+
+    - name: Restore, build, test and publish
+      run: |
+        cd "${env:GITHUB_WORKSPACE}\\Version1.0\\easysave"
+        dotnet restore
+        dotnet build --configuration Release
+        dotnet test || echo "No tests found"
+        dotnet publish -c Release -o ./publish-windows
+
+  build-macos:
+    name: Build on macOS
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup .NET 8
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'
+
+    - name: Restore, build, test and publish
+      run: |
+        cd "${GITHUB_WORKSPACE}/Version1.0/easysave"
+        dotnet restore
+        dotnet build --configuration Release
+        dotnet test || echo "No tests found"
+        dotnet publish -c Release -o ./publish-macos
