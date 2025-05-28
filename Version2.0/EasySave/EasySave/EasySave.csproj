@@ -19,6 +19,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="Log_generate">
+      <HintPath>References\Log_generate.dll</HintPath>
+    </Reference>
+    <Reference Include="Xml_logger">
+      <HintPath>References\Xml_logger.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="MVVM\View\Flag_of_France.png" />
     <Resource Include="MVVM\View\Flag_of_the_United_Kingdom.png" />
   </ItemGroup>

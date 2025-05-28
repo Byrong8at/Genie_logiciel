@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Versionn_1._9_WPF.MVVM.View
+namespace EasySave.MVVM.View
 {
     /// <summary>
     /// Logique d'interaction pour ExecuteView.xaml
@@ -25,9 +26,23 @@ namespace Versionn_1._9_WPF.MVVM.View
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        
+
+        
+    }
+    public class IndexConverter : IValueConverter
+    {
+        public object Convert(object value, Type TargetType, object parameter, CultureInfo culture)
         {
-            // Launch the selected backup(s)
+            ListViewItem item = (ListViewItem)value;
+            ListView listView = ItemsControl.ItemsControlFromItemContainer(item) as ListView;
+            int index = listView.ItemContainerGenerator.IndexFromContainer(item);
+            return index.ToString();
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
         }
     }
 }

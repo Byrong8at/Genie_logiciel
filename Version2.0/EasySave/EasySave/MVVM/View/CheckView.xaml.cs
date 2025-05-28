@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Versionn_1._9_WPF.MVVM.View
+namespace EasySave.MVVM.View
 {
     /// <summary>
     /// Logique d'interaction pour CheckView.xaml
@@ -23,6 +23,16 @@ namespace Versionn_1._9_WPF.MVVM.View
         public CheckView()
         {
             InitializeComponent();
+        }
+
+        private void EditCategory(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DeleteCategory(object sender, EventArgs e)
+        {
+
         }
     }
 }

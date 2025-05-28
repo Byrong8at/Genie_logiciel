@@ -3,14 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Navigation;
-using Versionn_1._9_WPF.Core;
-using Versionn_1._9_WPF.Services;
+using EasySave.Core;
+using EasySave.MVVM.Model;
+using EasySave.Services;
 
-namespace Versionn_1._9_WPF.MVVM.ViewModel;
+namespace EasySave.MVVM.ViewModel;
 
 public class LanguageViewModel : Core.ViewModel
 {
+    private void LanguageChoiceFr()
+    {
+        Controller.Language_choice("fr");
+    }
+
+    private void LanguageChoiceEn()
+    {
+        Controller.Language_choice("en");
+    }
+
     private INavigationService _navigation;
 
     public INavigationService Navigation
@@ -31,6 +43,12 @@ public class LanguageViewModel : Core.ViewModel
     public RelayCommand NavigateDeleteCommand { get; set; }
     public RelayCommand NavigateCheckCommand { get; set; }
 
+    // Command that Naviagate home after changing language to fr
+    public RelayCommand LanguageChoiceFrCommand { get; set; }
+
+    // Command that Naviagate home after changing language to en
+    public RelayCommand LanguageChoiceEnCommand { get; set; }
+
     public LanguageViewModel(INavigationService navService)
     {
         Navigation = navService;
@@ -41,5 +59,15 @@ public class LanguageViewModel : Core.ViewModel
         NavigateOverviewCommand = new RelayCommand(o => { Navigation.NavigateTo<OverviewViewModel>(); }, o => true);
         NavigateDeleteCommand = new RelayCommand(o => { Navigation.NavigateTo<DeleteViewModel>(); }, o => true);
         NavigateCheckCommand = new RelayCommand(o => { Navigation.NavigateTo<CheckViewModel>(); }, o => true);
+        LanguageChoiceFrCommand = new RelayCommand(o =>
+        {
+            LanguageChoiceFr();
+            Navigation.NavigateTo<HomeViewModel>();
+        }, o => true);
+        LanguageChoiceEnCommand = new RelayCommand(o =>
+        {
+            LanguageChoiceEn();
+            Navigation.NavigateTo<HomeViewModel>();
+        }, o => true);
     }
 }

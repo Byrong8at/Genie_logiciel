@@ -4,13 +4,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Navigation;
-using Versionn_1._9_WPF.Core;
-using Versionn_1._9_WPF.Services;
+using EasySave.Core;
+using EasySave.MVVM.Model;
+using EasySave.Services;
 
-namespace Versionn_1._9_WPF.MVVM.ViewModel;
+namespace EasySave.MVVM.ViewModel;
 
 public class ExecuteViewModel : Core.ViewModel
 {
+    private void ExecuteBackup()
+    {
+        if (string.IsNullOrEmpty(targetBackupName))
+        {
+            System.Windows.MessageBox.Show("Please enter a backup number to execute.", "Error", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Error);
+            return;
+        }
+        Controller.BackupExecution(targetBackupName);
+    }
+
+
     private INavigationService _navigation;
 
     public INavigationService Navigation
@@ -23,6 +35,17 @@ public class ExecuteViewModel : Core.ViewModel
         }
     }
 
+    private string _targetBackupName;
+    public string targetBackupName
+    {
+        get => _targetBackupName;
+        set
+        {
+            _targetBackupName = value;
+            OnPropertyChanged();
+        }
+    }
+
     public RelayCommand NavigateHomeCommand { get; set; }
     public RelayCommand NavigateLanguageCommand { get; set; }
     public RelayCommand NavigateExecuteCommand { get; set; }
@@ -31,6 +54,7 @@ public class ExecuteViewModel : Core.ViewModel
     public RelayCommand NavigateDeleteCommand { get; set; }
     public RelayCommand NavigateCheckCommand { get; set; }
 
+    public RelayCommand ExecuteBackupCommand { get; set; }
     public ExecuteViewModel(INavigationService navService)
     {
         Navigation = navService;
@@ -41,5 +65,8 @@ public class ExecuteViewModel : Core.ViewModel
         NavigateOverviewCommand = new RelayCommand(o => { Navigation.NavigateTo<OverviewViewModel>(); }, o => true);
         NavigateDeleteCommand = new RelayCommand(o => { Navigation.NavigateTo<DeleteViewModel>(); }, o => true);
         NavigateCheckCommand = new RelayCommand(o => { Navigation.NavigateTo<CheckViewModel>(); }, o => true);
+        ExecuteBackupCommand = new RelayCommand(o => { 
+            ExecuteBackup(); 
+        }, o => true);
     }
 }

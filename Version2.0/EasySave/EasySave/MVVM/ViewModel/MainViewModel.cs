@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Versionn_1._9_WPF.Core;
-using Versionn_1._9_WPF.Services;
+using EasySave.Core;
+using EasySave.Services;
 
-namespace Versionn_1._9_WPF.MVVM.ViewModel;
+namespace EasySave.MVVM.ViewModel;
 
 public class MainViewModel : Core.ViewModel
 {

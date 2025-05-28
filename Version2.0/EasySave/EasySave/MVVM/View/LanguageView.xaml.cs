@@ -12,8 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using EasySave.MVVM.ViewModel;
 
-namespace Versionn_1._9_WPF.MVVM.View
+namespace EasySave.MVVM.View
 {
     /// <summary>
     /// Logique d'interaction pour LanguageView.xaml
@@ -23,16 +24,6 @@ namespace Versionn_1._9_WPF.MVVM.View
         public LanguageView()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            // Change language to French
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            // Change language to English
         }
     }
 }

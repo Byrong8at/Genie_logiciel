@@ -2,12 +2,12 @@
 using System.Data;
 using System.Windows;
 using Microsoft.Extensions.DependencyInjection;
-using Versionn_1._9_WPF.Core;
-using Versionn_1._9_WPF.MVVM.View;
-using Versionn_1._9_WPF.MVVM.ViewModel;
-using Versionn_1._9_WPF.Services;
+using EasySave.Core;
+using EasySave.MVVM.View;
+using EasySave.MVVM.ViewModel;
+using EasySave.Services;
 
-namespace Versionn_1._9_WPF
+namespace EasySave
 {
     /// <summary>
     /// Interaction logic for App.xaml

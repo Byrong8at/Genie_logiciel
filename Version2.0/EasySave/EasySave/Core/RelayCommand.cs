@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace Versionn_1._9_WPF.Core;
+namespace EasySave.Core;
 
 public class RelayCommand : ICommand
 {

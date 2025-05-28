@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Versionn_1._9_WPF.Core;
-using Versionn_1._9_WPF.MVVM.ViewModel;
+using EasySave.Core;
+using EasySave.MVVM.Model;
+using EasySave.MVVM.ViewModel;
 
-namespace Versionn_1._9_WPF.Services;
+namespace EasySave.Services;
 
 public interface INavigationService
 {

@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Data;
 using System.Windows.Navigation;
-using Versionn_1._9_WPF.Core;
-using Versionn_1._9_WPF.Services;
+using EasySave.Core;
+using EasySave.Services;
+using EasySave_Logiciel;
 
-namespace Versionn_1._9_WPF.MVVM.ViewModel;
+namespace EasySave.MVVM.ViewModel;
 
 public class CheckViewModel : Core.ViewModel
 {
@@ -23,6 +25,27 @@ public class CheckViewModel : Core.ViewModel
         }
     }
 
+    private string _targetProJobName;
+    public string targetProJobName
+    {
+        get => _targetProJobName;
+        set
+        {
+            _targetProJobName = value;
+            OnPropertyChanged();
+        }
+    }
+
+    private void AddProJob(string proJobName)
+    {
+        Logiciel.AddLogicielMetier(proJobName);
+    }
+
+    private void DeleteProJob(string proJobName)
+    {
+        Logiciel.RemoveLogicielMetier(proJobName);
+    }
+
     public RelayCommand NavigateHomeCommand { get; set; }
     public RelayCommand NavigateLanguageCommand { get; set; }
     public RelayCommand NavigateExecuteCommand { get; set; }
@@ -30,6 +53,10 @@ public class CheckViewModel : Core.ViewModel
     public RelayCommand NavigateOverviewCommand { get; set; }
     public RelayCommand NavigateDeleteCommand { get; set; }
     public RelayCommand NavigateCheckCommand { get; set; }
+
+    public RelayCommand AddProJobCommand { get; set; }
+
+    public RelayCommand DeleteProJobCommand { get; set; }
 
     public CheckViewModel(INavigationService navService)
     {
@@ -41,5 +68,11 @@ public class CheckViewModel : Core.ViewModel
         NavigateOverviewCommand = new RelayCommand(o => { Navigation.NavigateTo<OverviewViewModel>(); }, o => true);
         NavigateDeleteCommand = new RelayCommand(o => { Navigation.NavigateTo<DeleteViewModel>(); }, o => true);
         NavigateCheckCommand = new RelayCommand(o => { Navigation.NavigateTo<CheckViewModel>(); }, o => true);
+        AddProJobCommand = new RelayCommand(o => { 
+            AddProJob(targetProJobName);
+        }, o => true);
+        DeleteProJobCommand = new RelayCommand(o => {
+            DeleteProJob(targetProJobName);
+        }, o => true);
     }
 }
