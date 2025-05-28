@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\
 EasySave
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
-C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version2.0\EasySave\EasySave\App.xaml
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\App.xaml
 8-525221183
 
 33818224268
-2021433073126
+202-1074601548
 MVVM\View\CheckView.xaml;MVVM\View\CreateView.xaml;MVVM\View\DeleteView.xaml;MVVM\View\ExecuteView.xaml;MVVM\View\HomeView.xaml;MVVM\View\LanguageView.xaml;MVVM\View\MainWindow.xaml;MVVM\View\OverviewView.xaml;
 
 False

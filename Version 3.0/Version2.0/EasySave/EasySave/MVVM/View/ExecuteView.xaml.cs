@@ -27,8 +27,6 @@ namespace EasySave.MVVM.View
         }
 
         
-
-        
     }
     public class IndexConverter : IValueConverter
     {

@@ -27,6 +27,9 @@ public class Saver
     static readonly object largeFileLock = new(); // Verrou pour gros fichiers
     private static readonly object logLock = new();
 
+    public static bool State_Save = true;
+    public static bool Break_Save = true;
+
     public List<SaveWork> Get_Save_Work()
     {
         return ListSaveWork;
@@ -77,7 +80,7 @@ public class Saver
         return saveToDelete != null;
     }
 
-    public void Open_save(string choice)
+    public async Task Open_save(string choice)
     {
 
         if (string.IsNullOrWhiteSpace(choice))
@@ -132,65 +135,32 @@ public class Saver
         }
 
 
-        List<Thread> threads = new();
+        List<Task> tasks = new();
         foreach (var save in savesToExecute)
         {
-            Thread t = new Thread(() =>
+            tasks.Add(Task.Run(() =>
             {
                 semaphore.WaitOne();
-
                 try
                 {
-                    string lang = Dictionnary.GetLangue();
-                    string logs_type = save.Log_type;
-
                     if (!Logiciel.LogicielHandler())
                     {
-                        switch (lang)
-                        {
-                            case "fr":
-                                Console.WriteLine($"Sauvegarde {save.Name} bloqué.");
-                                break;
-                            case "en":
-                                Console.WriteLine($"backup {save.Name} block.");
-                                break;
-                        }
                         lock (logLock)
-                        {
-                            Logger.Log_break(logs_type, save.Name);
-                        }
+                            Logger.Log_break(save.Log_type, save.Name);
                     }
                     else
                     {
                         Copy_Backup(save);
-
-                        switch (lang)
-                        {
-                            case "fr":
-                                Console.WriteLine($"Sauvegarde {save.Name} exécutée.");
-                                break;
-                            case "en":
-                                Console.WriteLine($"backup {save.Name} executed.");
-                                break;
-                        }
                     }
-
-
                 }
                 finally
                 {
                     semaphore.Release();
                 }
-            });
-
-            t.Start();
-            threads.Add(t);
+            }));
         }
 
-        foreach (var thread in threads)
-        {
-            thread.Join();
-        }
+        await Task.WhenAll(tasks);
     }
 
 
@@ -304,55 +274,115 @@ public class Saver
 
         try
         {
-            var dir = new DirectoryInfo(sourceDir);
-            if (!dir.Exists)
-                throw new DirectoryNotFoundException($"Source directory not found: {dir.FullName}");
+            //while (Break_Save)
+            //{
+                var dir = new DirectoryInfo(sourceDir);
+                if (!dir.Exists)
+                    throw new DirectoryNotFoundException($"Source directory not found: {dir.FullName}");
 
-            // Seulement au premier appel : on ajoute le nom de la sauvegarde
-            string backupFolder = isRoot
-                ? Path.Combine(destinationDir, name_path)
-                : destinationDir;
+                // Seulement au premier appel : on ajoute le nom de la sauvegarde
+                string backupFolder = isRoot
+                    ? Path.Combine(destinationDir, name_path)
+                    : destinationDir;
 
-            Directory.CreateDirectory(backupFolder);
+                Directory.CreateDirectory(backupFolder);
 
-            DirectoryInfo[] dirs = dir.GetDirectories();
-            FileInfo[] files = dir.GetFiles("*", recursive ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly);
+                DirectoryInfo[] dirs = dir.GetDirectories();
+                FileInfo[] files = dir.GetFiles("*", recursive ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly);
 
-            int totalFiles = files.Length;
-            int filesCopied = 0;
-            long totalSize = 0;
-            var start = DateTime.Now;
+                int totalFiles = files.Length;
+                int filesCopied = 0;
+                long totalSize = 0;
+                var start = DateTime.Now;
 
-            lock (logLock)
-            {
-                Logger.Log_State(name_path, sourceDir, backupFolder, totalFiles, totalSize, filesCopied, type_log);
-            }
-
-            // Fichiers prioritaires
-            foreach (FileInfo file in dir.GetFiles())
-            {
-                string targetFilePath = Path.Combine(backupFolder, file.Name);
-                string ext = Path.GetExtension(file.FullName).ToLower();
-
-                if (ext != ".xlsx" && ext != ".pdf")
+                lock (logLock)
                 {
-                    executeAfter.Add(file.FullName);
+                    Logger.Log_State(name_path, sourceDir, backupFolder, totalFiles, totalSize, filesCopied, type_log);
                 }
-                else
+
+                // Fichiers prioritaires
+                foreach (FileInfo file in dir.GetFiles())
                 {
+                    string targetFilePath = Path.Combine(backupFolder, file.Name);
+                    string ext = Path.GetExtension(file.FullName).ToLower();
+
+                    if (ext != ".xlsx" && ext != ".pdf")
+                    {
+                        executeAfter.Add(file.FullName);
+                    }
+                    else
+                    {
+                        while (!Logiciel.LogicielHandler())
+                        {
+                            Console.WriteLine("Logiciel métier détecté, sauvegarde en pause...");
+                            Thread.Sleep(1000);
+
+                        }
+
+                        long File_length = new System.IO.FileInfo(file.FullName).Length;
+                        if (File_length > Max_SizeFile)
+                        {
+                            lock (largeFileLock) // empêche 2 gros fichiers d'être copiés en même temps
+                            {
+                                if (Check_extension(file.FullName, Path.GetExtension(ext).ToLower()))
+                                {
+                                    CryptoManager.EncryptFile(file.FullName, targetFilePath);
+                                }
+                                else
+                                {
+                                    file.CopyTo(targetFilePath, true);
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if (Check_extension(file.FullName, Path.GetExtension(ext).ToLower()))
+                            {
+                                CryptoManager.EncryptFile(file.FullName, targetFilePath);
+                            }
+                            else
+                            {
+                                file.CopyTo(targetFilePath, true);
+                            }
+                        }
+                        totalSize += file.Length;
+                        filesCopied++;
+
+                        lock (logLock)
+                        {
+                            Logger.Log_State(name_path, file.FullName, targetFilePath, totalFiles, totalSize, filesCopied, type_log);
+                        }
+                    }
+                }
+
+                // Recopie des sous-dossiers
+                if (recursive)
+                {
+                    foreach (DirectoryInfo subDir in dirs)
+                    {
+                        string newDestinationDir = Path.Combine(backupFolder, subDir.Name);
+                        CopyDirectory(name_path, subDir.FullName, newDestinationDir, type_log, true, false);
+                    }
+                }
+
+                // Fichiers à copier après
+                foreach (string filePath in executeAfter)
+                {
+                    FileInfo file = new FileInfo(filePath);
+                    string targetFilePath = Path.Combine(backupFolder, file.Name);
+
+                    long File_length = new System.IO.FileInfo(file.FullName).Length;
                     while (!Logiciel.LogicielHandler())
                     {
                         Console.WriteLine("Logiciel métier détecté, sauvegarde en pause...");
-                        Thread.Sleep(1000);
-
+                        Thread.Sleep(5000);
                     }
-
-                    long File_length = new System.IO.FileInfo(file.FullName).Length;
                     if (File_length > Max_SizeFile)
                     {
                         lock (largeFileLock) // empêche 2 gros fichiers d'être copiés en même temps
                         {
-                            if (Check_extension(file.FullName, Path.GetExtension(ext).ToLower()))
+
+                            if (Check_extension(file.FullName, Path.GetExtension(file.FullName).ToLower()))
                             {
                                 CryptoManager.EncryptFile(file.FullName, targetFilePath);
                             }
@@ -364,7 +394,8 @@ public class Saver
                     }
                     else
                     {
-                        if (Check_extension(file.FullName, Path.GetExtension(ext).ToLower()))
+
+                        if (Check_extension(file.FullName, Path.GetExtension(file.FullName).ToLower()))
                         {
                             CryptoManager.EncryptFile(file.FullName, targetFilePath);
                         }
@@ -381,76 +412,25 @@ public class Saver
                         Logger.Log_State(name_path, file.FullName, targetFilePath, totalFiles, totalSize, filesCopied, type_log);
                     }
                 }
-            }
 
-            // Recopie des sous-dossiers
-            if (recursive)
-            {
-                foreach (DirectoryInfo subDir in dirs)
-                {
-                    string newDestinationDir = Path.Combine(backupFolder, subDir.Name);
-                    CopyDirectory(name_path, subDir.FullName, newDestinationDir, type_log, true, false);
-                }
-            }
-
-            // Fichiers à copier après
-            foreach (string filePath in executeAfter)
-            {
-                FileInfo file = new FileInfo(filePath);
-                string targetFilePath = Path.Combine(backupFolder, file.Name);
-
-                long File_length = new System.IO.FileInfo(file.FullName).Length;
-                while (!Logiciel.LogicielHandler())
-                {
-                    Console.WriteLine("Logiciel métier détecté, sauvegarde en pause...");
-                    Thread.Sleep(5000);
-                }
-                if (File_length > Max_SizeFile)
-                {
-                    lock (largeFileLock) // empêche 2 gros fichiers d'être copiés en même temps
-                    {
-
-                        if (Check_extension(file.FullName, Path.GetExtension(file.FullName).ToLower()))
-                        {
-                            CryptoManager.EncryptFile(file.FullName, targetFilePath);
-                        }
-                        else
-                        {
-                            file.CopyTo(targetFilePath, true);
-                        }
-                    }
-                }
-                else
-                {
-
-                    if (Check_extension(file.FullName, Path.GetExtension(file.FullName).ToLower()))
-                    {
-                        CryptoManager.EncryptFile(file.FullName, targetFilePath);
-                    }
-                    else
-                    {
-                        file.CopyTo(targetFilePath, true);
-                    }
-                }
-                totalSize += file.Length;
-                filesCopied++;
+                var end = DateTime.Now;
+                double totalDuration = (end - start).TotalSeconds;
 
                 lock (logLock)
                 {
-                    Logger.Log_State(name_path, file.FullName, targetFilePath, totalFiles, totalSize, filesCopied, type_log);
+                    Logger.Log_end(type_log, name_path, sourceDir, backupFolder, totalSize, totalDuration);
                 }
-            }
 
-            var end = DateTime.Now;
-            double totalDuration = (end - start).TotalSeconds;
-
-            lock (logLock)
+                Console.WriteLine("Sauvegarde réussie avec succès.");
+            /*}
+            Break_Save = true;
+            Application.Current.Dispatcher.Invoke(() =>
             {
-                Logger.Log_end(type_log, name_path, sourceDir, backupFolder, totalSize, totalDuration);
-            }
-
-            Console.WriteLine("Sauvegarde réussie avec succès.");
+                MessageBox.Show("Le statut Break_Save a été remis à true.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+            });
+            return;*/
         }
+        
         catch (Exception ex)
         {
             Console.WriteLine("Erreur durant la sauvegarde : " + ex.Message);

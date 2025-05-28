@@ -149,22 +149,26 @@ public class Controller
         }
     }
 
-    public static void BackupExecution(string selectedBackup)
+    public static async Task BackupExecutionAsync(string selectedBackup)
     {
         if (Logiciel.IsLogicielMetier())
         {
             MessageBox.Show(GetMessage("software_running"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             return;
         }
-        if (selectedBackup == "*")
-        {
 
-            currentSaver.Open_save("*");
-        }
-        else
+        await Task.Run(() =>
         {
-            currentSaver.Open_save(selectedBackup);
-        }
+            if (selectedBackup == "*")
+            {
+                currentSaver.Open_save("*");
+            }
+            else
+            {
+                currentSaver.Open_save(selectedBackup);
+            }
+        });
     }
+
 }
 

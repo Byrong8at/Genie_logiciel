@@ -113,11 +113,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lefhu\\OneDrive\\Documents\\GitHub\\Genie_logiciel\\Version2.0\\EasySave\\EasySave\\EasySave.csproj",
+      "projectUniqueName": "C:\\Users\\lefhu\\OneDrive\\Documents\\GitHub\\Genie_logiciel\\Version 3.0\\Version2.0\\EasySave\\EasySave\\EasySave.csproj",
       "projectName": "EasySave",
-      "projectPath": "C:\\Users\\lefhu\\OneDrive\\Documents\\GitHub\\Genie_logiciel\\Version2.0\\EasySave\\EasySave\\EasySave.csproj",
+      "projectPath": "C:\\Users\\lefhu\\OneDrive\\Documents\\GitHub\\Genie_logiciel\\Version 3.0\\Version2.0\\EasySave\\EasySave\\EasySave.csproj",
       "packagesPath": "C:\\Users\\lefhu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lefhu\\OneDrive\\Documents\\GitHub\\Genie_logiciel\\Version2.0\\EasySave\\EasySave\\obj\\",
+      "outputPath": "C:\\Users\\lefhu\\OneDrive\\Documents\\GitHub\\Genie_logiciel\\Version 3.0\\Version2.0\\EasySave\\EasySave\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

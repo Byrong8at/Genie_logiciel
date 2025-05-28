@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Navigation;
 using EasySave.Core;
 using EasySave.MVVM.Model;
@@ -12,16 +13,33 @@ namespace EasySave.MVVM.ViewModel;
 
 public class ExecuteViewModel : Core.ViewModel
 {
-    private void ExecuteBackup()
+    private async void ExecuteBackup()
     {
         if (string.IsNullOrEmpty(targetBackupName))
         {
             System.Windows.MessageBox.Show("Please enter a backup number to execute.", "Error", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Error);
             return;
         }
-        Controller.BackupExecution(targetBackupName);
+
+        await Controller.BackupExecutionAsync(targetBackupName);
     }
 
+
+    private void Click_Pause(object sender, RoutedEventArgs e)
+    {
+        Saver.State_Save = false;
+    }
+
+    private void Click_Start(object sender, RoutedEventArgs e)
+    {
+        Saver.State_Save = true; 
+
+    }
+
+    private void Click_Break(object sender, RoutedEventArgs e)
+    {
+        Saver.Break_Save = false;
+    }
 
     private INavigationService _navigation;
 
