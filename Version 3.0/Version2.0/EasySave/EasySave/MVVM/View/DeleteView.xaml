@@ -23,7 +23,7 @@
        FontSize="36" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0" FontWeight="Bold" />
 
         <TextBlock Grid.Row="1"
-               Text="Supprimer une sauvegarde" 
+               Text="{Binding currentMenu5}" 
                Foreground="White" 
                FontSize="44" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,0,0,0" FontWeight="Bold" />
 
@@ -49,7 +49,7 @@
                Path=RowDefinitions[0].ActualHeight}"
             >
                 <TextBox Width="250" Margin="0,0,10,0" x:Name="targetBackupNameTextBox" Text="{Binding targetBackupName, UpdateSourceTrigger=PropertyChanged}" />
-                <Button Content="Supprimer" Command="{Binding Path=DeleteBackupCommand}" />
+                <Button Content="{Binding currentDelete}" Command="{Binding Path=DeleteBackupCommand}" />
             </StackPanel>
 
 
@@ -59,22 +59,22 @@
           ItemsSource="{Binding listCurrentBackups}">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Nom" Width="{Binding RelativeSource={RelativeSource FindAncestor,
+                        <GridViewColumn Header="{Binding currentName}" Width="{Binding RelativeSource={RelativeSource FindAncestor,
                                                 AncestorType={x:Type Grid}},
                                                 Path=ColumnDefinitions[1].ActualWidth,
                                                 Converter={ikriv:MathConverter}, ConverterParameter=x/(5)}"
                             DisplayMemberBinding="{Binding Name}"/>
-                        <GridViewColumn Header="Source" Width="{Binding RelativeSource={RelativeSource FindAncestor,
+                        <GridViewColumn Header="{Binding currentSource}" Width="{Binding RelativeSource={RelativeSource FindAncestor,
                         AncestorType={x:Type Grid}},
                         Path=ColumnDefinitions[1].ActualWidth,
                         Converter={ikriv:MathConverter}, ConverterParameter=x/4}"
                         DisplayMemberBinding="{Binding Source_repertory}"/>
-                        <GridViewColumn Header="Cible" Width="{Binding RelativeSource={RelativeSource FindAncestor,
+                        <GridViewColumn Header="{Binding currentTarget}" Width="{Binding RelativeSource={RelativeSource FindAncestor,
                         AncestorType={x:Type Grid}},
                         Path=ColumnDefinitions[1].ActualWidth,
                         Converter={ikriv:MathConverter}, ConverterParameter=x/4}"
                         DisplayMemberBinding="{Binding Cible_repertory}"/>
-                        <GridViewColumn Header="Type de log" Width="{Binding RelativeSource={RelativeSource FindAncestor,
+                        <GridViewColumn Header="{Binding currentLogType}" Width="{Binding RelativeSource={RelativeSource FindAncestor,
                         AncestorType={x:Type Grid}},
                         Path=ColumnDefinitions[1].ActualWidth,
                         Converter={ikriv:MathConverter}, ConverterParameter=x/5}"

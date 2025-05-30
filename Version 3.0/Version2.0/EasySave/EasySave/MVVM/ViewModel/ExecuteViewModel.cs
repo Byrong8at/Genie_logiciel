@@ -18,7 +18,7 @@ public class ExecuteViewModel : Core.ViewModel
     {
         if (string.IsNullOrEmpty(targetBackupName))
         {
-            System.Windows.MessageBox.Show("Please enter a backup number to execute.", "Error", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Error);
+            System.Windows.MessageBox.Show(currentEnterBackupNameError, currentError, System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Error);
             return;
         }
 

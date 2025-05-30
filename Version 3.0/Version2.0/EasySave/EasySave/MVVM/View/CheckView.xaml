@@ -22,7 +22,7 @@
                    FontSize="36" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0" FontWeight="Bold" />
 
         <TextBlock Grid.Row="1"
-                   Text="Vérification du logiciel métier" 
+                   Text="{Binding currentCheckProJob}" 
                    Foreground="White" 
                    FontSize="44" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,0,0,0" FontWeight="Bold" />
 
@@ -49,8 +49,8 @@
                            Path=RowDefinitions[0].ActualHeight}"
                         >
                 <TextBox Width="250" Margin="0,0,10,0" x:Name="NewProJobTextBox" Text="{Binding targetProJobName, UpdateSourceTrigger=PropertyChanged}" />
-                <Button Content="Ajouter" Margin="0,0,10,0" Command="{Binding Path=AddProJobCommand}" />
-                <Button Content="Supprimer" Command="{Binding Path=DeleteProJobCommand}" />
+                <Button Content="{Binding currentAdd}" Margin="0,0,10,0" Command="{Binding Path=AddProJobCommand}" />
+                <Button Content="{Binding currentDelete}" Command="{Binding Path=DeleteProJobCommand}" />
             </StackPanel>
 
             <ListView Grid.Column="1"
@@ -61,7 +61,7 @@
 
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Logiciel métier" DisplayMemberBinding="{Binding}" 
+                        <GridViewColumn Header="{Binding currentProJob}" DisplayMemberBinding="{Binding}" 
                                         Width="{Binding RelativeSource={RelativeSource FindAncestor,
                                                 AncestorType={x:Type Grid}},
                                                 Path=ColumnDefinitions[1].ActualWidth}"/>

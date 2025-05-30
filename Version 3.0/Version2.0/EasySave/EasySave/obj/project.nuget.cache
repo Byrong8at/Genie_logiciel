@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "GK1DAUqn4Ak=",
+  "dgSpecHash": "9zeQU0MNE7Q=",
   "success": true,
-  "projectFilePath": "C:\\Users\\lefhu\\OneDrive\\Documents\\GitHub\\Genie_logiciel\\Version 3.0\\Version2.0\\EasySave\\EasySave\\EasySave.csproj",
+  "projectFilePath": "C:\\Users\\1\\Documents\\CESI TEMP\\Genie_logiciel\\Genie_logiciel\\Version 3.0\\Version2.0\\EasySave\\EasySave\\EasySave.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\lefhu\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\9.0.5\\microsoft.extensions.dependencyinjection.9.0.5.nupkg.sha512",
-    "C:\\Users\\lefhu\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\9.0.5\\microsoft.extensions.dependencyinjection.abstractions.9.0.5.nupkg.sha512"
+    "C:\\Users\\1\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\9.0.5\\microsoft.extensions.dependencyinjection.9.0.5.nupkg.sha512",
+    "C:\\Users\\1\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\9.0.5\\microsoft.extensions.dependencyinjection.abstractions.9.0.5.nupkg.sha512"
   ],
   "logs": []
 }
