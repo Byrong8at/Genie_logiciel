@@ -6,6 +6,7 @@ using EasySave.Core;
 using EasySave.MVVM.View;
 using EasySave.MVVM.ViewModel;
 using EasySave.Services;
+using EasySave.MVVM.Model;
 
 namespace EasySave
 {
@@ -14,6 +15,8 @@ namespace EasySave
     /// </summary>
     public partial class App : Application
     {
+        private SocketServer socketServer;
+
         private readonly ServiceProvider _serviceProvider;
 
         public App()
@@ -46,6 +49,16 @@ namespace EasySave
             var mainWindow = _serviceProvider.GetRequiredService<MainWindow>();
             mainWindow.Show();
             base.OnStartup(e);
+            socketServer = new SocketServer();
+            socketServer.Start();
+
+            // (facultatif)
+            MessageBox.Show("SocketServer lancé !");
+        }
+        protected override void OnExit(ExitEventArgs e)
+        {
+            socketServer?.Stop();
+            base.OnExit(e);
         }
     }
 
