@@ -9,6 +9,8 @@ namespace EasySave.MVVM.Model;
 
 public class Controller
 {
+    
+
     public static Saver currentSaver = new Saver();
 
 
