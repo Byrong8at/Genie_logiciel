@@ -26,7 +26,7 @@ jobs:
 
     - name: Restore, build, test and publish
       run: |
-        cd "${GITHUB_WORKSPACE}/Version 3.0/Version2.0/easysave"
+        cd "${GITHUB_WORKSPACE}/Version 3.0/easysave"
         dotnet restore
         dotnet build --configuration Release
         dotnet test || echo "No tests found"
