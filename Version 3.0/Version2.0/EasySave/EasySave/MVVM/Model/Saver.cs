@@ -12,7 +12,6 @@ using EasySave_Logiciel;
 using System.Collections;
 using EasySave.MVVM.Model;
 using System.Windows;
-using EasySave_Dictionnary;
 using easysave_Crypto;
 
 public class Saver
@@ -58,7 +57,6 @@ public class Saver
 
         if (saveToDelete == null)
         {
-            MessageBox.Show(Controller.GetMessage("not_found") + save_name, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             return;
         }
 
@@ -85,7 +83,6 @@ public class Saver
 
         if (string.IsNullOrWhiteSpace(choice))
         {
-            Console.WriteLine(Controller.GetMessage("invalid_format"));
             return;
         }
 
@@ -101,13 +98,11 @@ public class Saver
                 }
                 else
                 {
-                    switch (Dictionnary.GetLangue())
+                    switch (Controller.langueActuelle)
                     {
                         case "fr":
-                            Console.WriteLine($"Aucune sauvegarde existante.");
                             break;
                         case "en":
-                            Console.WriteLine($"No backup job found.");
                             break;
                     }
                 }
@@ -118,13 +113,11 @@ public class Saver
 
                 if (matchingSave == null)
                 {
-                    switch (Dictionnary.GetLangue())
+                    switch (Controller.langueActuelle)
                     {
                         case "fr":
-                            Console.WriteLine($"Sauvegarde \"{choice}\" inexistante.");
                             break;
                         case "en":
-                            Console.WriteLine($"Save \"{choice}\" does not exist.");
                             break;
                     }
                     return;

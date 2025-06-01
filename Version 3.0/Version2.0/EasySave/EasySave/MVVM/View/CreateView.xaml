@@ -22,7 +22,7 @@
        FontSize="36" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0" FontWeight="Bold" />
 
         <TextBlock Grid.Row="1"
-               Text="Créer une sauvegarde" 
+               Text="{Binding currentMenu3}" 
                Foreground="White" 
                FontSize="44" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,0,0,0" FontWeight="Bold" />
 
@@ -54,7 +54,7 @@
                 </Grid.RowDefinitions>
 
                 <TextBlock Grid.Row="0"
-                           Text="Nom de la sauvegarde :"
+                           Text="{Binding currentNameBackup}"
                             Height="{Binding RelativeSource={RelativeSource FindAncestor,
                                     AncestorType={x:Type Grid}},
                                     Path=RowDefinitions[0].ActualHeight}"
@@ -73,7 +73,7 @@
 
 
             <Button Grid.Column="1" Grid.Row="2"
-                    Content="Sélectionner un chemin de source" Command="{Binding Path=SelectFolderCommand_1}"
+                    Content="{Binding currentSelectSourcePath}" Command="{Binding Path=SelectFolderCommand_1}"
                     Height="{Binding RelativeSource={RelativeSource FindAncestor,
                             AncestorType={x:Type Grid}},
                             Path=RowDefinitions[2].ActualHeight}"
@@ -83,7 +83,7 @@
 
 
             <Button Grid.Column="1" Grid.Row="4"
-                    Content="Sélectionner un chemin de cible" Command="{Binding Path=SelectFolderCommand_2}"
+                    Content="{Binding currentSelectTargetPath}" Command="{Binding Path=SelectFolderCommand_2}"
                     Height="{Binding RelativeSource={RelativeSource FindAncestor,
                             AncestorType={x:Type Grid}},
                             Path=RowDefinitions[4].ActualHeight}"
@@ -99,7 +99,7 @@
                 </Grid.RowDefinitions>
 
                 <TextBlock Grid.Row="0"
-                           Text="Format de fichier log (dernier utilisé par défaut) :"
+                           Text="{Binding currentSelectLogType}"
                     Height="{Binding RelativeSource={RelativeSource FindAncestor,
                             AncestorType={x:Type Grid}},
                             Path=RowDefinitions[0].ActualHeight}"
@@ -133,7 +133,7 @@
                             AncestorType={x:Type Grid}},
                             Path=RowDefinitions[7].ActualHeight}"
                     Width="150" Background="White" HorizontalAlignment="Center" VerticalAlignment="Center"
-                    Content="Créer la sauvegarde"
+                    Content="{Binding currentCreateBackup}"
                     Command="{Binding CreateBackupCommand}"/>
 
         </Grid>

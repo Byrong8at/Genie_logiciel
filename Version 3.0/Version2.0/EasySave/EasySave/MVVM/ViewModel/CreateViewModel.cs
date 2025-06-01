@@ -100,7 +100,7 @@ public class CreateViewModel : Core.ViewModel
     {
         if (string.IsNullOrEmpty(currentEnteredBackupName) || string.IsNullOrEmpty(currentEnteredSourcePath) || string.IsNullOrEmpty(currentEnteredTargetPath))
         {
-            MessageBox.Show("Please fill in all fields before creating a backup.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBox.Show(currentInputEmpty, currentError, MessageBoxButton.OK, MessageBoxImage.Error);
             return;
         }
         Controller.BackupCreation(currentEnteredBackupName, currentEnteredSourcePath, currentEnteredTargetPath, currentEnteredBackupLogType);
@@ -152,6 +152,7 @@ public class CreateViewModel : Core.ViewModel
         CreateBackupCommand = new RelayCommand(o =>
         {
             CreateBackup();
+            Navigation.NavigateTo<OverviewViewModel>();
         }, o => true);
     }
 }

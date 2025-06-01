@@ -17,7 +17,7 @@ public class DeleteViewModel : Core.ViewModel
     {
         if (string.IsNullOrEmpty(targetBackupName))
         {
-            MessageBox.Show("Please enter a backup name to delete.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBox.Show(currentEnterBackupNameError, currentError, MessageBoxButton.OK, MessageBoxImage.Error);
             return;
         }
         Controller.BackupDeletion(targetBackupName);

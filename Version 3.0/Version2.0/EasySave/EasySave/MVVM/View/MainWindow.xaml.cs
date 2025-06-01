@@ -33,7 +33,8 @@ namespace EasySave
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Are you sure you want to close the window?", "Confirmation", MessageBoxButton.YesNo);
+            MessageBoxResult result = MessageBox.Show("Are you sure you want to close EasySave? There could be some backups running. Please check the backup status before continuing.", 
+                "Confirmation", MessageBoxButton.YesNo);
 
             if (result == MessageBoxResult.Yes)
             {
@@ -43,7 +44,8 @@ namespace EasySave
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Are you sure you want to close the window?", "Confirmation", MessageBoxButton.YesNo);
+            MessageBoxResult result = MessageBox.Show("Are you sure you want to close EasySave? There could be some backups running. Please check the backup status before continuing.", 
+                "Confirmation", MessageBoxButton.YesNo);
 
             if (result == MessageBoxResult.No)
             {
