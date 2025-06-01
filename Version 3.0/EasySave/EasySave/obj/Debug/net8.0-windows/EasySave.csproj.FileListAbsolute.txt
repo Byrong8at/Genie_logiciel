@@ -1,0 +1,215 @@
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.csproj.AssemblyReference.cache
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\CheckView.g.cs
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\CreateView.g.cs
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\DeleteView.g.cs
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\ExecuteView.g.cs
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\HomeView.g.cs
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\LanguageView.g.cs
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\MainWindow.g.cs
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\OverviewView.g.cs
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\App.g.cs
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave_MarkupCompile.cache
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave_MarkupCompile.lref
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\EasySave.exe
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\EasySave.deps.json
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\EasySave.runtimeconfig.json
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\EasySave.dll
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\EasySave.pdb
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\Log_generate.dll
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\Xml_logger.dll
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\App.baml
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\CheckView.baml
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\CreateView.baml
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\DeleteView.baml
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\ExecuteView.baml
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\HomeView.baml
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\LanguageView.baml
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\MainWindow.baml
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\OverviewView.baml
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.g.resources
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.AssemblyInfoInputs.cache
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.AssemblyInfo.cs
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.csproj.CoreCompileInputs.cache
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.sourcelink.json
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.csproj.Up2Date
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.dll
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\refint\EasySave.dll
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.pdb
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.genruntimeconfig.cache
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\ref\EasySave.dll
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\EasySave.exe
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\EasySave.deps.json
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\EasySave.runtimeconfig.json
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\EasySave.dll
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\EasySave.pdb
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\Log_generate.dll
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\Xml_logger.dll
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.csproj.AssemblyReference.cache
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\CheckView.g.cs
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\CreateView.g.cs
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\DeleteView.g.cs
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\ExecuteView.g.cs
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\HomeView.g.cs
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\LanguageView.g.cs
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\MainWindow.g.cs
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\OverviewView.g.cs
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\App.g.cs
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave_MarkupCompile.cache
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave_MarkupCompile.lref
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\App.baml
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\CheckView.baml
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\CreateView.baml
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\DeleteView.baml
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\ExecuteView.baml
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\HomeView.baml
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\LanguageView.baml
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\MainWindow.baml
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\OverviewView.baml
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.g.resources
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.AssemblyInfoInputs.cache
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.AssemblyInfo.cs
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.csproj.CoreCompileInputs.cache
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.sourcelink.json
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.csproj.Up2Date
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.dll
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\refint\EasySave.dll
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.pdb
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.genruntimeconfig.cache
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\ref\EasySave.dll
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\EasySave.exe
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\EasySave.deps.json
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\EasySave.runtimeconfig.json
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\EasySave.dll
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\EasySave.pdb
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\Log_generate.dll
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\Xml_logger.dll
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.csproj.AssemblyReference.cache
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\CheckView.g.cs
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\CreateView.g.cs
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\DeleteView.g.cs
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\ExecuteView.g.cs
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\HomeView.g.cs
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\LanguageView.g.cs
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\MainWindow.g.cs
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\OverviewView.g.cs
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\App.g.cs
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave_MarkupCompile.cache
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave_MarkupCompile.lref
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\App.baml
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\CheckView.baml
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\CreateView.baml
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\DeleteView.baml
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\ExecuteView.baml
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\HomeView.baml
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\LanguageView.baml
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\MainWindow.baml
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\OverviewView.baml
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.g.resources
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.AssemblyInfoInputs.cache
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.AssemblyInfo.cs
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.csproj.CoreCompileInputs.cache
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.sourcelink.json
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.csproj.Up2Date
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.dll
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\refint\EasySave.dll
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.pdb
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.genruntimeconfig.cache
+C:\Users\lefhu\OneDrive\Documents\GitHub\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\ref\EasySave.dll
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\EasySave.exe
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\EasySave.deps.json
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\EasySave.runtimeconfig.json
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\EasySave.dll
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\EasySave.pdb
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\Log_generate.dll
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\bin\Debug\net8.0-windows\Xml_logger.dll
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.csproj.AssemblyReference.cache
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\CheckView.g.cs
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\CreateView.g.cs
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\DeleteView.g.cs
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\ExecuteView.g.cs
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\HomeView.g.cs
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\LanguageView.g.cs
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\MainWindow.g.cs
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\OverviewView.g.cs
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\App.g.cs
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave_MarkupCompile.cache
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave_MarkupCompile.lref
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\App.baml
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\CheckView.baml
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\CreateView.baml
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\DeleteView.baml
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\ExecuteView.baml
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\HomeView.baml
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\LanguageView.baml
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\MainWindow.baml
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\OverviewView.baml
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.g.resources
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.AssemblyInfoInputs.cache
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.AssemblyInfo.cs
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.csproj.CoreCompileInputs.cache
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.sourcelink.json
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.csproj.Up2Date
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.dll
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\refint\EasySave.dll
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.pdb
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.genruntimeconfig.cache
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\Version2.0\EasySave\EasySave\obj\Debug\net8.0-windows\ref\EasySave.dll
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\EasySave\EasySave\bin\Debug\net8.0-windows\EasySave.exe
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\EasySave\EasySave\bin\Debug\net8.0-windows\EasySave.deps.json
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\EasySave\EasySave\bin\Debug\net8.0-windows\EasySave.runtimeconfig.json
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\EasySave\EasySave\bin\Debug\net8.0-windows\EasySave.dll
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\EasySave\EasySave\bin\Debug\net8.0-windows\EasySave.pdb
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\EasySave\EasySave\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\EasySave\EasySave\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\EasySave\EasySave\bin\Debug\net8.0-windows\Log_generate.dll
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\EasySave\EasySave\bin\Debug\net8.0-windows\Xml_logger.dll
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.csproj.AssemblyReference.cache
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\CheckView.g.cs
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\CreateView.g.cs
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\DeleteView.g.cs
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\ExecuteView.g.cs
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\HomeView.g.cs
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\LanguageView.g.cs
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\MainWindow.g.cs
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\OverviewView.g.cs
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\EasySave\EasySave\obj\Debug\net8.0-windows\App.g.cs
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\EasySave\EasySave\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave_MarkupCompile.cache
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave_MarkupCompile.lref
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\EasySave\EasySave\obj\Debug\net8.0-windows\App.baml
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\CheckView.baml
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\CreateView.baml
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\DeleteView.baml
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\ExecuteView.baml
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\HomeView.baml
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\LanguageView.baml
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\MainWindow.baml
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\EasySave\EasySave\obj\Debug\net8.0-windows\MVVM\View\OverviewView.baml
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.g.resources
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.AssemblyInfoInputs.cache
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.AssemblyInfo.cs
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.csproj.CoreCompileInputs.cache
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.sourcelink.json
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.csproj.Up2Date
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.dll
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\EasySave\EasySave\obj\Debug\net8.0-windows\refint\EasySave.dll
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.pdb
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\EasySave\EasySave\obj\Debug\net8.0-windows\EasySave.genruntimeconfig.cache
+C:\Users\1\Documents\CESI TEMP\Genie_logiciel\Genie_logiciel\Version 3.0\EasySave\EasySave\obj\Debug\net8.0-windows\ref\EasySave.dll
