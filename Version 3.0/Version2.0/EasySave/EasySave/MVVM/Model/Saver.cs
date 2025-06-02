@@ -18,7 +18,7 @@ using easysave_Crypto;
 public class Saver
 {
     private List<SaveWork> ListSaveWork = new List<SaveWork>();
-    public static List<string> ExtensionsAutorisees = new List<string> { ".xlsx", ".pdf", ".docx", "pdf" };
+    public static List<string> ExtensionsAutorisees = new List<string> { ".xlsx", ".txt", "pdf" };
 
 
     static Semaphore semaphore = new Semaphore(5, 5); // (initialCount, maxCount)

@@ -102,8 +102,8 @@ namespace EasySave.MVVM.Model
                 result.Add(new
                 {
                     name = save.Name,
-                    status = "unknown", // à remplacer plus tard par vrai état
-                    progress = 0        // idem pour la progression
+                    status = "running", 
+                    progress = 0        
                 });
             }
 
